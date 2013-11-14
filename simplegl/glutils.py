@@ -9,10 +9,6 @@ Some OpenGL utilities.
 import OpenGL
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
-from OpenGL.GLU import *
-from OpenGL.GLUT import *
-from OpenGL.GLUT.freeglut import *
-from OpenGL.arrays import vbo
 
 import numpy, math
 import numpy as np
@@ -128,45 +124,3 @@ def loadShaders(strVS, strFS):
         raise RunTimeError("Error linking program:\n%s\n", infoLog);
     
     return program
-
-# test shaders
-strVS = """
-attribute vec3 cubePos;
-attribute vec3 cubeCol;
-uniform mat4 uMVMatrix;
-uniform mat4 uPMatrix;
-varying vec4 vColorBackFaces;
-varying vec4 vTexCoord;
-
-void main()
-{
-    // set back face color
-    vColorBackFaces = vec4(cubeCol.rgb, 1.0); 
-    
-    // apply slice scale to position
-    vec4 newPos = vec4(cubePos.xyz, 1.0);
-    
-    // set position
-    gl_Position = uPMatrix * uMVMatrix * newPos; 
-
-    // tex coord is same as position
-    vTexCoord = vec4(cubePos.xyz, 1.0);
-}
-"""
-strFS = """
-varying vec4 vColorBackFaces;
-
-void main()
-{
-    gl_FragColor = vColorBackFaces;
-}
-"""
-
-# for testing
-if __name__ == '__main__':
-    
-    print 'testing shaders'
-    
-    loadShaders(strVS, strFS)
-    
-    print 'done'

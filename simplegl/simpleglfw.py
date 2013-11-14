@@ -1,7 +1,8 @@
 """
-simplegl.py
+simpleglfw.py
 
-Simple Python OpenGL program that uses shaders and a texture.
+Simple Python OpenGL program that uses PyOpenGL + GLFW to get an 
+OpenGL 3.2 context.
 
 Author: Mahesh Venkitachalam
 """
@@ -9,10 +10,11 @@ Author: Mahesh Venkitachalam
 import OpenGL
 from OpenGL.GL import *
 from OpenGL.GLUT import *
-from OpenGL.GLUT.freeglut import *
 
-import numpy, math, sys 
+import numpy, math, sys, os
 import glutils
+
+import cyglfw3 as glfw
 
 strVS = """
 attribute vec3 aVert;
@@ -60,16 +62,16 @@ void main() {
   else {
      gl_FragColor = texture2D(tex2D, vTexCoord);
   }
+
+//gl_FragColor = vec4(0.0, 1.0, 1.0, 1.0);
 }
 
 """
 
-# 3D scene
-class Scene:
-    
+class Scene:    
+    """ OpenGL 3D scene class"""
     # initialization
     def __init__(self):
-
         # create shader
         self.program = glutils.loadShaders(strVS, strFS)
 
@@ -112,11 +114,11 @@ class Scene:
 
         # show circle?
         self.showCircle = False
-
+        
     # step
     def step(self):
         # increment angle
-        self.t = (self.t + 5) % 360
+        self.t = (self.t + 1) % 360
         # set shader angle in radians
         glUniform1f(glGetUniformLocation(self.program, 'uTheta'), 
                     math.radians(self.t))
@@ -135,6 +137,9 @@ class Scene:
         # set color
         glUniform4fv(self.colorU, 1, self.col0)
 
+        # show circle?
+        glUniform1i(glGetUniformLocation(self.program, 'showCircle'), 
+                    self.showCircle)
         #enable arrays
         glEnableVertexAttribArray(self.vertIndex)
 
@@ -158,63 +163,105 @@ class Scene:
         
 
 class RenderWindow:
-    def __init__(self, argv):
-        glutInit(argv)
-        # glutInitContextVersion(3,3)
-        #glutInitContextProfile(GLUT_CORE_PROFILE)
+    """GLFW Rendering window class"""
+    def __init__(self):
 
-        glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH)
-        glutInitWindowSize(400, 400)
-        self.window = glutCreateWindow("Simple GL")
-        glutReshapeFunc(self.reshape)
-        glutDisplayFunc(self.draw)
-        glutKeyboardFunc(self.keyPressed) # Checks for key strokes
-        glutTimerFunc(100, self.update, 0)
+        # save current working directory
+        cwd = os.getcwd()
+
+        # initialize glfw - this changes cwd
+        glfw.Init()
+        
+        # restore cwd
+        os.chdir(cwd)
+
+        # version hints
+        """
+        glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
+        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 2)
+        glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
+        glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+        """
+    
+        # make a window
+        self.width, self.height = 640, 480
+        self.aspect = self.width/float(self.height)
+        self.win = glfw.CreateWindow(self.width, self.height, "test")
+        # make context current
+        glfw.MakeContextCurrent(self.win)
+        
+        # initialize GL
+        glViewport(0, 0, self.width, self.height)
+        glEnable(GL_DEPTH_TEST)
+        glClearColor(0.5, 0.5, 0.5,1.0)
+
+        # set window callbacks
+        glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
+        glfw.SetKeyCallback(self.win, self.onKeyboard)
+        glfw.SetWindowSizeCallback(self.win, self.onSize)        
+
+        # create 3D
         self.scene = Scene()
-        glutMainLoop()
 
-    def reshape(self, width, height):
+        # exit flag
+        self.exitNow = False
+
+        
+    def onMouseButton(self, win, button, action, mods):
+        #print 'mouse button: ', win, button, action, mods
+        pass
+
+    def onKeyboard(self, win, key, scancode, action, mods):
+        #print 'keyboard: ', win, key, scancode, action, mods
+        if action == glfw.PRESS:
+            # ESC to quit
+            if key == glfw.KEY_ESCAPE: 
+                self.exitNow = True
+            else:
+                # toggle cut
+                self.scene.showCircle = not self.scene.showCircle 
+        
+    def onSize(self, win, width, height):
+        #print 'onsize: ', win, width, height
         self.width = width
         self.height = height
         self.aspect = width/float(height)
         glViewport(0, 0, self.width, self.height)
-        glEnable(GL_DEPTH_TEST)
-        glClearColor(0.5, 0.5, 0.5,1.0)
-        glutPostRedisplay()
 
-    def keyPressed(self, *args):
-        if args[0] == '\x1b':
-            sys.exit()
-        else:
-            print glGetString(GL_VERSION)
+    def run(self):
+        # initializer timer
+        glfw.SetTime(0.0)
+        t = 0.0
+        while not glfw.WindowShouldClose(self.win) and not self.exitNow:
+            # update every x seconds
+            currT = glfw.GetTime()
+            if currT - t > 0.1:
+                # update time
+                t = currT
+                # clear
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+                
+                # build projection matrix
+                pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
+                
+                mvMatrix = glutils.lookAt([0.0, 0.0, -2.0], [0.0, 0.0, 0.0],
+                                          [0.0, 1.0, 0.0])
+                # render
+                self.scene.render(pMatrix, mvMatrix)
+                # step 
+                self.scene.step()
 
-            self.scene.showCircle = not self.scene.showCircle
-            glUniform1i(glGetUniformLocation(self.scene.program, 'showCircle'), 
-                        self.scene.showCircle)
-            glutPostRedisplay()
-
-    def draw(self):
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        
-        # build projection matrix
-        pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
-       
-        mvMatrix = glutils.lookAt([0.0, 0.0, -2.0], [0.0, 0.0, 0.0],
-                                  [0.0, 1.0, 0.0])
-        # render
-        self.scene.render(pMatrix, mvMatrix)
-        # swap buffers
-        glutSwapBuffers()
-
-    def update(self, *args):
-        self.scene.step();
-        glutPostRedisplay()
-        glutTimerFunc(100, self.update, 0)
+                glfw.SwapBuffers(self.win)
+                # Poll for and process events
+                glfw.PollEvents()
+        # end
+        glfw.Terminate()
 
 # main() function
 def main():
-    print 'starting glsimple...'
-    prog = RenderWindow(sys.argv)
+    print 'starting simpleglfw...'    
+    rw = RenderWindow()
+    rw.run()
 
 # call main
 if __name__ == '__main__':
