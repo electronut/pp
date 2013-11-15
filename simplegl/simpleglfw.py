@@ -9,7 +9,6 @@ Author: Mahesh Venkitachalam
 
 import OpenGL
 from OpenGL.GL import *
-from OpenGL.GLUT import *
 
 import numpy, math, sys, os
 import glutils
