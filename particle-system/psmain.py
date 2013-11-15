@@ -37,12 +37,10 @@ class PSMaker:
         os.chdir(cwd)
 
         # version hints
-        """
         glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
         glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
         glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
         glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
-        """
 
         # make a window
         self.width, self.height = 640, 480

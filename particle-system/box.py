@@ -13,10 +13,12 @@ import numpy
 import glutils
 
 strVS = """
-attribute vec3 aVert;
+#version 330 core
+
+in vec3 aVert;
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
-varying vec4 vCol;
+out vec4 vCol;
 
 void main() {
     // apply transformations
@@ -27,11 +29,14 @@ void main() {
 """
 
 strFS = """
-varying vec4 vCol;
+#version 330 core
+
+in vec4 vCol;
+out vec4 fragColor;
 
 void main() {
     // use vertex color
-    gl_FragColor = vCol;
+    fragColor = vCol;
 }
 """
 
@@ -48,44 +53,64 @@ class Box:
         vertices = [
             -s, s, -s, 
              -s, -s, -s,
+             s, s, -s,
              s, -s, -s,
              s, s, -s,
-
+             -s, -s, -s,
+             
              -s, s, s, 
              -s, -s, s,
+             s, s, s,
              s, -s, s,
              s, s, s,
+             -s, -s, s,
 
              -s, -s, s, 
              -s, -s, -s,
+             s, -s, s,
              s, -s, -s,
              s, -s, s,
+             -s, -s, -s,
 
              -s, s, s, 
              -s, s, -s,
+             s, s, s,
              s, s, -s,
              s, s, s,
+             -s, s, -s,
 
              -s, -s, s, 
              -s, -s, -s,
+             -s, s, s,
              -s, s, -s,
              -s, s, s,
-             
+             -s, -s, -s,
+
              s, -s, s, 
              s, -s,-s,
+             s, s, s,
              s, s, -s,
              s, s, s,
+             s, -s,-s
              ]
                 
+        # set up vertex array object (VAO)
+        self.vao = glGenVertexArrays(1)
+        glBindVertexArray(self.vao)
         # set up VBOs
         vertexData = numpy.array(vertices, numpy.float32)
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
         glBufferData(GL_ARRAY_BUFFER, 4*len(vertexData), vertexData, 
                      GL_STATIC_DRAW)
-
-        # attributes
+        #enable arrays
         self.vertIndex = glGetAttribLocation(self.program, "aVert")
+        glEnableVertexAttribArray(self.vertIndex)
+        # set buffers 
+        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
+        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
+        # unbind VAO
+        glBindVertexArray(0)
 
     def render(self, pMatrix, mvMatrix):
 
@@ -100,16 +125,10 @@ class Box:
         glUniformMatrix4fv(glGetUniformLocation(self.program, 'uMVMatrix'), 
                            1, GL_FALSE, mvMatrix)
 
-        #enable arrays
-        glEnableVertexAttribArray(self.vertIndex)
-
-        # set buffers 
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
-
+        # bind VAO
+        glBindVertexArray(self.vao)
         # draw
-        glDrawArrays(GL_QUADS, 0, 24)
-
-        # disable arrays
-        glDisableVertexAttribArray(self.vertIndex)
+        glDrawArrays(GL_TRIANGLES, 0, 36)
+        # unbind VAO
+        glBindVertexArray(0)
 

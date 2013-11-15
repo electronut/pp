@@ -13,10 +13,12 @@ import numpy
 import glutils
 
 strVS = """
-attribute vec3 aVel;
-attribute vec3 aVert;
-attribute float aTime0;
-attribute vec2 aTexCoord;
+#version 330 core
+
+in vec3 aVel;
+in vec3 aVert;
+in float aTime0;
+in vec2 aTexCoord;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
@@ -26,8 +28,8 @@ uniform float uLifeTime;
 uniform vec4 uColor;
 uniform vec3 uPos;
 
-varying vec4 vCol;
-varying vec2 vTexCoord;
+out vec4 vCol;
+out vec2 vTexCoord;
 
 void main() {
 	// set position
@@ -64,15 +66,18 @@ void main() {
 """
 
 strFS = """
+#version 330 core
+
 uniform sampler2D uSampler;
-varying vec4 vCol;
-varying vec2 vTexCoord;
+in vec4 vCol;
+in vec2 vTexCoord;
+out vec4 fragColor;
 
 void main() {
    // get texture color
-   vec4 texCol = texture2D(uSampler, vec2(vTexCoord.s, vTexCoord.t));
+   vec4 texCol = texture(uSampler, vec2(vTexCoord.s, vTexCoord.t));
    // multiple by set vertex color, use vertex color alpha 
-   gl_FragColor = vec4(texCol.rgb*vCol.rgb, vCol.a);
+   fragColor = vec4(texCol.rgb*vCol.rgb, vCol.a);
 }
 """
 
@@ -161,15 +166,22 @@ class ParticleSystem:
         self.col0 = numpy.array([random.random(), random.random(), 
                                  random.random(), 1.0])        
 
+        # create Vertex Arrays Object (VAO)
+        self.vao = glGenVertexArrays(1)
+        # bind VAO
+        glBindVertexArray(self.vao)
+
         # create attribute arrays and vertex buffers:
-                
+                        
         # vertices
         s = 0.2
         quadV = [
             -s, s, 0.0, 
              -s, -s, 0.0,
+             s, s, 0.0,
              s, -s, 0.0,
-             s, s, 0.0
+             s, s, 0.0,
+             -s, -s, 0.0
              ]
         vertexData = numpy.array(numP*quadV, numpy.float32)
         self.vertexBuffer = glGenBuffers(1)
@@ -181,8 +193,10 @@ class ParticleSystem:
         quadT = [
             0.0, 1.0, 
             0.0, 0.0,
+            1.0, 1.0,
             1.0, 0.0,
-            1.0, 1.0
+            1.0, 1.0,
+            0.0, 0.0
             ]
         tcData = numpy.array(numP*quadT, numpy.float32)
         self.tcBuffer = glGenBuffers(1)
@@ -216,7 +230,7 @@ class ParticleSystem:
             # speed decreases with angle
             speed = 15.0*(1.0 - angleRatio*angleRatio)
             # add a set of calculated velocities
-            velocities += 4*[speed*vx, speed*vy, speed*vz]
+            velocities += 6*[speed*vx, speed*vy, speed*vz]
         # set up velocity vertex buffer
         self.velBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.velBuffer)
@@ -224,6 +238,27 @@ class ParticleSystem:
         glBufferData(GL_ARRAY_BUFFER, 4*len(velData), velData, 
                      GL_STATIC_DRAW)
 
+        # enable arrays
+        glEnableVertexAttribArray(self.vertIndex)
+        glEnableVertexAttribArray(self.texIndex)
+        glEnableVertexAttribArray(self.time0Index)
+        glEnableVertexAttribArray(self.velIndex)
+
+        # set buffers 
+        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
+        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
+
+        glBindBuffer(GL_ARRAY_BUFFER, self.tcBuffer)
+        glVertexAttribPointer(self.texIndex, 2, GL_FLOAT, GL_FALSE, 0, None)
+
+        glBindBuffer(GL_ARRAY_BUFFER, self.velBuffer)
+        glVertexAttribPointer(self.velIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
+
+        glBindBuffer(GL_ARRAY_BUFFER, self.timeBuffer)
+        glVertexAttribPointer(self.time0Index, 1, GL_FLOAT, GL_FALSE, 0, None)
+
+        # unbind VAO
+        glBindVertexArray(0)
 
     # render the particle system
     def render(self, pMatrix, mvMatrix, camera):        
@@ -265,25 +300,6 @@ class ParticleSystem:
         # set color
         glUniform4fv(self.colorU, 1, self.col0)
 
-        # enable arrays
-        glEnableVertexAttribArray(self.vertIndex)
-        glEnableVertexAttribArray(self.texIndex)
-        glEnableVertexAttribArray(self.time0Index)
-        glEnableVertexAttribArray(self.velIndex)
-
-        # set buffers 
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
-
-        glBindBuffer(GL_ARRAY_BUFFER, self.tcBuffer)
-        glVertexAttribPointer(self.texIndex, 2, GL_FLOAT, GL_FALSE, 0, None)
-
-        glBindBuffer(GL_ARRAY_BUFFER, self.velBuffer)
-        glVertexAttribPointer(self.velIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
-
-        glBindBuffer(GL_ARRAY_BUFFER, self.timeBuffer)
-        glVertexAttribPointer(self.time0Index, 1, GL_FLOAT, GL_FALSE, 0, None)
-        
         # enable texture
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texid)
@@ -298,8 +314,12 @@ class ParticleSystem:
             glBlendFunc(GL_SRC_ALPHA, GL_ONE)
             glEnable(GL_BLEND)
 
+        # bind VAO
+        glBindVertexArray(self.vao)
         # draw
-        glDrawArrays(GL_QUADS, 0, 4*self.numP)
+        glDrawArrays(GL_TRIANGLES, 0, 6*self.numP)
+        # unbind VAO
+        glBindVertexArray(0)
 
         # disable blend
         if self.enableBlend:
@@ -312,8 +332,3 @@ class ParticleSystem:
         # disable texture
         glBindTexture(GL_TEXTURE_2D, 0)
         
-        # disable arrays
-        glDisableVertexAttribArray(self.vertIndex)
-        glDisableVertexAttribArray(self.texIndex)
-        glDisableVertexAttribArray(self.time0Index)
-        glDisableVertexAttribArray(self.velIndex)
