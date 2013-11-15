@@ -17,15 +17,17 @@ import glutils
 import cyglfw3 as glfw
 
 strVS = """
-attribute vec3 aVert;
+#version 330 core
+
+layout(location = 0) in vec3 aVert;
+
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform vec4 uColor;
-
-varying vec4 vCol;
-varying vec2 vTexCoord;
-
 uniform float uTheta;
+
+out vec4 vCol;
+out vec2 vTexCoord;
 
 void main() {
   // rotational transform
@@ -44,10 +46,15 @@ void main() {
 }
 """
 strFS = """
-varying vec4 vCol;
+#version 330 core
+
+in vec4 vCol;
+in vec2 vTexCoord;
+
 uniform sampler2D tex2D;
-varying vec2 vTexCoord;
 uniform bool showCircle;
+
+out vec4 fragColor;
 
 void main() {
   if (showCircle) {
@@ -56,16 +63,13 @@ void main() {
       discard;
     }
     else {
-      gl_FragColor = texture2D(tex2D, vTexCoord);
+      fragColor = texture(tex2D, vTexCoord);
     }
   }
   else {
-     gl_FragColor = texture2D(tex2D, vTexCoord);
+     fragColor = texture(tex2D, vTexCoord);
   }
-
-//gl_FragColor = vec4(0.0, 1.0, 1.0, 1.0);
 }
-
 """
 
 class Scene:    
@@ -83,9 +87,6 @@ class Scene:
                                                   "uMVMatrix")
         self.colorU = glGetUniformLocation(self.program, "uColor")
 
-        # attributes
-        self.vertIndex = glGetAttribLocation(self.program, "aVert")
-
         # color
         self.col0 = [1.0, 0.0, 0.0, 1.0]
 
@@ -96,16 +97,27 @@ class Scene:
         quadV = [
             -0.5, -0.5, 0.0, 
             0.5, -0.5, 0.0, 
-            0.5, 0.5, 0.0,
-            -0.5, 0.5, 0.0
+            -0.5, 0.5, 0.0,
+             0.5, 0.5, 0.0
             ]
 
+        # set up vertex array object (VAO)
+        self.vao = glGenVertexArrays(1)
+        glBindVertexArray(self.vao)
         # vertices
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
         vertexData = numpy.array(quadV, numpy.float32)
         glBufferData(GL_ARRAY_BUFFER, 4*len(vertexData), vertexData, 
                      GL_STATIC_DRAW)
+        # enable vertex array
+        glEnableVertexAttribArray(0)
+        # set buffer data
+        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, None)
+        # unbind VAO
+        glBindVertexArray(0)
+
         # time
         self.t = 0 
 
@@ -134,33 +146,23 @@ class Scene:
         # set modelview matrix
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
 
-        # set color
-        glUniform4fv(self.colorU, 1, self.col0)
-
         # show circle?
         glUniform1i(glGetUniformLocation(self.program, 'showCircle'), 
                     self.showCircle)
-        #enable arrays
-        glEnableVertexAttribArray(self.vertIndex)
 
-        # set buffers 
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
-
-        # texture 
+        # enable texture 
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texId)
-        glEnable(GL_TEXTURE_2D)
+
         glUniform1i(self.tex2D, 0)
 
+        # bind VAO
+        glBindVertexArray(self.vao)
         # draw
-        glDrawArrays(GL_QUADS, 0, 4)
-        
-        glDisable(GL_TEXTURE_2D)
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4)
+        # unbind VAO
+        glBindVertexArray(0)
 
-        # disable arrays
-        glDisableVertexAttribArray(self.vertIndex)            
-        
 
 class RenderWindow:
     """GLFW Rendering window class"""
@@ -176,12 +178,10 @@ class RenderWindow:
         os.chdir(cwd)
 
         # version hints
-        """
         glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 2)
+        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
         glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
         glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
-        """
     
         # make a window
         self.width, self.height = 640, 480
