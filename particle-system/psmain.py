@@ -6,19 +6,17 @@ Author: Mahesh Venkitachalam
 Description: A particle system
 """
 
-import sys
+import sys, os, math, numpy
 import OpenGL
 from OpenGL.GL import *
-from OpenGL.GLUT import *
-from OpenGL.GLUT.freeglut import *
-
 import numpy    
 from ps import ParticleSystem, Camera
 from box import Box
-import math
 import glutils
+import cyglfw3 as glfw
 
 class PSMaker:
+    """GLFW Rendering window class for Particle System"""
     def __init__(self):
         self.camera = Camera([15.0, 0.0, 2.5],
                              [0.0, 0.0, 2.5],
@@ -28,65 +26,79 @@ class PSMaker:
         self.t = 0
         # flag to rotate camera view
         self.rotate = True
-        # initialize GLUT
-        glutInit('Particle System')
-        glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH)
-        glutInitWindowSize(500, 500)
-        self.window = glutCreateWindow("Particle System")
-        glutReshapeFunc(self.reshape)
-        glutDisplayFunc(self.draw)
-        glutKeyboardFunc(self.keyPressed) # Checks for key strokes
+
+        # save current working directory
+        cwd = os.getcwd()
+
+        # initialize glfw - this changes cwd
+        glfw.Init()
+        
+        # restore cwd
+        os.chdir(cwd)
+
+        # version hints
+        """
+        glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
+        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
+        glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
+        glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+        """
+
+        # make a window
+        self.width, self.height = 640, 480
+        self.aspect = self.width/float(self.height)
+        self.win = glfw.CreateWindow(self.width, self.height, "test")
+        # make context current
+        glfw.MakeContextCurrent(self.win)
+        
+        # initialize GL
+        glViewport(0, 0, self.width, self.height)
+        glEnable(GL_DEPTH_TEST)
+        glClearColor(0.2, 0.2, 0.2,1.0)
+
+        # set window callbacks
+        glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
+        glfw.SetKeyCallback(self.win, self.onKeyboard)
+        glfw.SetWindowSizeCallback(self.win, self.onSize)        
+
+        # create 3D
         self.psys = ParticleSystem(self.numP)
         self.box = Box(1.0)
-        glutTimerFunc(10, self.update, 0)
-        glutMainLoop()
 
+        # exit flag
+        self.exitNow = False
 
-    def reshape(self, width, height):
+        
+    def onMouseButton(self, win, button, action, mods):
+        #print 'mouse button: ', win, button, action, mods
+        pass
+
+    def onKeyboard(self, win, key, scancode, action, mods):
+        #print 'keyboard: ', win, key, scancode, action, mods
+        if action == glfw.PRESS:
+            # ESC to quit
+            if key == glfw.KEY_ESCAPE: 
+                self.exitNow = True
+            elif key == glfw.KEY_R:
+                self.rotate = not self.rotate
+            elif key == glfw.KEY_B:
+                # toggle billboarding
+                self.psys.enableBillboard = not self.psys.enableBillboard
+            elif key == glfw.KEY_D:
+                # toggle depth mask
+                self.psys.disableDepthMask = not self.psys.disableDepthMask
+            elif key == glfw.KEY_T:
+                # toggle transparency
+                self.psys.enableBlend = not self.psys.enableBlend
+        
+    def onSize(self, win, width, height):
+        #print 'onsize: ', win, width, height
         self.width = width
         self.height = height
         self.aspect = width/float(height)
         glViewport(0, 0, self.width, self.height)
-        glClearColor(0.2, 0.2, 0.2, 1.0)
-        glEnable(GL_DEPTH_TEST)
-        glutPostRedisplay()
 
-    def keyPressed(self, *args):
-        """key press handler"""
-        if args[0] == '\x1b':
-            sys.exit()
-        elif args[0] == 'r':
-            self.rotate = not self.rotate
-        elif args[0] == 'b':
-            # toggle billboarding
-            self.psys.enableBillboard = not self.psys.enableBillboard
-        elif args[0] == 'd':
-            # toggle depth mask
-            self.psys.disableDepthMask = not self.psys.disableDepthMask
-        elif args[0] == 't':
-            # toggle transparency
-            self.psys.enableBlend = not self.psys.enableBlend
-
-    def draw(self):
-
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-
-        # render
-        pMatrix = glutils.perspective(100.0, self.aspect, 0.1, 100.0)
-        # modelview matrix
-        mvMatrix = glutils.lookAt(self.camera.eye, self.camera.center, 
-                                  self.camera.up)
-
-        # draw non-transparent object first
-        self.box.render(pMatrix, mvMatrix)
-
-        # render
-        self.psys.render(pMatrix, mvMatrix, self.camera)
-
-        # swap buffers
-        glutSwapBuffers()
-
-    def update(self, *args):
+    def step(self):
         # inc time
         self.t += 10
         self.psys.step()
@@ -96,16 +108,48 @@ class PSMaker:
         # restart every 5 seconds 
         if not int(self.t) % 5000:
             self.psys.restart(self.numP)
-        # set next timer - 10 milliseconds
-        glutTimerFunc(10, self.update, 0)
-        # redraw
-        glutPostRedisplay()
+
+    def run(self):
+        # initializer timer
+        glfw.SetTime(0.0)
+        t = 0.0
+        while not glfw.WindowShouldClose(self.win) and not self.exitNow:
+            # update every x seconds
+            currT = glfw.GetTime()
+            if currT - t > 0.01:
+                # update time
+                t = currT
+
+                # clear
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+                # render
+                pMatrix = glutils.perspective(100.0, self.aspect, 0.1, 100.0)
+                # modelview matrix
+                mvMatrix = glutils.lookAt(self.camera.eye, self.camera.center, 
+                                          self.camera.up)
+                
+                # draw non-transparent object first
+                self.box.render(pMatrix, mvMatrix)
+
+                # render
+                self.psys.render(pMatrix, mvMatrix, self.camera)
+
+                # step 
+                self.step()
+
+                glfw.SwapBuffers(self.win)
+                # Poll for and process events
+                glfw.PollEvents()
+        # end
+        glfw.Terminate()
 
 # main() function
 def main():
   # use sys.argv if needed
   print 'starting particle system...'
   prog = PSMaker()
+  prog.run()
 
 # call main
 if __name__ == '__main__':
