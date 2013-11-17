@@ -9,10 +9,6 @@ Some OpenGL utilities.
 import OpenGL
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
-from OpenGL.GLU import *
-from OpenGL.GLUT import *
-from OpenGL.GLUT.freeglut import *
-from OpenGL.arrays import vbo
 
 import numpy, math
 import numpy as np
