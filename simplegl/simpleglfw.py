@@ -22,7 +22,6 @@ layout(location = 0) in vec3 aVert;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
-uniform vec4 uColor;
 uniform float uTheta;
 
 out vec4 vCol;
@@ -38,8 +37,6 @@ void main() {
 	    );
   // transform vertex
   gl_Position = uPMatrix * uMVMatrix * rot * vec4(aVert, 1.0); 
-  // set color
-  vCol = vec4(uColor.rgb, 1.0);
   // set texture coord
   vTexCoord = aVert.xy + vec2(0.5, 0.5);
 }
@@ -47,7 +44,6 @@ void main() {
 strFS = """
 #version 330 core
 
-in vec4 vCol;
 in vec2 vTexCoord;
 
 uniform sampler2D tex2D;
@@ -84,11 +80,6 @@ class Scene:
                                                    'uPMatrix')
         self.mvMatrixUniform = glGetUniformLocation(self.program, 
                                                   "uMVMatrix")
-        self.colorU = glGetUniformLocation(self.program, "uColor")
-
-        # color
-        self.col0 = [1.0, 0.0, 0.0, 1.0]
-
         # texture 
         self.tex2D = glGetUniformLocation(self.program, "tex2D")
 
