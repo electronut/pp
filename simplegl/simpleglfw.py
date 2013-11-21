@@ -24,7 +24,6 @@ uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform float uTheta;
 
-out vec4 vCol;
 out vec2 vTexCoord;
 
 void main() {
