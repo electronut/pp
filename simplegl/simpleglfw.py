@@ -102,7 +102,6 @@ class Scene:
         # enable vertex array
         glEnableVertexAttribArray(0)
         # set buffer data
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, None)
         # unbind VAO
         glBindVertexArray(0)
