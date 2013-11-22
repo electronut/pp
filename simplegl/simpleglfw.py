@@ -140,7 +140,6 @@ class Scene:
         # enable texture 
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texId)
-
         glUniform1i(self.tex2D, 0)
 
         # bind VAO

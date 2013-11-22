@@ -28,6 +28,7 @@ def loadTexture(filename):
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.size[0], img.size[1], 
                  0, GL_RGBA, GL_UNSIGNED_BYTE, imgData)
+    glBindTexture(GL_TEXTURE_2D, 0)
     return texture
 
 def perspective(fov, aspect, zNear, zFar):
