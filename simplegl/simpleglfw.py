@@ -52,7 +52,7 @@ out vec4 fragColor;
 
 void main() {
   if (showCircle) {
-#if 0
+#if 1
     // discard fragment outside circle
     if (distance(vTexCoord, vec2(0.5, 0.5)) > 0.5) {
       discard;
