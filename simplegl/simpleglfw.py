@@ -111,7 +111,7 @@ class Scene:
         self.t = 0 
 
         # texture
-        self.texId = glutils.loadTexture('test.png')
+        self.texId = glutils.loadTexture('star.png')
 
         # show circle?
         self.showCircle = False
