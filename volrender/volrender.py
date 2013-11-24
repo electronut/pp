@@ -1,14 +1,11 @@
-################################################################################
-# volrender.py
-#
-# Author: Mahesh Venkitachalam
-# Created:
-#
-# Description:
-#
-# A Ray Casting Volume Renderer for medical data visualization.
-#
-################################################################################
+"""
+volrender.py
+
+Author: Mahesh Venkitachalam
+
+A Ray Casting Volume Renderer for medical data visualization.
+
+"""
 
 import sys, argparse, os
 from slicerender import *
@@ -34,12 +31,10 @@ class RenderWin:
         os.chdir(cwd)
 
         # version hints
-        """
         glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
         glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
         glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
         glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
-        """
 
         # make a window
         self.width, self.height = 640, 480
@@ -61,7 +56,7 @@ class RenderWin:
         # load volume data
         self.volume =  volreader.loadVolume('mrbrain-8bit')
         # create renderer
-        self.renderer = RayCastRender(self.width, self.height, self.volume)
+        self.renderer = SliceRender(self.width, self.height, self.volume)
 
         # exit flag
         self.exitNow = False
@@ -89,8 +84,8 @@ class RenderWin:
                 self.renderer.reshape(self.width, self.height)
             else:
                 # send key press to renderer
-                keyDict = {glfw.KEY_V : 'x', glfw.KEY_Y: 'y', 
-                           glfw.KEY_A: 'z', glfw.KEY_A: 'a', 
+                keyDict = {glfw.KEY_X : 'x', glfw.KEY_Y: 'y', 
+                           glfw.KEY_Z: 'z', glfw.KEY_A: 'a', 
                            glfw.KEY_S: 's'}
                 try:
                     self.renderer.keyPressed(keyDict[key])

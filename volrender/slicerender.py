@@ -15,7 +15,10 @@ import numpy, math, sys
 import volreader, glutils
 
 strVS = """
-attribute vec3 aVert;
+# version 330 core
+
+in vec3 aVert;
+
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform vec4 uColor;
@@ -23,11 +26,10 @@ uniform vec4 uColor;
 uniform int uCurrSliceIndex;
 uniform int uSliceMode;
 uniform int uCurrSliceMax;
-
 uniform vec3 uTexCoord;
 
-varying vec4 vCol;
-varying vec3 texcoord;
+out vec4 vCol;
+out vec3 texcoord;
 
 void main() {
   gl_Position = uPMatrix * uMVMatrix * vec4(aVert, 1.0); 
@@ -48,15 +50,20 @@ void main() {
 }
 """
 strFS = """
+# version 330 core
 
-varying vec4 vCol;
+in vec4 vCol;
+in vec3 texcoord;
+
 uniform sampler3D texture;
-varying vec3 texcoord;
+
+out vec4 fragColor;
 
 void main() {
   // use vertex color
   //gl_FragColor = vCol;
-  gl_FragColor = texture3D(texture, texcoord);
+  vec4 col = texture(texture, texcoord);
+  fragColor = col.rrra;
 }
 
 """
@@ -96,25 +103,37 @@ class SliceRender:
         # color
         self.col0 = [1.0, 1.0, 0.0, 1.0]
 
-        # define quad vertices 
-        quadV = [ 0.0, 1.0, 0.0, 
-                  0.0, 0.0, 0.0, 
-                  1.0, 0.0, 0.0,
-                  1.0, 1.0, 0.0 ]
+ 
+        # set up vertex array object (VAO)
+        self.vao = glGenVertexArrays(1)
+        glBindVertexArray(self.vao)
 
-        # vertices
+        # define quad vertices 
+        vertexData = numpy.array([ 0.0, 1.0, 0.0, 
+                                   0.0, 0.0, 0.0, 
+                                   1.0, 1.0, 0.0,
+                                   1.0, 0.0, 0.0], numpy.float32)
+        # vertex buffer
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        vertexData = numpy.array(quadV, numpy.float32)
         glBufferData(GL_ARRAY_BUFFER, 4*len(vertexData), vertexData, 
                      GL_STATIC_DRAW)
+        # enable arrays
+        glEnableVertexAttribArray(self.vertIndex)
+        # set buffers 
+        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
+        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
+
+        # unbind VAO
+        glBindVertexArray(0)
+
 
         # load texture
         #self.texture = volreader.loadTexture('test.png')
         self.texture, self.Nx, self.Ny, self.Nz = volume
 
         # current slice index
-        self.currSliceIndex = 0
+        self.currSliceIndex = self.Nz/2;
         self.currSliceMax = self.Nz;
 
 
@@ -149,23 +168,17 @@ class SliceRender:
         glUniform1i(glGetUniformLocation(self.program, "uSliceMode"), 
                     self.mode)
 
-        glEnable(GL_TEXTURE_3D)
+        # enable texture
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_3D, self.texture)
         glUniform1i(glGetUniformLocation(self.program, "texture"), 0)
 
-        #enable arrays
-        glEnableVertexAttribArray(self.vertIndex)
-
-        # set buffers 
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        glVertexAttribPointer(self.vertIndex, 3, GL_FLOAT, GL_FALSE, 0, None)
-
+        # bind VAO
+        glBindVertexArray(self.vao)
         # draw
-        glDrawArrays(GL_QUADS, 0, 4)
-        
-        # disable arrays
-        glDisableVertexAttribArray(self.vertIndex)            
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4)
+        # unbind VAO
+        glBindVertexArray(0)
         
     def draw(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -187,17 +200,17 @@ class SliceRender:
         if key == 'x':
             self.mode = SliceRender.XSLICE
             # reset slice index
-            self.currSliceIndex = 0
+            self.currSliceIndex = self.Nx/2
             self.currSliceMax = self.Nx
         elif key == 'y':
             self.mode = SliceRender.YSLICE
             # reset slice index
-            self.currSliceIndex = 0
+            self.currSliceIndex = self.Ny/2
             self.currSliceMax = self.Ny
         elif key == 'z':
             self.mode = SliceRender.ZSLICE
             # reset slice index
-            self.currSliceIndex = 0
+            self.currSliceIndex = self.Nz/2
             self.currSliceMax = self.Nz
         elif key == 'a':
             self.currSliceIndex = (self.currSliceIndex + 1) % self.currSliceMax

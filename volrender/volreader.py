@@ -60,9 +60,9 @@ def loadVolume(dirName):
     glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE)
     glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
     glTexParameterf(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
-    glTexImage3D(GL_TEXTURE_3D, 0, GL_LUMINANCE, 
+    glTexImage3D(GL_TEXTURE_3D, 0, GL_RED, 
                  width, height, depth, 0, 
-                 GL_LUMINANCE, GL_UNSIGNED_BYTE, data)
+                 GL_RED, GL_UNSIGNED_BYTE, data)
     #return texture
     return (texture, width, height, depth)
 
