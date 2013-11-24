@@ -28,7 +28,7 @@ def loadVolume(dirName):
         try:
             # read image
             img = Image.open(file_path)
-            imgData = np.array(list(img.getdata()), np.uint8)
+            imgData = np.array(img.getdata(), np.uint8)
 
             # check if all are of the same size
             if count is 0:
