@@ -18,15 +18,17 @@ import math, sys
 import raycube, glutils, volreader
 
 strVS = """
-attribute vec3 cubePos;
-attribute vec3 cubeCol;
+#version 330 core
+
+in vec3 cubePos;
+in vec3 cubeCol;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 
-varying vec4 vColor;
-varying vec2 vTexCoord;
-varying vec4 vPos;
+out vec4 vColor;
+out vec2 vTexCoord;
+out vec4 vPos;
 
 void main()
 {    
@@ -43,12 +45,16 @@ void main()
 }
 """
 strFS = """
-varying vec4 vColor;
-varying vec2 vTexCoord;
-varying vec4 vPos;
+#version 330 core
+
+in vec4 vColor;
+in vec2 vTexCoord;
+in vec4 vPos;
 
 uniform sampler2D texBackFaces;
 uniform sampler3D texVolume;
+
+out vec4 fragColor;
 
 void main()
 {
@@ -59,7 +65,7 @@ void main()
     // start of ray
     vec3 start = vColor.rgb;
     // get back face color
-    vec4 colBackFace = texture2D(texBackFaces, texc);
+    vec4 colBackFace = texture(texBackFaces, texc);
     // calculate ray direction
     vec3 dir = colBackFace.rgb - start;
     // normalized ray direction
@@ -76,7 +82,7 @@ void main()
     for(float t = 0.0; t < len; t += stepSize) {
         // end point of ray
         vec3 samplePos = start + t*norm_dir;
-        float value = texture3D(texVolume, samplePos).r;
+        float value = texture(texVolume, samplePos).r;
         vec4 src = vec4(value);
         src.a *= 0.1; 
         src.rgb *= src.a;
@@ -88,7 +94,7 @@ void main()
     }
         
     // set fragment color
-    gl_FragColor =  dst;   
+    fragColor =  dst;   
 }
 """
 
@@ -160,17 +166,9 @@ class RayCastRender:
         glBindTexture(GL_TEXTURE_3D, self.texVolume)
         glUniform1i(glGetUniformLocation(self.program, "texVolume"), 1)
 
-        # enable texture
-        glEnable(GL_TEXTURE_2D)
-        glEnable(GL_TEXTURE_3D)
-
         # draw front face of cubes
         self.raycube.renderFrontFace(pMatrix, mvMatrix, self.program)
-        
-        # disable texture
-        glDisable(GL_TEXTURE_2D)
-        glDisable(GL_TEXTURE_3D)
-        
+                
         #self.render(pMatrix, mvMatrix)
 
     def keyPressed(self, key):

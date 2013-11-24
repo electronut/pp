@@ -14,11 +14,13 @@ import numpy, math, sys
 import volreader, glutils
 
 strVS = """
-attribute vec3 cubePos;
-attribute vec3 cubeCol;
+#version 330 core
+
+in vec3 cubePos;
+in vec3 cubeCol;
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
-varying vec4 vColor;
+out vec4 vColor;
 
 void main()
 {
@@ -34,11 +36,14 @@ void main()
 }
 """
 strFS = """
-varying vec4 vColor;
+#version 330 core
+
+in vec4 vColor;
+out vec4 fragColor;
 
 void main()
 {
-    gl_FragColor = vColor;
+    fragColor = vColor;
 }
 """
 
@@ -79,15 +84,25 @@ class RayCube:
 
         # individual triangles
         indices = numpy.array([ 
-                4, 5, 6, 7,
-                5, 1, 2, 6, 
-                1, 0, 3, 2,
-                0, 4, 7, 3, 
-                6, 2, 3, 7, 
-                4, 0, 1, 5
+                4, 5, 7, 
+                7, 5, 6,
+                5, 1, 6, 
+                6, 1, 2, 
+                1, 0, 2, 
+                2, 0, 3,
+                0, 4, 3, 
+                3, 4, 7, 
+                6, 2, 7, 
+                7, 2, 3, 
+                4, 0, 5, 
+                5, 0, 1
                 ], numpy.int16)
         
         self.nIndices = indices.size
+
+        # set up vertex array object (VAO)
+        self.vao = glGenVertexArrays(1)
+        glBindVertexArray(self.vao)
 
         #vertex buffer
         self.vertexBuffer = glGenBuffers(1)
@@ -105,6 +120,25 @@ class RayCube:
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2*len(indices), indices, 
                      GL_STATIC_DRAW)
         
+        # bind buffers:
+        aPosLoc = glGetAttribLocation(self.program, "cubePos")    
+        aColorLoc = glGetAttribLocation(self.program, "cubeCol")
+        glEnableVertexAttribArray(aPosLoc)
+        glEnableVertexAttribArray(aColorLoc)
+    
+        # vertex
+        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
+        glVertexAttribPointer(aPosLoc, 3, GL_FLOAT, GL_FALSE, 0, None)
+
+        # color
+        glBindBuffer(GL_ARRAY_BUFFER, self.colorBuffer)
+        glVertexAttribPointer(aColorLoc, 3, GL_FLOAT, GL_FALSE, 0, None)
+        # index
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer)
+        
+        # unbind VAO
+        glBindVertexArray(0)
+
         # FBO
         self.initFBO()
 
@@ -143,22 +177,6 @@ class RayCube:
         # set shader program
         glUseProgram(program)
         
-        # bind buffers:
-        aPosLoc = glGetAttribLocation(program, "cubePos")    
-        aColorLoc = glGetAttribLocation(program, "cubeCol")
-        glEnableVertexAttribArray(aPosLoc)
-        glEnableVertexAttribArray(aColorLoc)
-    
-        # vertex
-        glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
-        glVertexAttribPointer(aPosLoc, 3, GL_FLOAT, GL_FALSE, 0, None)
-
-        # color
-        glBindBuffer(GL_ARRAY_BUFFER, self.colorBuffer)
-        glVertexAttribPointer(aColorLoc, 3, GL_FLOAT, GL_FALSE, 0, None)
-        # index
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer)
-        
         # set proj matrix
         glUniformMatrix4fv(glGetUniformLocation(program, 'uPMatrix'), 
                            1, GL_FALSE, pMatrix)
@@ -174,17 +192,21 @@ class RayCube:
             glCullFace(GL_FRONT)
             glEnable(GL_CULL_FACE)
 
+        # bind VAO
+        glBindVertexArray(self.vao)
+
         # animated slice
-        glDrawElements(GL_QUADS, self.nIndices, GL_UNSIGNED_SHORT, None)
+        glDrawElements(GL_TRIANGLES, self.nIndices, 
+                       GL_UNSIGNED_SHORT, None)
+
+        # unbind VAO
+        glBindVertexArray(0)
 
         # reset cull face
         if cullFace:
             # disable face culling
             glDisable(GL_CULL_FACE)
 
-        # disable arrays:
-        glDisableVertexAttribArray(aPosLoc)
-        glDisableVertexAttribArray(aColorLoc)
     
     def reshape(self, width, height):
         self.width = width

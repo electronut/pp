@@ -56,7 +56,7 @@ class RenderWin:
         # load volume data
         self.volume =  volreader.loadVolume('mrbrain-8bit')
         # create renderer
-        self.renderer = SliceRender(self.width, self.height, self.volume)
+        self.renderer = RayCastRender(self.width, self.height, self.volume)
 
         # exit flag
         self.exitNow = False
