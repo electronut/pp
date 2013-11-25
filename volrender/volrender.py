@@ -14,7 +14,7 @@ import cyglfw3 as glfw
 
 class RenderWin:
     """GLFW Rendering window class"""
-    def __init__(self):
+    def __init__(self, imageDir):
         
         # set dimensions
         self.width = 640
@@ -54,7 +54,7 @@ class RenderWin:
         glfw.SetWindowSizeCallback(self.win, self.onSize)
 
         # load volume data
-        self.volume =  volreader.loadVolume('mrbrain-8bit')
+        self.volume =  volreader.loadVolume(imageDir)
         # create renderer
         self.renderer = RayCastRender(self.width, self.height, self.volume)
 
@@ -119,8 +119,9 @@ def main():
   parser = argparse.ArgumentParser(description="Volume Rendering...")
   # add arguments
   parser.add_argument('--scale', dest='scaleArgs', required=False)
+  parser.add_argument('--dir', dest='imageDir', required=True)
   args = parser.parse_args()
-  rwin = RenderWin()
+  rwin = RenderWin(args.imageDir)
   rwin.run()
 
 # call main
