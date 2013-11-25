@@ -18,7 +18,7 @@ from scipy import misc
 def loadVolume(dirName):
     """read volume from directory as a 3D texture"""
     # list images in directory
-    files = os.listdir(dirName)
+    files = sorted(os.listdir(dirName))
     print 'loading mages from:', dirName  
     imgDataList = []
     count = 0
