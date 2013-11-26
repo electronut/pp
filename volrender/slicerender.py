@@ -34,15 +34,15 @@ void main() {
 
   // X-slice?
   if (uSliceMode == 0) {
-    texcoord = vec3(tc, aVert.x+0.5, aVert.y+0.5);
+    texcoord = vec3(tc, aVert.x+0.5, 1.0-(aVert.y+0.5));
   }
   // Y-slice?
   else if (uSliceMode == 1) {
-    texcoord = vec3(aVert.x+0.5, tc, aVert.y+0.5);
+    texcoord = vec3(aVert.x+0.5, tc, 1.0-(aVert.y+0.5));
   }
   // Z-slice
   else {
-    texcoord = vec3(aVert.x+0.5, aVert.y+0.5, tc);
+    texcoord = vec3(aVert.x+0.5, 1.0-(aVert.y+0.5), tc);
   }
 
   gl_Position = uPMatrix * uMVMatrix * vec4(aVert, 1.0); 
