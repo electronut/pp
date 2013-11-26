@@ -169,7 +169,7 @@ class RayCube:
     def renderFrontFace(self, pMatrix, mvMatrix, program):
         """render front face of ray-cube"""
         # no face culling
-        glClearColor(0.6, 0.6, 0.6, 0.0)
+        glClearColor(0.0, 0.0, 0.0, 0.0)
         self.renderCube(pMatrix, mvMatrix, program, False)
 
     def renderCube(self, pMatrix, mvMatrix, program, cullFace):

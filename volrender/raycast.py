@@ -182,7 +182,6 @@ class RayCastRender:
         self.height = height
         self.aspect = width/float(height)
         self.raycube.reshape(width, height)
-        glClearColor(0.5, 0.0, 0.0, 0.0)
 
     def close(self):
         self.raycube.close()
