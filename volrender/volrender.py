@@ -37,7 +37,7 @@ class RenderWin:
         # make a window
         self.width, self.height = 512, 512
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, "test")
+        self.win = glfw.CreateWindow(self.width, self.height, "volrender")
         # make context current
         glfw.MakeContextCurrent(self.win)
         
