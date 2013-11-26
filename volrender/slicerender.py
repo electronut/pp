@@ -21,44 +21,36 @@ in vec3 aVert;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
-uniform vec4 uColor;
 
 uniform int uCurrSliceIndex;
 uniform int uSliceMode;
 uniform int uCurrSliceMax;
 
-out vec4 vCol;
 out vec3 texcoord;
 
 void main() {
 
-  vec3 scale = vec3(1.0, 1.0, 1.0);
-
-  // set color
-  vCol = vec4(uColor.rgb, 1.0);
-
   float tc = (0.5 + float(uCurrSliceIndex)) / float(uCurrSliceMax);
 
+  // X-slice?
   if (uSliceMode == 0) {
     texcoord = vec3(tc, aVert.x+0.5, aVert.y+0.5);
-    //scale = vec3(1.0, 0.5, 0.5);
   }
+  // Y-slice?
   else if (uSliceMode == 1) {
     texcoord = vec3(aVert.x+0.5, tc, aVert.y+0.5);
-    //scale = vec3(1.0, 0.5, 0.5);
   }
+  // Z-slice
   else {
     texcoord = vec3(aVert.x+0.5, aVert.y+0.5, tc);
-    //scale = vec3(1.0, 1.0, 1.0);
   }
 
-  gl_Position = uPMatrix * uMVMatrix * vec4(scale*aVert, 1.0); 
+  gl_Position = uPMatrix * uMVMatrix * vec4(aVert, 1.0); 
 }
 """
 strFS = """
 # version 330 core
 
-in vec4 vCol;
 in vec3 texcoord;
 
 uniform sampler3D texture;
@@ -66,8 +58,7 @@ uniform sampler3D texture;
 out vec4 fragColor;
 
 void main() {
-  // use vertex color
-  //gl_FragColor = vCol;
+  // look up color in texture
   vec4 col = texture(texture, texcoord);
   fragColor = col.rrra;
 }
@@ -101,14 +92,9 @@ class SliceRender:
         self.pMatrixUniform = glGetUniformLocation(self.program, 'uPMatrix')
         self.mvMatrixUniform = glGetUniformLocation(self.program, 
                                                   "uMVMatrix")
-        self.colorU = glGetUniformLocation(self.program, "uColor")
 
         # attributes
         self.vertIndex = glGetAttribLocation(self.program, "aVert")
-
-        # color
-        self.col0 = [1.0, 1.0, 0.0, 1.0]
-
  
         # set up vertex array object (VAO)
         self.vao = glGenVertexArrays(1)
@@ -119,10 +105,6 @@ class SliceRender:
                                    -0.5, -0.5, 0.0, 
                                    0.5, 0.5, 0.0,
                                    0.5, -0.5, 0.0], numpy.float32)
-
-        scale = numpy.array([2.0, 2.0, 1.0], numpy.float32)
-        #vertexData = (vertexData.reshape(4, 3)*scale).reshape(12)
-
         # vertex buffer
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
@@ -166,9 +148,6 @@ class SliceRender:
 
         # set modelview matrix
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
-
-        # set color
-        glUniform4fv(self.colorU, 1, self.col0)
 
         # set current slice params
         glUniform1i(glGetUniformLocation(self.program, "uCurrSliceIndex"), 
