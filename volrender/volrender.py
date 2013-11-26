@@ -14,12 +14,10 @@ import cyglfw3 as glfw
 
 class RenderWin:
     """GLFW Rendering window class"""
-    def __init__(self, imageDir):
+    def __init__(self, imageDir, scale):
         
-        # set dimensions
-        self.width = 640
-        self.height = 480
-        self.aspect = self.width/float(self.height)
+        # store scale 
+        self.scale = scale
 
         # save current working directory
         cwd = os.getcwd()
@@ -37,7 +35,7 @@ class RenderWin:
         glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
 
         # make a window
-        self.width, self.height = 640, 480
+        self.width, self.height = 512, 512
         self.aspect = self.width/float(self.height)
         self.win = glfw.CreateWindow(self.width, self.height, "test")
         # make context current
@@ -56,7 +54,8 @@ class RenderWin:
         # load volume data
         self.volume =  volreader.loadVolume(imageDir)
         # create renderer
-        self.renderer = RayCastRender(self.width, self.height, self.volume)
+        self.renderer = RayCastRender(self.width, self.height, 
+                                      self.volume, self.scale)
 
         # exit flag
         self.exitNow = False
@@ -67,30 +66,31 @@ class RenderWin:
 
     def onKeyboard(self, win, key, scancode, action, mods):
         #print 'keyboard: ', win, key, scancode, action, mods
-        if action == glfw.PRESS:
-            # ESC to quit
-            if key == glfw.KEY_ESCAPE:
-                self.renderer.close()
-                self.exitNow = True
-            elif key == glfw.KEY_V:
-                # toggle render mode
-                if isinstance(self.renderer, RayCastRender):
-                    self.renderer = SliceRender(self.width, self.height, 
-                                                self.volume)
+        # ESC to quit
+        if key is glfw.KEY_ESCAPE:
+            self.renderer.close()
+            self.exitNow = True
+        else:
+            if action is glfw.PRESS or action is glfw.REPEAT:
+                if key == glfw.KEY_V:
+                    # toggle render mode
+                    if isinstance(self.renderer, RayCastRender):
+                        self.renderer = SliceRender(self.width, self.height, 
+                                                self.volume, self.scale)
+                    else:
+                        self.renderer = RayCastRender(self.width, self.height, 
+                                                  self.volume, self.scale)
+                        # call reshape on renderer
+                    self.renderer.reshape(self.width, self.height)
                 else:
-                    self.renderer = RayCastRender(self.width, self.height, 
-                                                  self.volume)
-                # call reshape on renderer
-                self.renderer.reshape(self.width, self.height)
-            else:
-                # send key press to renderer
-                keyDict = {glfw.KEY_X : 'x', glfw.KEY_Y: 'y', 
-                           glfw.KEY_Z: 'z', glfw.KEY_A: 'a', 
+                    # send key press to renderer
+                    keyDict = {glfw.KEY_X : 'x', glfw.KEY_Y: 'y', 
+                               glfw.KEY_Z: 'z', glfw.KEY_A: 'a', 
                            glfw.KEY_S: 's'}
-                try:
-                    self.renderer.keyPressed(keyDict[key])
-                except:
-                    pass
+                    try:
+                        self.renderer.keyPressed(keyDict[key])
+                    except:
+                        pass
 
     def onSize(self, win, width, height):
         #print 'onsize: ', win, width, height
@@ -113,15 +113,25 @@ class RenderWin:
 
 # main() function
 def main():
-  # use sys.argv if needed
   print 'starting volrender...'
-  
+  # create parser
   parser = argparse.ArgumentParser(description="Volume Rendering...")
-  # add arguments
+  # add expected arguments
   parser.add_argument('--scale', dest='scaleArgs', required=False)
   parser.add_argument('--dir', dest='imageDir', required=True)
+  # parse args
   args = parser.parse_args()
-  rwin = RenderWin(args.imageDir)
+
+  # set scale
+  scale = [1.0, 1.0, 1.0]
+  if args.scaleArgs:
+      try:
+          scale = [float(x) for x in args.scaleArgs.split(',')]
+      except:
+          print 'Invaid scale args passed. Using unit scale...'
+
+  # create render window
+  rwin = RenderWin(args.imageDir, scale)
   rwin.run()
 
 # call main

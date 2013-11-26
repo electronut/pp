@@ -26,27 +26,33 @@ uniform vec4 uColor;
 uniform int uCurrSliceIndex;
 uniform int uSliceMode;
 uniform int uCurrSliceMax;
-uniform vec3 uTexCoord;
 
 out vec4 vCol;
 out vec3 texcoord;
 
 void main() {
-  gl_Position = uPMatrix * uMVMatrix * vec4(aVert, 1.0); 
+
+  vec3 scale = vec3(1.0, 1.0, 1.0);
+
   // set color
   vCol = vec4(uColor.rgb, 1.0);
 
   float tc = (0.5 + float(uCurrSliceIndex)) / float(uCurrSliceMax);
 
   if (uSliceMode == 0) {
-    texcoord = vec3(tc, aVert.xy);
+    texcoord = vec3(tc, aVert.x+0.5, aVert.y+0.5);
+    //scale = vec3(1.0, 0.5, 0.5);
   }
   else if (uSliceMode == 1) {
-    texcoord = vec3(aVert.x, tc, aVert.y);
+    texcoord = vec3(aVert.x+0.5, tc, aVert.y+0.5);
+    //scale = vec3(1.0, 0.5, 0.5);
   }
   else {
-    texcoord = vec3(aVert.xy, tc);
+    texcoord = vec3(aVert.x+0.5, aVert.y+0.5, tc);
+    //scale = vec3(1.0, 1.0, 1.0);
   }
+
+  gl_Position = uPMatrix * uMVMatrix * vec4(scale*aVert, 1.0); 
 }
 """
 strFS = """
@@ -72,7 +78,7 @@ class SliceRender:
     # slice modes
     XSLICE, YSLICE, ZSLICE = 0, 1, 2
 
-    def __init__(self, width, height, volume):
+    def __init__(self, width, height, volume, scale):
         """SliceRender constructor"""
         self.width = width
         self.height = height
@@ -109,10 +115,14 @@ class SliceRender:
         glBindVertexArray(self.vao)
 
         # define quad vertices 
-        vertexData = numpy.array([ 0.0, 1.0, 0.0, 
-                                   0.0, 0.0, 0.0, 
-                                   1.0, 1.0, 0.0,
-                                   1.0, 0.0, 0.0], numpy.float32)
+        vertexData = numpy.array([ -0.5, 0.5, 0.0, 
+                                   -0.5, -0.5, 0.0, 
+                                   0.5, 0.5, 0.0,
+                                   0.5, -0.5, 0.0], numpy.float32)
+
+        scale = numpy.array([2.0, 2.0, 1.0], numpy.float32)
+        #vertexData = (vertexData.reshape(4, 3)*scale).reshape(12)
+
         # vertex buffer
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
@@ -184,13 +194,12 @@ class SliceRender:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         # build projection matrix
         a = self.aspect
-        pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
-        
+        pMatrix = glutils.ortho(-0.6, 0.6, -0.6, 0.6, 0.1, 100.0)
         # modelview matrix
         mvMatrix = numpy.array([1.0, 0.0, 0.0, 0.0, 
                                 0.0, 1.0, 0.0, 0.0, 
                                 0.0, 0.0, 1.0, 0.0, 
-                                -0.5, -0.5, -1.0, 1.0], numpy.float32)
+                                0.0, 0.0, -1.0, 1.0], numpy.float32)
         
         # render
         self.render(pMatrix, mvMatrix)

@@ -70,6 +70,9 @@ class RayCube:
                 1.0, 1.0, 1.0, 
                 0.0, 1.0, 1.0 
                 ], numpy.float32)
+        # scale
+        scale = numpy.array([1.0, 1.0, 0.5], numpy.float32)
+        #vertices = (vertices.reshape(8, 3)*scale).reshape(24)
 
         colors = numpy.array([
                 0.0, 0.0, 0.0, 
