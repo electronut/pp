@@ -22,29 +22,27 @@ in vec3 aVert;
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 
-uniform int uCurrSliceIndex;
+uniform float uSliceFrac;
 uniform int uSliceMode;
-uniform int uCurrSliceMax;
 
 out vec3 texcoord;
 
 void main() {
 
-  float tc = (0.5 + float(uCurrSliceIndex)) / float(uCurrSliceMax);
-
   // X-slice?
   if (uSliceMode == 0) {
-    texcoord = vec3(tc, aVert.x+0.5, 1.0-(aVert.y+0.5));
+    texcoord = vec3(uSliceFrac, aVert.x+0.5, 1.0-(aVert.y+0.5));
   }
   // Y-slice?
   else if (uSliceMode == 1) {
-    texcoord = vec3(aVert.x+0.5, tc, 1.0-(aVert.y+0.5));
+    texcoord = vec3(aVert.x+0.5, uSliceFrac, 1.0-(aVert.y+0.5));
   }
   // Z-slice
   else {
-    texcoord = vec3(aVert.x+0.5, 1.0-(aVert.y+0.5), tc);
+    texcoord = vec3(aVert.x+0.5, 1.0-(aVert.y+0.5), uSliceFrac);
   }
 
+  // calculate transformed vertex
   gl_Position = uPMatrix * uMVMatrix * vec4(aVert, 1.0); 
 }
 """
@@ -149,14 +147,13 @@ class SliceRender:
         # set modelview matrix
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
 
-        # set current slice params
-        glUniform1i(glGetUniformLocation(self.program, "uCurrSliceIndex"), 
-                    self.currSliceIndex)
-        glUniform1i(glGetUniformLocation(self.program, "uCurrSliceMax"), 
-                    self.currSliceMax)
+        # set current slice fraction
+        glUniform1f(glGetUniformLocation(self.program, "uSliceFrac"), 
+                    float(self.currSliceIndex)/float(self.currSliceMax))
+        # set current slice mode
         glUniform1i(glGetUniformLocation(self.program, "uSliceMode"), 
                     self.mode)
-
+        
         # enable texture
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_3D, self.texture)
