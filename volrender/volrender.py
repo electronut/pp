@@ -98,6 +98,7 @@ class RenderWin:
         self.height = height
         self.aspect = width/float(height)
         glViewport(0, 0, self.width, self.height)
+        self.renderer.reshape(width, height)
 
     def run(self):
         # start loop
