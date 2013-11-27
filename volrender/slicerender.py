@@ -31,15 +31,15 @@ void main() {
 
   // X-slice?
   if (uSliceMode == 0) {
-    texcoord = vec3(uSliceFrac, aVert.x+0.5, 1.0-(aVert.y+0.5));
+    texcoord = vec3(uSliceFrac, aVert.x, 1.0-aVert.y);
   }
   // Y-slice?
   else if (uSliceMode == 1) {
-    texcoord = vec3(aVert.x+0.5, uSliceFrac, 1.0-(aVert.y+0.5));
+    texcoord = vec3(aVert.x, uSliceFrac, 1.0-aVert.y);
   }
   // Z-slice
   else {
-    texcoord = vec3(aVert.x+0.5, 1.0-(aVert.y+0.5), uSliceFrac);
+    texcoord = vec3(aVert.x, 1.0-aVert.y, uSliceFrac);
   }
 
   // calculate transformed vertex
@@ -99,10 +99,10 @@ class SliceRender:
         glBindVertexArray(self.vao)
 
         # define quad vertices 
-        vertexData = numpy.array([ -0.5, 0.5, 0.0, 
-                                   -0.5, -0.5, 0.0, 
-                                   0.5, 0.5, 0.0,
-                                   0.5, -0.5, 0.0], numpy.float32)
+        vertexData = numpy.array([ 0.0, 1.0, 0.0, 
+                                   0.0, 0.0, 0.0, 
+                                   1.0, 1.0, 0.0,
+                                   1.0, 0.0, 0.0], numpy.float32)
         # vertex buffer
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
@@ -175,7 +175,7 @@ class SliceRender:
         mvMatrix = numpy.array([1.0, 0.0, 0.0, 0.0, 
                                 0.0, 1.0, 0.0, 0.0, 
                                 0.0, 0.0, 1.0, 0.0, 
-                                0.0, 0.0, -1.0, 1.0], numpy.float32)
+                                -0.5, -0.5, -1.0, 1.0], numpy.float32)
         
         # render
         self.render(pMatrix, mvMatrix)
