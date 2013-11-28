@@ -155,7 +155,6 @@ class RayCube:
         glBindTexture(GL_TEXTURE_2D, self.texHandle)
 
         # render cube with face culling enabled
-        glClearColor(0.7, 0.6, 0.6, 0.0)
         self.renderCube(pMatrix, mvMatrix, self.program, True)
         
         # unbind texture
@@ -169,7 +168,6 @@ class RayCube:
     def renderFrontFace(self, pMatrix, mvMatrix, program):
         """render front face of ray-cube"""
         # no face culling
-        glClearColor(0.0, 0.0, 0.0, 0.0)
         self.renderCube(pMatrix, mvMatrix, program, False)
 
     def renderCube(self, pMatrix, mvMatrix, program, cullFace):
@@ -215,6 +213,8 @@ class RayCube:
         self.width = width
         self.height = height
         self.aspect = width/float(height)
+        # set clear color
+        glClearColor(0.0, 0.0, 0.0, 0.0)
         # recreate FBO
         self.clearFBO()
         self.initFBO()

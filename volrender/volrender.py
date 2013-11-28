@@ -44,7 +44,7 @@ class RenderWin:
         # initialize GL
         glViewport(0, 0, self.width, self.height)
         glEnable(GL_DEPTH_TEST)
-        glClearColor(0.5, 0.5, 0.5,1.0)
+        glClearColor(0.0, 0.0, 0.0, 0.0)
 
         # set window callbacks
         glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
