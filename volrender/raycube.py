@@ -16,8 +16,9 @@ import volreader, glutils
 strVS = """
 #version 330 core
 
-in vec3 cubePos;
-in vec3 cubeCol;
+layout(location = 1) in vec3 cubePos;
+layout(location = 2) in vec3 cubeCol;
+
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 out vec4 vColor;
@@ -120,11 +121,13 @@ class RayCube:
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2*len(indices), indices, 
                      GL_STATIC_DRAW)
         
+        # enable attrs using the layout indices in shader
+        aPosLoc = 1
+        aColorLoc = 2
+
         # bind buffers:
-        aPosLoc = glGetAttribLocation(self.program, "cubePos")    
-        aColorLoc = glGetAttribLocation(self.program, "cubeCol")
-        glEnableVertexAttribArray(aPosLoc)
-        glEnableVertexAttribArray(aColorLoc)
+        glEnableVertexAttribArray(1)
+        glEnableVertexAttribArray(2)
     
         # vertex
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)

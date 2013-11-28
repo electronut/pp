@@ -20,8 +20,8 @@ import raycube, glutils, volreader
 strVS = """
 #version 330 core
 
-in vec3 cubePos;
-in vec3 cubeCol;
+layout(location = 1) in vec3 cubePos;
+layout(location = 2) in vec3 cubeCol;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
