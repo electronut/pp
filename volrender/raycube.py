@@ -213,8 +213,6 @@ class RayCube:
         self.width = width
         self.height = height
         self.aspect = width/float(height)
-        # set clear color
-        glClearColor(0.0, 0.0, 0.0, 0.0)
         # recreate FBO
         self.clearFBO()
         self.initFBO()
