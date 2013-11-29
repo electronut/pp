@@ -197,9 +197,9 @@ class SliceRender:
             # reset slice index
             self.currSliceIndex = self.Nz/2
             self.currSliceMax = self.Nz
-        elif key == 'a':
+        elif key == 'l':
             self.currSliceIndex = (self.currSliceIndex + 1) % self.currSliceMax
-        elif key == 's':
+        elif key == 'r':
             self.currSliceIndex = (self.currSliceIndex - 1) % self.currSliceMax
             
     def close(self):

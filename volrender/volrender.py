@@ -86,7 +86,7 @@ class RenderWin:
                     # send key press to renderer
                     keyDict = {glfw.KEY_X : 'x', glfw.KEY_Y: 'y', 
                                glfw.KEY_Z: 'z', 
-                               glfw.KEY_LEFT: 'a', glfw.KEY_RIGHT: 's'}
+                               glfw.KEY_LEFT: 'l', glfw.KEY_RIGHT: 'r'}
                     try:
                         self.renderer.keyPressed(keyDict[key])
                     except:

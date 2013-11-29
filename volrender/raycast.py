@@ -167,9 +167,9 @@ class RayCastRender:
         #self.render(pMatrix, mvMatrix)
 
     def keyPressed(self, key):
-        if key == 'a':
+        if key == 'l':
             self.camera.rotate(True)
-        elif key == 's':
+        elif key == 'r':
             self.camera.rotate(False)
             
     def reshape(self, width, height):
