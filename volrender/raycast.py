@@ -27,43 +27,34 @@ uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 
 out vec4 vColor;
-out vec2 vTexCoord;
-out vec4 vPos;
 
 void main()
 {    
     // set position
     gl_Position = uPMatrix * uMVMatrix * vec4(cubePos.xyz, 1.0);
 
-    // set tex coord
-    vTexCoord = cubePos.xy;
-
+    // set color
     vColor = vec4(cubeCol.rgb, 1.0);
-
-    // save transformed position for fragment shader
-    vPos = gl_Position;
 }
 """
 strFS = """
 #version 330 core
 
 in vec4 vColor;
-in vec2 vTexCoord;
-in vec4 vPos;
 
 uniform sampler2D texBackFaces;
 uniform sampler3D texVolume;
+uniform vec2 uWinDims;
 
 out vec4 fragColor;
 
 void main()
 {
-    // caluculate texture coords
-// see :
-// http://www.opengl.org/wiki/Compute_eye_space_from_window_space
-    vec2 texc = ((vPos.xy / vPos.w) + 1.0) / 2.0;    
     // start of ray
     vec3 start = vColor.rgb;
+    // calculate texture coords at fragment, which is a 
+    // fraction of window coords
+    vec2 texc = gl_FragCoord.xy/uWinDims.xy;
     // get back face color
     vec4 colBackFace = texture(texBackFaces, texc);
     // calculate ray direction
@@ -155,6 +146,10 @@ class RayCastRender:
         
         # set shader program
         glUseProgram(self.program)
+
+        # set window dimensions
+        glUniform2f(glGetUniformLocation(self.program, "uWinDims"),
+                    float(self.width), float(self.height))
 
         # texture unit 0 - back-faces of cube
         glActiveTexture(GL_TEXTURE0)
