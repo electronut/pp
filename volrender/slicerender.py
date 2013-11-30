@@ -77,12 +77,6 @@ class SliceRender:
         self.mode = SliceRender.ZSLICE
 
         # create shader
-        """
-        self.program = compileProgram(compileShader(strVS,
-                                                    GL_VERTEX_SHADER),
-                                      compileShader(strFS,
-                                                    GL_FRAGMENT_SHADER))
-                                                    """
         self.program = glutils.loadShaders(strVS, strFS)
 
         glUseProgram(self.program)
@@ -117,9 +111,7 @@ class SliceRender:
         # unbind VAO
         glBindVertexArray(0)
 
-
         # load texture
-        #self.texture = volreader.loadTexture('test.png')
         self.texture, self.Nx, self.Ny, self.Nz = volume
 
         # current slice index
@@ -131,13 +123,17 @@ class SliceRender:
         self.width = width
         self.height = height
         self.aspect = width/float(height)
-
-    # step
-    def step(self):
-        pass
-
-    # render 
-    def render(self, pMatrix, mvMatrix):        
+        
+    def draw(self):
+        # clear buffers
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        # build projection matrix
+        pMatrix = glutils.ortho(-0.6, 0.6, -0.6, 0.6, 0.1, 100.0)
+        # modelview matrix
+        mvMatrix = numpy.array([1.0, 0.0, 0.0, 0.0, 
+                                0.0, 1.0, 0.0, 0.0, 
+                                0.0, 0.0, 1.0, 0.0, 
+                                -0.5, -0.5, -1.0, 1.0], numpy.float32)        
         # use shader
         glUseProgram(self.program)
         
@@ -165,20 +161,6 @@ class SliceRender:
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4)
         # unbind VAO
         glBindVertexArray(0)
-        
-    def draw(self):
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        # build projection matrix
-        a = self.aspect
-        pMatrix = glutils.ortho(-0.6, 0.6, -0.6, 0.6, 0.1, 100.0)
-        # modelview matrix
-        mvMatrix = numpy.array([1.0, 0.0, 0.0, 0.0, 
-                                0.0, 1.0, 0.0, 0.0, 
-                                0.0, 0.0, 1.0, 0.0, 
-                                -0.5, -0.5, -1.0, 1.0], numpy.float32)
-        
-        # render
-        self.render(pMatrix, mvMatrix)
 
     def keyPressed(self, key):
         """key press handler"""
