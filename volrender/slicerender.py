@@ -67,7 +67,7 @@ class SliceRender:
     # slice modes
     XSLICE, YSLICE, ZSLICE = 0, 1, 2
 
-    def __init__(self, width, height, volume, scale):
+    def __init__(self, width, height, volume):
         """SliceRender constructor"""
         self.width = width
         self.height = height

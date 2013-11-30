@@ -112,7 +112,7 @@ class Camera:
 class RayCastRender:
     """class that does Ray Casting"""
     
-    def __init__(self, width, height, volume, scale):
+    def __init__(self, width, height, volume):
         """RayCastRender constr"""
         
         # create RayCube object

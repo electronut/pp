@@ -14,11 +14,8 @@ import cyglfw3 as glfw
 
 class RenderWin:
     """GLFW Rendering window class"""
-    def __init__(self, imageDir, scale):
+    def __init__(self, imageDir):
         
-        # store scale 
-        self.scale = scale
-
         # save current working directory
         cwd = os.getcwd()
 
@@ -54,8 +51,7 @@ class RenderWin:
         # load volume data
         self.volume =  volreader.loadVolume(imageDir)
         # create renderer
-        self.renderer = RayCastRender(self.width, self.height, 
-                                      self.volume, self.scale)
+        self.renderer = RayCastRender(self.width, self.height, self.volume)
 
         # exit flag
         self.exitNow = False
@@ -76,11 +72,11 @@ class RenderWin:
                     # toggle render mode
                     if isinstance(self.renderer, RayCastRender):
                         self.renderer = SliceRender(self.width, self.height, 
-                                                self.volume, self.scale)
+                                                    self.volume)
                     else:
                         self.renderer = RayCastRender(self.width, self.height, 
-                                                  self.volume, self.scale)
-                        # call reshape on renderer
+                                                      self.volume)
+                    # call reshape on renderer
                     self.renderer.reshape(self.width, self.height)
                 else:
                     # send key press to renderer
@@ -118,21 +114,12 @@ def main():
   # create parser
   parser = argparse.ArgumentParser(description="Volume Rendering...")
   # add expected arguments
-  parser.add_argument('--scale', dest='scaleArgs', required=False)
   parser.add_argument('--dir', dest='imageDir', required=True)
   # parse args
   args = parser.parse_args()
 
-  # set scale
-  scale = [1.0, 1.0, 1.0]
-  if args.scaleArgs:
-      try:
-          scale = [float(x) for x in args.scaleArgs.split(',')]
-      except:
-          print 'Invaid scale args passed. Using unit scale...'
-
   # create render window
-  rwin = RenderWin(args.imageDir, scale)
+  rwin = RenderWin(args.imageDir)
   rwin.run()
 
 # call main
