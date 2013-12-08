@@ -18,6 +18,7 @@ strVS = """
 #version 330 core
 
 layout(location = 0) in vec3 aVert;
+layout(location = 1) in vec2 aTex;
 
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
@@ -47,7 +48,7 @@ void main() {
   // transform vertex
   gl_Position = uPMatrix * uMVMatrix * vec4(P, 1.0); 
   // set texture coord
-  vTexCoord = aVert.xy + vec2(0.5, 0.5);
+  vTexCoord = vec2(aTex.x, 1-aTex.y);
 }
 """
 strFS = """
@@ -62,7 +63,7 @@ out vec4 fragColor;
 
 void main() {
      fragColor = vColor;
-     //fragColor = texture(tex2D, vTexCoord);
+     fragColor = texture(tex2D, vTexCoord);
 }
 """
 
@@ -84,10 +85,11 @@ class Scene:
 
         # define triange strip vertices 
         R = 1.0
-        nR = 20
+        nR = 100
         H = 4.0
-        nH = 40        
+        nH = 100     
         vertexData = numpy.zeros(3*nR*nH, numpy.float32).reshape(nR*nH, 3)
+        texData = numpy.zeros(2*nR*nH, numpy.float32).reshape(nR*nH, 2)
         angles = numpy.linspace(0, math.pi, nR)
         heights = numpy.linspace(0, H, nH)
         i = 0
@@ -96,14 +98,21 @@ class Scene:
                 x = R*math.cos(t)
                 y = R*math.sin(t)
                 z = h
+                tx = t/math.pi
+                ty = h/H
                 vertexData[i] = [x, y, z]
+                texData[i] = [tx, ty]
                 i += 1
         vertexData.resize(3*nR*nH, 1)
-        self.nVert = nR*nH
+        texData.resize(2*nR*nH, 1)
+    
+        print vertexData
+        print texData
 
         # set up vertex array object (VAO)
         self.vao = glGenVertexArrays(1)
         glBindVertexArray(self.vao)
+
         # vertices
         self.vertexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vertexBuffer)
@@ -115,19 +124,44 @@ class Scene:
         # set buffer data pointer
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, None)
 
-        """
-        # individual triangles
-        indices = numpy.array([0, 1, 2, 3], numpy.int16)
-        self.nIndices = indices.size;
+        # texture coords
+        texBuffer = glGenBuffers(1)
+        glBindBuffer(GL_ARRAY_BUFFER, texBuffer)
+        # set buffer data 
+        glBufferData(GL_ARRAY_BUFFER, 4*len(texData), texData, 
+                     GL_STATIC_DRAW)
+        # enable vertex array
+        glEnableVertexAttribArray(1)
+        # set buffer data pointer
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, None)
 
+        # index buffer
+        indices = []
+        index = 0
+        for j in range(nH-1):
+            for i in range(nR):
+                # repeat first vertex
+                if j > 0 and i is 0:
+                    indices.append(index)
+                indices.append(index)
+                indices.append(index+nR)
+                # repeat last vertex - except for absolute last
+                if i is nR-1:
+                    indices.append(index+nR)
+                index += 1
+        indexData = numpy.array(indices, numpy.int16)
+        self.nIndices = len(indices)
+         
+        print indexData
+        
         # index buffer
         self.indexBuffer = glGenBuffers(1)
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2*len(indices), indices, 
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, 2*len(indexData), indexData, 
                      GL_STATIC_DRAW)
         # index
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, self.indexBuffer)
-        """
+    
 
         # unbind VAO
         glBindVertexArray(0)
@@ -136,7 +170,7 @@ class Scene:
         self.t = 0 
 
         # texture
-        self.texId = glutils.loadTexture('star.png')
+        self.texId = glutils.loadTexture('ana.png')
 
     # step
     def step(self):
@@ -173,12 +207,13 @@ class Scene:
         # draw cylinder
         glUniform1i(glGetUniformLocation(self.program, 'showProjection'), 
                     False)
-        glDrawArrays(GL_POINTS, 0, self.nVert)
-
+        glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, GL_UNSIGNED_SHORT, None)
+        
         # draw projection
         glUniform1i(glGetUniformLocation(self.program, 'showProjection'), 
                     True)
-        glDrawArrays(GL_POINTS, 0, self.nVert)
+        glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, GL_UNSIGNED_SHORT, None)
+        
 
         # unbind VAO
         glBindVertexArray(0)
