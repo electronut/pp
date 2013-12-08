@@ -170,7 +170,7 @@ class Scene:
         self.t = 0 
 
         # texture
-        self.texId = glutils.loadTexture('ana.png')
+        self.texId = glutils.loadTexture('2815.jpg')
 
     # step
     def step(self):
