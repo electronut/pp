@@ -1,12 +1,10 @@
-################################################################################
-# autos.py
-#
-# Author: Mahesh Venkitachalam
-# Created:
-#
-# Description: Creating Autostereograms
-#
-################################################################################
+"""
+autos.py
+
+Creating Autostereograms
+
+Author: Mahesh Venkitachalam
+"""
 
 import sys, random, argparse
 import Image, ImageDraw
