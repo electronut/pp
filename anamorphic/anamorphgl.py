@@ -9,7 +9,7 @@ Author: Mahesh Venkitachalam
 import OpenGL
 from OpenGL.GL import *
 
-import numpy, math, sys, os
+import numpy, math, sys, os, argparse
 import glutils
 
 import cyglfw3 as glfw
@@ -70,7 +70,7 @@ void main() {
 class Scene:    
     """ OpenGL 3D scene class"""
     # initialization
-    def __init__(self):
+    def __init__(self, params):
         # create shader
         self.program = glutils.loadShaders(strVS, strFS)
 
@@ -106,8 +106,8 @@ class Scene:
         vertexData.resize(3*nR*nH, 1)
         texData.resize(2*nR*nH, 1)
     
-        print vertexData
-        print texData
+        #print vertexData
+        #print texData
 
         # set up vertex array object (VAO)
         self.vao = glGenVertexArrays(1)
@@ -152,7 +152,7 @@ class Scene:
         indexData = numpy.array(indices, numpy.int16)
         self.nIndices = len(indices)
          
-        print indexData
+        #print indexData
         
         # index buffer
         self.indexBuffer = glGenBuffers(1)
@@ -170,7 +170,9 @@ class Scene:
         self.t = 0 
 
         # texture
-        self.texId = glutils.loadTexture('2815.jpg')
+        self.texId = glutils.loadTexture(params['file'])
+
+        self.showCylinder = True
 
     # step
     def step(self):
@@ -191,7 +193,6 @@ class Scene:
         # set modelview matrix
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
 
-
         # enable texture 
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texId)
@@ -199,29 +200,26 @@ class Scene:
 
         # bind VAO
         glBindVertexArray(self.vao)
-        # draw
-        #glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, 
-         #              GL_UNSIGNED_SHORT, None)
-        glPointSize(2.0)
 
         # draw cylinder
-        glUniform1i(glGetUniformLocation(self.program, 'showProjection'), 
-                    False)
-        glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, GL_UNSIGNED_SHORT, None)
+        if self.showCylinder:
+            glUniform1i(glGetUniformLocation(self.program, 'showProjection'), 
+                        False)
+            glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, 
+                           GL_UNSIGNED_SHORT, None)
         
         # draw projection
         glUniform1i(glGetUniformLocation(self.program, 'showProjection'), 
                     True)
-        glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, GL_UNSIGNED_SHORT, None)
+        glDrawElements(GL_TRIANGLE_STRIP, self.nIndices, 
+                       GL_UNSIGNED_SHORT, None)
         
-
         # unbind VAO
         glBindVertexArray(0)
 
-
 class RenderWindow:
     """GLFW Rendering window class"""
-    def __init__(self):
+    def __init__(self, params):
 
         # save current working directory
         cwd = os.getcwd()
@@ -248,7 +246,7 @@ class RenderWindow:
         # initialize GL
         glViewport(0, 0, self.width, self.height)
         glEnable(GL_DEPTH_TEST)
-        glClearColor(0.5, 0.5, 0.5,1.0)
+        glClearColor(1.0, 1.0, 1.0,1.0)
 
         # set window callbacks
         glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
@@ -256,7 +254,7 @@ class RenderWindow:
         glfw.SetWindowSizeCallback(self.win, self.onSize)        
 
         # create 3D
-        self.scene = Scene()
+        self.scene = Scene(params)
 
         # exit flag
         self.exitNow = False
@@ -272,6 +270,8 @@ class RenderWindow:
             # ESC to quit
             if key == glfw.KEY_ESCAPE: 
                 self.exitNow = True
+            else:
+                self.scene.showCylinder = not self.scene.showCylinder
         
     def onSize(self, win, width, height):
         #print 'onsize: ', win, width, height
@@ -296,7 +296,7 @@ class RenderWindow:
                 # build projection matrix
                 pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
                 
-                mvMatrix = glutils.lookAt([0.0, 4.0, 10.0], [0.0, 2.0, 2.0],
+                mvMatrix = glutils.lookAt([0.0, 4.0, 8.0], [0.0, 2.0, 2.0],
                                           [0.0, -1.0, 0.0])
                 # render
                 self.scene.render(pMatrix, mvMatrix)
@@ -311,8 +311,29 @@ class RenderWindow:
 
 # main() function
 def main():
-    print 'starting anamorphic...'    
-    rw = RenderWindow()
+    print 'starting anamorphic...'  
+
+    # create parser
+    parser = argparse.ArgumentParser(description="Anamorphic Projection...")
+    # add expected arguments
+    parser.add_argument('--file', dest='imgFile', required=True)
+    parser.add_argument('--radius', dest='radius', required=False)
+    parser.add_argument('--height', dest='height', required=False)
+    parser.add_argument('--eye', dest='eye', required=False)
+    # parse args
+    args = parser.parse_args()
+    
+    # parameters in a dictionary
+    params = {'file':"", 'R':1.0, 'H':2.0, 'eye': [0.0, 0.0, 0.0]}
+    params['file'] = args.imgFile;
+    if args.radius:
+        params['R'] = float(args.radius)
+    if args.height:
+        params['H'] = float(args.height)
+    if args.eye:
+        params['eye'] = args.eye
+
+    rw = RenderWindow(params)
     rw.run()
 
 # call main
