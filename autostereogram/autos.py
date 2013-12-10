@@ -118,10 +118,8 @@ def main():
       outFile = args.outFile
   # open depth map
   dmImg = Image.open(args.dmFile)
-  # create a tile
-  tile = createRandomTile((100, 100))
   # create stereogram
-  asImg = createAutostereogram(dmImg, tile)
+  asImg = createAutostereogram(dmImg, False)
   # write output
   asImg.save(outFile)
 
