@@ -14,6 +14,8 @@ import glutils
 
 import cyglfw3 as glfw
 
+from imagerender import ImageRender
+
 strVS = """
 #version 330 core
 
@@ -71,6 +73,7 @@ class Scene:
     """ OpenGL 3D scene class"""
     # initialization
     def __init__(self, params):
+        self.aspect = 1.0
         # create shader
         self.program = glutils.loadShaders(strVS, strFS)
 
@@ -173,6 +176,9 @@ class Scene:
         self.texId = glutils.loadTexture(params['file'])
 
         self.showCylinder = True
+        
+        # create image render object
+        self.ir = ImageRender(800, 600, GL_TEXTURE1)
 
     # step
     def step(self):
@@ -182,8 +188,26 @@ class Scene:
         glUniform1f(glGetUniformLocation(self.program, 'uTheta'), 
                     math.radians(self.t))
 
+    # save to image
+    def renderToImage(self, imgFile):
+        self.ir.bind()
+        self.render()
+        self.ir.saveImage(imgFile)
+        self.ir.unbind()
+        self.ir.close()
+
     # render 
-    def render(self, pMatrix, mvMatrix):        
+    def render(self):     
+
+        # clear
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        
+        # build projection matrix
+        pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
+        
+        mvMatrix = glutils.lookAt([0.0, 4.0, 8.0], [0.0, 2.0, 2.0],
+                                  [0.0, -1.0, 0.0])
+
         # use shader
         glUseProgram(self.program)
         
@@ -216,6 +240,7 @@ class Scene:
         
         # unbind VAO
         glBindVertexArray(0)
+
 
 class RenderWindow:
     """GLFW Rendering window class"""
@@ -255,6 +280,7 @@ class RenderWindow:
 
         # create 3D
         self.scene = Scene(params)
+        self.scene.aspect = self.aspect
 
         # exit flag
         self.exitNow = False
@@ -270,6 +296,9 @@ class RenderWindow:
             # ESC to quit
             if key == glfw.KEY_ESCAPE: 
                 self.exitNow = True
+            elif key == glfw.KEY_P:
+                print 'saving...'
+                self.scene.renderToImage('test.png')
             else:
                 self.scene.showCylinder = not self.scene.showCylinder
         
@@ -278,6 +307,7 @@ class RenderWindow:
         self.width = width
         self.height = height
         self.aspect = width/float(height)
+        self.scene.aspect = self.aspect
         glViewport(0, 0, self.width, self.height)
 
     def run(self):
@@ -290,16 +320,8 @@ class RenderWindow:
             if currT - t > 0.1:
                 # update time
                 t = currT
-                # clear
-                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-                
-                # build projection matrix
-                pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
-                
-                mvMatrix = glutils.lookAt([0.0, 4.0, 8.0], [0.0, 2.0, 2.0],
-                                          [0.0, -1.0, 0.0])
                 # render
-                self.scene.render(pMatrix, mvMatrix)
+                self.scene.render()
                 # step 
                 self.scene.step()
 
