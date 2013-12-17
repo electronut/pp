@@ -69,22 +69,20 @@ void main() {
 }
 """
 
-class Scene:    
-    """ OpenGL 3D scene class"""
+class Anamorph:    
+    """ OpenGL 3D anamorph class"""
     # initialization
     def __init__(self, params):
+
+        # window dims
+        self.width, self.height = params['winDims']
+
+        # output image dimensions
+        self.imgWidth, self.imgHeight = params['imgDims']
+        
         self.aspect = 1.0
         # create shader
         self.program = glutils.loadShaders(strVS, strFS)
-
-        glUseProgram(self.program)
-
-        self.pMatrixUniform = glGetUniformLocation(self.program, 
-                                                   'uPMatrix')
-        self.mvMatrixUniform = glGetUniformLocation(self.program, 
-                                                  "uMVMatrix")
-        # texture 
-        self.tex2D = glGetUniformLocation(self.program, "tex2D")
 
         # define triange strip vertices 
         R = 1.0
@@ -178,7 +176,7 @@ class Scene:
         self.showCylinder = True
         
         # create image render object
-        self.ir = ImageRender(800, 600, GL_TEXTURE1)
+        self.ir = ImageRender(self.imgWidth, self.imgHeight, GL_TEXTURE1)
 
     # step
     def step(self):
@@ -191,10 +189,13 @@ class Scene:
     # save to image
     def renderToImage(self, imgFile):
         self.ir.bind()
+        glViewport(0, 0, self.imgWidth, self.imgHeight)
+        glEnable(GL_DEPTH_TEST)
         self.render()
         self.ir.saveImage(imgFile)
         self.ir.unbind()
         self.ir.close()
+        glViewport(0, 0, self.width, self.height)
 
     # render 
     def render(self):     
@@ -212,15 +213,18 @@ class Scene:
         glUseProgram(self.program)
         
         # set proj matrix
-        glUniformMatrix4fv(self.pMatrixUniform, 1, GL_FALSE, pMatrix)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, 'uPMatrix'), 
+                           1, GL_FALSE, pMatrix)
 
         # set modelview matrix
-        glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, 
+                                                "uMVMatrix"), 
+                           1, GL_FALSE, mvMatrix)
 
         # enable texture 
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texId)
-        glUniform1i(self.tex2D, 0)
+        glUniform1i(glGetUniformLocation(self.program, "tex2D"), 0)
 
         # bind VAO
         glBindVertexArray(self.vao)
@@ -262,7 +266,7 @@ class RenderWindow:
         glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
     
         # make a window
-        self.width, self.height = 640, 480
+        self.width, self.height = params['winDims']
         self.aspect = self.width/float(self.height)
         self.win = glfw.CreateWindow(self.width, self.height, "anamorphic")
         # make context current
@@ -279,8 +283,8 @@ class RenderWindow:
         glfw.SetWindowSizeCallback(self.win, self.onSize)        
 
         # create 3D
-        self.scene = Scene(params)
-        self.scene.aspect = self.aspect
+        self.anamorph = Anamorph(params)
+        self.anamorph.aspect = self.aspect
 
         # exit flag
         self.exitNow = False
@@ -298,16 +302,16 @@ class RenderWindow:
                 self.exitNow = True
             elif key == glfw.KEY_P:
                 print 'saving...'
-                self.scene.renderToImage('test.png')
+                self.anamorph.renderToImage('test.png')
             else:
-                self.scene.showCylinder = not self.scene.showCylinder
+                self.anamorph.showCylinder = not self.anamorph.showCylinder
         
     def onSize(self, win, width, height):
         #print 'onsize: ', win, width, height
         self.width = width
         self.height = height
         self.aspect = width/float(height)
-        self.scene.aspect = self.aspect
+        self.anamorph.aspect = self.aspect
         glViewport(0, 0, self.width, self.height)
 
     def run(self):
@@ -321,9 +325,9 @@ class RenderWindow:
                 # update time
                 t = currT
                 # render
-                self.scene.render()
+                self.anamorph.render()
                 # step 
-                self.scene.step()
+                self.anamorph.step()
 
                 glfw.SwapBuffers(self.win)
                 # Poll for and process events
@@ -354,6 +358,11 @@ def main():
         params['H'] = float(args.height)
     if args.eye:
         params['eye'] = args.eye
+
+        
+    # compute projection parameters
+    params['winDims'] = (640, 480)
+    params['imgDims'] = (800, 600)
 
     rw = RenderWindow(params)
     rw.run()
