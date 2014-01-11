@@ -63,17 +63,19 @@ def getImages(imageDir):
   files = os.listdir(imageDir)
   images = []
   for file in files:
-    file_path = os.path.abspath(os.path.join(imageDir, file))
+    filePath = os.path.abspath(os.path.join(imageDir, file))
     try:
       # explicit load so we don't run into resource crunch
-      fp = open(file_path, "rb")
+      fp = open(filePath, "rb")
       im = Image.open(fp)
       images.append(im)
-      im.load() # force loading of the first frame
-      fp.close() # force-close the file
+      # force loading of the first frame
+      im.load() 
+      # close the file
+      fp.close() 
     except:
       # skip
-      print 'Invalid image: ', file_path
+      print 'Invalid image: ', filePath
   return images
 
 def getImageFilenames(imageDir):
@@ -83,14 +85,14 @@ def getImageFilenames(imageDir):
   files = os.listdir(imageDir)
   filenames = []
   for file in files:
-    file_path = os.path.abspath(os.path.join(imageDir, file))
+    filePath = os.path.abspath(os.path.join(imageDir, file))
     try:
-      imgType = imghdr.what(file_path) 
+      imgType = imghdr.what(filePath) 
       if imgType:
-        filenames.append(file_path)
+        filenames.append(filePath)
     except:
       # skip
-      print 'Invalid image: ', file_path
+      print 'Invalid image: ', filePath
   return filenames
 
 def getBestMatchIndex(input_avg, avgs):
