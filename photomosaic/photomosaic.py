@@ -11,7 +11,7 @@ import Image
 import imghdr
 import numpy as np
 
-def getAverageRGB(image):
+def getAverageRGBOld(image):
   """
   Given PIL Image, return average value of color as (r, g, b)
   """
@@ -26,7 +26,7 @@ def getAverageRGB(image):
   avg = tuple([sum(x)/npixels for x in zip(*sumRGB)])
   return avg
 
-def getAverageRGBNP(image):
+def getAverageRGB(image):
   """
   Given PIL Image, return average value of color as (r, g, b)
   """
@@ -34,10 +34,8 @@ def getAverageRGBNP(image):
   im = np.array(image)
   # get shape
   w,h,d = im.shape
-  # change shape
-  im.shape = (w*h, d)
   # get average
-  return tuple(np.average(im, axis=0))
+  return tuple(np.average(im.reshape(w*h, d), axis=0))
 
 def splitImage(image, size):
   """
@@ -69,7 +67,7 @@ def getImages(imageDir):
       fp = open(filePath, "rb")
       im = Image.open(fp)
       images.append(im)
-      # force loading of the first frame
+      # force loading image data from file
       im.load() 
       # close the file
       fp.close() 
