@@ -48,7 +48,6 @@ def splitImage(image, size):
   imgs = []
   # generate list of dimensions
   for j in range(m):
-    row = []
     for i in range(n):
       # append cropped image
       imgs.append(image.crop((i*w, j*h, (i+1)*w, (j+1)*h)))
