@@ -116,10 +116,10 @@ def getBestMatchIndex(input_avg, avgs):
   return min_index
 
 
-def createImageGrid(images, dims, gap = 0):
+def createImageGrid(images, dims):
   """
   Given a list of images and a grid size (m, n), create 
-  a grid of images. gap is the space between the tiles.
+  a grid of images. 
   """
   m, n = dims
 
@@ -132,7 +132,7 @@ def createImageGrid(images, dims, gap = 0):
   height = max([img.size[1] for img in images])
 
   # create output image
-  grid_img = Image.new('RGB', (n*(width + gap) + gap, m*(height + gap) + gap))
+  grid_img = Image.new('RGB', (n*width, m*height))
   
   # paste images
   for index in range(len(images)):
@@ -144,7 +144,7 @@ def createImageGrid(images, dims, gap = 0):
 
 
 def createPhotomosaic(target_image, input_images, grid_size,
-                      reuse_images=True, gap = 0):
+                      reuse_images=True):
   """
   Creates photomosaic given target and input images.
   """
@@ -181,7 +181,7 @@ def createPhotomosaic(target_image, input_images, grid_size,
 
   print 'creating mosaic...'
   # draw mosaic to image
-  mosaic_image = createImageGrid(output_images, grid_size, gap)
+  mosaic_image = createImageGrid(output_images, grid_size)
 
   # return mosaic
   return mosaic_image
@@ -224,9 +224,6 @@ def main():
   # re-use any image in input
   reuse_images = True
 
-  #gap between images
-  gap = 0
-
   # resize the input to fit original image size?
   resize_input = True
 
@@ -253,7 +250,7 @@ def main():
 
   # create photomosaic
   mosaic_image = createPhotomosaic(target_image, input_images, grid_size,
-                                   reuse_images, gap)
+                                   reuse_images)
 
   # write out mosaic
   mosaic_image.save(output_filename, 'PNG')
