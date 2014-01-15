@@ -128,8 +128,8 @@ def createImageGrid(images, dims, gap = 0):
 
   # get max height and width of images
   # ie, not assuming they are all equal
-  width = sorted([img.size[0] for img in images], reverse=True)[0]
-  height = sorted([img.size[1] for img in images], reverse=True)[0]
+  width = max([img.size[0] for img in images])
+  height = max([img.size[1] for img in images])
 
   # create output image
   grid_img = Image.new('RGB', (n*(width + gap) + gap, m*(height + gap) + gap))
