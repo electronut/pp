@@ -7,7 +7,7 @@ Author: Mahesh Venkitachalam
 """
 
 import sys, random, argparse
-import Image, ImageDraw
+from PIL import Image, ImageDraw
 
 # create spacing/depth example
 def createSpacingDepthExample():
@@ -46,8 +46,8 @@ def createTiledImage(tile, dims):
   W, H = dims
   w, h = tile.size
   # calculate # of tiles needed
-  cols = W/w + 1
-  rows = H/h + 1
+  cols = int(W/w) + 1
+  rows = int(H/h) + 1
   # paste tiles
   for i in range(rows):
     for j in range(cols):
@@ -116,7 +116,7 @@ def createAutostereogram(dmap, tile):
 # main() function
 def main():
   # use sys.argv if needed
-  print 'creating autostereogram...'
+  print('creating autostereogram...')
   # create parser
   parser = argparse.ArgumentParser(description="Autosterograms...")
   # add expected arguments
