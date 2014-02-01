@@ -121,16 +121,22 @@ def main():
   parser = argparse.ArgumentParser(description="Autosterograms...")
   # add expected arguments
   parser.add_argument('--depth', dest='dmFile', required=True)
+  parser.add_argument('--tile', dest='tileFile', required=False)
   parser.add_argument('--out', dest='outFile', required=False)
   # parse args
   args = parser.parse_args()
+  # set output file
   outFile = 'as.png'
   if args.outFile:
       outFile = args.outFile
+  # set tile
+  tileFile = False
+  if args.tileFile:
+      tileFile = Image.open(args.tileFile)
   # open depth map
   dmImg = Image.open(args.dmFile)
   # create stereogram
-  asImg = createAutostereogram(dmImg, False)
+  asImg = createAutostereogram(dmImg, tileFile)
   # write output
   asImg.save(outFile)
 
