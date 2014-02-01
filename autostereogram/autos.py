@@ -9,6 +9,17 @@ Author: Mahesh Venkitachalam
 import sys, random, argparse
 import Image, ImageDraw
 
+# create spacing/depth example
+def createSpacingDepthExample():
+    tiles = [Image.open('test/a.png'), Image.open('test/b.png'), 
+             Image.open('test/c.png')]
+    img = Image.new('RGB', (600, 400), (0, 0, 0))
+    spacing = [10, 20, 40]
+    for j, tile in enumerate(tiles):
+        for i in range(8):
+            img.paste(tile, (10 + i*(100 + j*10), 10 + j*100))
+    img.save('sdepth.png')
+
 # create image filled with random dots
 def createRandomTile(dims):
   # create image
