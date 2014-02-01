@@ -25,9 +25,9 @@ def createRandomTile(dims):
   # create image
   img = Image.new('RGB', dims)
   draw = ImageDraw.Draw(img)
-  # calculate radius - 10 % of min dimension 
-  r = 0.01*min(*dims)
-  # number of dots - 30% of area
+  # calculate radius - % of min dimension 
+  r = int(min(*dims)/100)
+  # number of dots
   n = 1000
   # draw random circles
   for i in range(n):
@@ -72,7 +72,6 @@ def createDepthShiftedImage(dmap, img):
   sImg = img.copy()
   # get pixel access
   pixD = dmap.load()
-  pixI = img.load()
   pixS = sImg.load()
   # shift pixels output based on depth map
   cols, rows = sImg.size
@@ -100,7 +99,6 @@ def createAutostereogram(dmap, tile):
   sImg = img.copy()
   # get pixel access
   pixD = dmap.load()
-  pixI = img.load()
   pixS = sImg.load()
   # shift pixels output based on depth map
   cols, rows = sImg.size
