@@ -7,7 +7,7 @@ Author: Mahesh Venkitachalam
 """
 
 import sys, os, random, argparse
-import Image
+from PIL import Image
 import imghdr
 import numpy as np
 
@@ -23,7 +23,7 @@ def getAverageRGBOld(image):
   sumRGB = [(x[0]*x[1][0], x[0]*x[1][1], x[0]*x[1][2]) for x in cols] 
   # calculate (sum(ci*ri)/np, sum(ci*gi)/np, sum(ci*bi)/np)
   # the zip gives us [(c1*r1, c2*r2, ..), (c1*g1, c1*g2,...)...]
-  avg = tuple([sum(x)/npixels for x in zip(*sumRGB)])
+  avg = tuple([int(sum(x)/npixels) for x in zip(*sumRGB)])
   return avg
 
 def getAverageRGB(image):
@@ -43,7 +43,7 @@ def splitImage(image, size):
   """
   W, H = image.size[0], image.size[1]
   m, n = size
-  w, h = W/n, H/m
+  w, h = int(W/n), int(H/m)
   # image list
   imgs = []
   # generate list of dimensions
@@ -72,7 +72,7 @@ def getImages(imageDir):
       fp.close() 
     except:
       # skip
-      print 'Invalid image: ', filePath
+      print("Invalid image: %s" % (filePath,))
   return images
 
 def getImageFilenames(imageDir):
@@ -89,7 +89,7 @@ def getImageFilenames(imageDir):
         filenames.append(filePath)
     except:
       # skip
-      print 'Invalid image: ', filePath
+      print("Invalid image: %s" % (filePath,))
   return filenames
 
 def getBestMatchIndex(input_avg, avgs):
@@ -136,7 +136,7 @@ def createImageGrid(images, dims):
   
   # paste images
   for index in range(len(images)):
-    row = index/n
+    row = int(index/n)
     col = index - n*row
     grid_img.paste(images[index], (col*width, row*height))
     
@@ -149,16 +149,16 @@ def createPhotomosaic(target_image, input_images, grid_size,
   Creates photomosaic given target and input images.
   """
 
-  print 'splitting input image...'
+  print('splitting input image...')
   # split target image 
   target_images = splitImage(target_image, grid_size)
 
-  print 'finding image matches...'
+  print('finding image matches...')
   # for each target image, pick one from input
   output_images = []
   # for user feedback
   count = 0
-  batch_size = len(target_images)/10
+  batch_size = int(len(target_images)/10)
 
   # calculate input image averages
   avgs = []
@@ -173,13 +173,13 @@ def createPhotomosaic(target_image, input_images, grid_size,
     output_images.append(input_images[match_index])
     # user feedback
     if count > 0 and count % batch_size is 0:
-      print 'processed ' + str(count) + ' of ' + str(len(target_images)) + '...' 
+      print('processed ', str(count), ' of ', str(len(target_images)), '...') 
     count += 1
     # remove selected image from input if flag set
     if not reuse_images:
       input_images.remove(match)
 
-  print 'creating mosaic...'
+  print('creating mosaic...')
   # draw mosaic to image
   mosaic_image = createImageGrid(output_images, grid_size)
 
@@ -207,7 +207,7 @@ def main():
   target_image = Image.open(args.target_image)
 
   # input images
-  print 'reading input folder...'
+  print('reading input folder...')
   input_images = getImages(args.input_folder)
 
   # shuffle list - to get a more varied output?
@@ -229,21 +229,21 @@ def main():
 
   ##### END INPUTS #####
 
-  print 'starting photomosaic creation...'
+  print('starting photomosaic creation...')
   
   # if images can't be reused, ensure m*n <= num_of_images 
   if not reuse_images:
     if grid_size[0]*grid_size[1] > len(input_images):
-      print 'grid size less than number of images'
+      print('grid size less than number of images')
       exit()
   
   # resizing input
   if resize_input:
-    print 'resizing images...'
+    print('resizing images...')
     # for given grid size, compute max dims w,h of tiles
-    dims = (target_image.size[0]/grid_size[1], 
-            target_image.size[1]/grid_size[0]) 
-    print 'max tile dims: ', dims
+    dims = (int(target_image.size[0]/grid_size[1]), 
+            int(target_image.size[1]/grid_size[0])) 
+    print("max tile dims: %s" % (dims,))
     # resize
     for img in input_images:
       img.thumbnail(dims)
@@ -255,8 +255,8 @@ def main():
   # write out mosaic
   mosaic_image.save(output_filename, 'PNG')
 
-  print 'saved output to', output_filename
-  print 'done.'
+  print("saved output to %s" % (output_filename,))
+  print('done.')
 
 # Standard boilerplate to call the main() function to begin
 # the program.
