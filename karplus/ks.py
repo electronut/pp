@@ -40,7 +40,7 @@ def writeWAVE(fname, data):
 def generateNote(freq):
     nSamples = 44100
     sampleRate = 44100
-    N = sampleRate/freq
+    N = int(sampleRate/freq)
     # initialize ring buffer
     buf = deque([random.random() - 0.5 for i in range(N)])
     # plot of flag set 
@@ -80,11 +80,11 @@ class NotePlayer:
         try:
             self.notes[fileName].play()
         except:
-            print fileName + ' not found!'
+            print(fileName + ' not found!')
     def playRandom(self):
         """play a random note"""
         index = random.randint(0, len(self.notes)-1)
-        note = self.notes.values()[index]
+        note = list(self.notes.values())[index]
         note.play()
 
 # main() function
@@ -107,15 +107,15 @@ def main():
     # create note player
     nplayer = NotePlayer()
 
-    print 'creating notes...'
-    for name, freq in pmNotes.items():
+    print('creating notes...')
+    for name, freq in list(pmNotes.items()):
         fileName = name + '.wav' 
         if not os.path.exists(fileName) or args.display:
             data = generateNote(freq) 
-            print 'creating ' + fileName + '...'
+            print('creating ' + fileName + '...')
             writeWAVE(fileName, data) 
         else:
-            print 'fileName already created. skipping...' 
+            print('fileName already created. skipping...')
         
         # add note to player
         nplayer.add(name + '.wav')
@@ -142,7 +142,7 @@ def main():
         while True:
             for event in pygame.event.get():
                 if (event.type == pygame.KEYUP):
-                    print "key pressed"
+                    print("key pressed")
                     nplayer.playRandom()
                     time.sleep(0.5)
   
