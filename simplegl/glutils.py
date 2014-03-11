@@ -13,7 +13,7 @@ from OpenGL.GL.shaders import *
 import numpy, math
 import numpy as np
 
-import Image
+from PIL import Image
 
 def loadTexture(filename):
     """load OpenGL 2D texture from given image file"""
@@ -95,12 +95,44 @@ def translate(tx, ty, tz):
                      0.0, 0.0, 1.0, 0.0, 
                      tx, ty, tz, 1.0], np.float32)
 
+def compileShader2(source, shaderType):
+    """Compile shader source of given type
+    source -- GLSL source-code for the shader
+    shaderType -- GLenum GL_VERTEX_SHADER, GL_FRAGMENT_SHADER, etc,
+    returns GLuint compiled shader reference
+    raises RuntimeError when a compilation failure occurs
+    """
+    if isinstance(source, str):
+        print('string shader')
+        source = [source]
+    elif isinstance(source, bytes):
+        print('bytes shader')
+        source = [source.decode('utf-8')]
+        
+    shader = glCreateShader(shaderType)
+    glShaderSource(shader, source)
+    glCompileShader(shader)
+    result = glGetShaderiv(shader, GL_COMPILE_STATUS)
+    
+    if not(result):
+        # TODO: this will be wrong if the user has
+        # disabled traditional unpacking array support.
+        raise RuntimeError(
+            """Shader compile failure (%s): %s"""%(
+                result,
+                glGetShaderInfoLog( shader ),
+                ),
+            source,
+            shaderType,
+            )
+    return shader
+
 def loadShaders(strVS, strFS):
     """load vertex and fragment shaders from strings"""
     # compile vertex shader
-    shaderV = compileShader(strVS, GL_VERTEX_SHADER)
+    shaderV = compileShader([strVS], GL_VERTEX_SHADER)
     # compiler fragment shader
-    shaderF = compileShader(strFS, GL_FRAGMENT_SHADER)
+    shaderF = compileShader([strFS], GL_FRAGMENT_SHADER)
     
     # create the program object
     program = glCreateProgram()

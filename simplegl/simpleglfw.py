@@ -91,11 +91,11 @@ class Scene:
         glUseProgram(self.program)
 
         self.pMatrixUniform = glGetUniformLocation(self.program, 
-                                                   'uPMatrix')
+                                                   b'uPMatrix')
         self.mvMatrixUniform = glGetUniformLocation(self.program, 
-                                                  "uMVMatrix")
+                                                  b'uMVMatrix')
         # texture 
-        self.tex2D = glGetUniformLocation(self.program, "tex2D")
+        self.tex2D = glGetUniformLocation(self.program, b'tex2D')
 
         # define triange strip vertices 
         vertexData = numpy.array(
@@ -149,7 +149,7 @@ class Scene:
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
 
         # show circle?
-        glUniform1i(glGetUniformLocation(self.program, 'showCircle'), 
+        glUniform1i(glGetUniformLocation(self.program, b'showCircle'), 
                     self.showCircle)
 
         # enable texture 
@@ -187,7 +187,8 @@ class RenderWindow:
         # make a window
         self.width, self.height = 640, 480
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, "simpleglfw")
+        self.win = glfw.CreateWindow(self.width, self.height, 
+                                     b'simpleglfw')
         # make context current
         glfw.MakeContextCurrent(self.win)
         
@@ -260,7 +261,7 @@ class RenderWindow:
 
 # main() function
 def main():
-    print 'starting simpleglfw...'    
+    print('starting simpleglfw...')
     rw = RenderWindow()
     rw.run()
 
