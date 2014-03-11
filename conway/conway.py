@@ -63,10 +63,10 @@ def update(frameNum, img, grid, N):
             # compute 8-neghbor sum
             # using toroidal boundary conditions - x and y wrap around 
             # so that the simulaton takes place on a toroidal surface.
-            total = (grid[i, (j-1)%N] + grid[i, (j+1)%N] + 
-                     grid[(i-1)%N, j] + grid[(i+1)%N, j] + 
-                     grid[(i-1)%N, (j-1)%N] + grid[(i-1)%N, (j+1)%N] + 
-                     grid[(i+1)%N, (j-1)%N] + grid[(i+1)%N, (j+1)%N])/255
+            total = int((grid[i, (j-1)%N] + grid[i, (j+1)%N] + 
+                         grid[(i-1)%N, j] + grid[(i+1)%N, j] + 
+                         grid[(i-1)%N, (j-1)%N] + grid[(i-1)%N, (j+1)%N] + 
+                         grid[(i+1)%N, (j-1)%N] + grid[(i+1)%N, (j+1)%N])/255)
             # apply Conway's rules
             if grid[i, j]  == ON:
                 if (total < 2) or (total > 3):
