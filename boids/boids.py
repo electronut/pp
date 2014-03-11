@@ -24,7 +24,7 @@ class Boids:
         self.pos = [width/2.0, height/2.0] + 10*np.random.rand(2*N).reshape(N, 2)
         # normalized random velocities
         angles = 2*math.pi*np.random.rand(N)
-        self.vel = np.array(zip(np.sin(angles), np.cos(angles)))
+        self.vel = np.array(list(zip(np.sin(angles), np.cos(angles))))
         self.N = N
         # min dist of approach
         self.minDist = 25.0
@@ -103,7 +103,7 @@ class Boids:
                                       axis=0)
             # random velocity
             angles = 2*math.pi*np.random.rand(1)
-            v = np.array(zip(np.sin(angles), np.cos(angles)))
+            v = np.array(list(zip(np.sin(angles), np.cos(angles))))
             self.vel = np.concatenate((self.vel, v), axis=0)
             self.N += 1 
         # right click - scatter
@@ -120,7 +120,7 @@ def tick(frameNum, pts, beak, boids):
 # main() function
 def main():
   # use sys.argv if needed
-  print 'starting boids...'
+  print('starting boids...')
 
   parser = argparse.ArgumentParser(description="Implementing Craig Reynold's Boids...")
   # add arguments
