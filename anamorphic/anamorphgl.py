@@ -11,6 +11,7 @@ from OpenGL.GL import *
 
 import numpy, math, sys, os, argparse
 import glutils
+import Image
 
 import cyglfw3 as glfw
 
@@ -26,6 +27,7 @@ uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform float uTheta;
 uniform bool showProjection;
+uniform vec3 uEye;
 
 out vec2 vTexCoord;
 out vec4 vColor;
@@ -37,7 +39,7 @@ void main() {
 
   if (showProjection) {
     float R = 1.0;
-    vec3 E = vec3(0.0, 5.0, 8.0);
+    vec3 E = uEye;
     vec3 N = vec3(aVert.xy/R, 0.0);
     vec3 I = aVert;
     vec3 d1 = normalize(I-E);
@@ -74,6 +76,7 @@ class Anamorph:
     # initialization
     def __init__(self, params):
 
+        self.params = params
         # window dims
         self.width, self.height = params['winDims']
 
@@ -85,13 +88,16 @@ class Anamorph:
         self.program = glutils.loadShaders(strVS, strFS)
 
         # define triange strip vertices 
-        R = 1.0
+        R = params['r']
         nR = 100
-        H = 4.0
+        H = params['hCyl']
         nH = 100     
         vertexData = numpy.zeros(3*nR*nH, numpy.float32).reshape(nR*nH, 3)
         texData = numpy.zeros(2*nR*nH, numpy.float32).reshape(nR*nH, 2)
-        angles = numpy.linspace(0, math.pi, nR)
+        # angles
+        tStart = math.pi/2.0 - params['theta']
+        tEnd = math.pi/2.0 + params['theta']
+        angles = numpy.linspace(tStart, tEnd, nR)
         heights = numpy.linspace(0, H, nH)
         i = 0
         for h in heights:
@@ -205,10 +211,28 @@ class Anamorph:
         
         # build projection matrix
         pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
-        
-        mvMatrix = glutils.lookAt([0.0, 4.0, 8.0], [0.0, 2.0, 2.0],
-                                  [0.0, -1.0, 0.0])
 
+        R = self.params['R']
+        pMatrix = glutils.ortho(-R, R, -R, R, 0.1, 100.0)
+
+        #mvMatrix = glutils.lookAt([0.0, 4.0, 8.0], [0.0, 2.0, 2.0],
+        #                          [0.0, -1.0, 0.0])
+
+        mvMatrix = glutils.lookAt([0.0, 0.0, -15.0], [0.0, 0.0, 0.0],
+                                  [1.0, 0.0, 0.0])
+
+        mvMatrix = glutils.translate(0.0, 0.0, -15.0)
+
+        """
+        pMatrix = glutils.ortho(*self.params['ortho'])
+
+        pMatrix = glutils.ortho(0.2050109578077233, 6.120701299694291, 
+                                -3.4934772684871156, 3.4934772684871156, 
+                                0.1, 100.0)
+         mvMatrix = glutils.lookAt([0.0, 0.0, -20.0], [0.0, 0.0, 0.0],
+                                  [0.0, 1.0, 0.0])
+
+        """
         # use shader
         glUseProgram(self.program)
         
@@ -221,6 +245,11 @@ class Anamorph:
                                                 "uMVMatrix"), 
                            1, GL_FALSE, mvMatrix)
 
+        # set eye
+        eye = self.params['eye']
+        glUniform3f(glGetUniformLocation(self.program, 'uEye'),
+                    eye[0], eye[1], eye[2])
+        
         # enable texture 
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, self.texId)
@@ -275,7 +304,7 @@ class RenderWindow:
         # initialize GL
         glViewport(0, 0, self.width, self.height)
         glEnable(GL_DEPTH_TEST)
-        glClearColor(1.0, 1.0, 1.0,1.0)
+        glClearColor(1.0, 1.0, 1.0, 1.0)
 
         # set window callbacks
         glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
@@ -343,26 +372,46 @@ def main():
     parser = argparse.ArgumentParser(description="Anamorphic Projection...")
     # add expected arguments
     parser.add_argument('--file', dest='imgFile', required=True)
-    parser.add_argument('--radius', dest='radius', required=False)
-    parser.add_argument('--height', dest='height', required=False)
-    parser.add_argument('--eye', dest='eye', required=False)
+    parser.add_argument('--r', dest='radius', required=False)
+    parser.add_argument('--h', dest='height', required=False)
+    parser.add_argument('--d', dest='dist', required=False)
     # parse args
     args = parser.parse_args()
     
     # parameters in a dictionary
-    params = {'file':"", 'R':1.0, 'H':2.0, 'eye': [0.0, 0.0, 0.0]}
-    params['file'] = args.imgFile;
+    params = {}
+    params['file'] = args.imgFile
+    radius, height, dist = 1.0, 3.0, 4.0
     if args.radius:
-        params['R'] = float(args.radius)
+        radius = float(args.radius)
     if args.height:
-        params['H'] = float(args.height)
-    if args.eye:
-        params['eye'] = args.eye
+        height = float(args.height)
+    if args.dist:
+        dist = float(args.dist)
 
-        
+    # inputs
+    params['r'] = radius
+    Ey = dist
+    Ez = height    
+    params['eye'] = [0.0, Ey, Ez]
+    # get tex image dims
+    texImg = Image.open(args.imgFile)
+    texW, texH = texImg.size 
+    # compute image height on cylinder
+    theta = math.acos(radius/Ey)
+    params['theta'] = theta
+    print math.degrees(theta)
+    hCyl = (2.0*theta*radius)*texH/float(texW)
+
     # compute projection parameters
-    params['winDims'] = (640, 480)
-    params['imgDims'] = (800, 600)
+    R = abs(radius + hCyl*Ey/float(Ez-hCyl))
+    params['R'] = R 
+    params['hCyl'] = hCyl
+    params['winDims'] = (700, 700)
+    #params['imgDims'] = (int(300*2*R), int(300*2*R))
+    params['imgDims'] = (1024, 1024)
+
+    print params
 
     rw = RenderWindow(params)
     rw.run()

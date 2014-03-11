@@ -33,7 +33,7 @@ def loadTexture(filename):
 
 def perspective(fov, aspect, zNear, zFar):
     """returns matrix equivalent for gluPerspective"""
-    fovR = math.radians(45.0)
+    fovR = math.radians(fov)
     f = 1.0/math.tan(fovR/2.0)
     return numpy.array([f/float(aspect), 0.0,   0.0,                0.0, 
                         0.0,        f,   0.0,                0.0, 
@@ -47,7 +47,7 @@ def ortho(l, r, b, t, n, f):
                         0.0, 2.0/float(t-b), 0.0, 0.0,
                         0.0, 0.0, -2.0/float(f-n), 0.0,
                         -(r+l)/float(r-l), -(t+b)/float(t-b), 
-                        -(f+n)/float(f-n), 1.0])
+                        -(f+n)/float(f-n), 1.0], numpy.float32)
 
 
 def lookAt(eye, center, up):
