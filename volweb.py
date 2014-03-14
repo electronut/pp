@@ -39,4 +39,4 @@ def img():
     strData.seek(0)
     return strData.getvalue()
 
-run(host='localhost', port=8080, debug=True)
+run(host='192.168.4.3', port=8080, debug=True)
