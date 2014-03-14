@@ -26,6 +26,10 @@ def createRandomTile(dims):
   # return image
   return img
 
+@route("/test_template")
+def test_template(): 
+    return '<h4>Random Tile Image</h4><img src="/img" />';
+
 @route('/img')
 def img():
     im = createRandomTile((100, 100))
