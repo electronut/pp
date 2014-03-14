@@ -5,7 +5,7 @@ import io
 
 @route('/hello')
 def hello():
-    return "Volumes Web App!"
+    return "Hello Bottle!"
 
 # create image filled with random dots
 def createRandomTile(dims):
