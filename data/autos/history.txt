@@ -1,0 +1,208 @@
+import Image
+t1 = Image.open('a.png')
+t1.size
+t2 = Image.open('b.png')
+t3 = Image.open('c.png')
+t2.size
+t3.size
+import readline
+img = Image.new('RGB', (600, 400). (255, 255, 0))
+img = Image.new('RGB', (600, 400), (255, 255, 0))
+img.write('as.png')
+img.save('as.png')
+for i in range(5):
+  img.paste(t1, (10+i*100, 10)) 
+img.save('as.png')
+img = Image.new('RGB', (600, 400). (20, 20, 20))
+img = Image.new('RGB', (600, 400), (20, 20, 20))
+for i in range(5):
+  img.paste(t1, (10+i*100, 10)) 
+img.save('as.png')
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+  img.paste(t1, (10+i*100, 10)) 
+for i in range(5):
+
+img.save('as.png')
+for i in range(5):
+  img.paste(t2, (10+i*150, 10+100)) 
+img.save('as.png')
+for i in range(5):
+  img.paste(t3, (10+i*120, 10+300)) 
+img.save('as.png')
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+for i in range(5):
+  img.paste(t1, (10+i*100, 10)) 
+  img.paste(t1, (10+i*110, 10+100)
+  img.paste(t1, (10+i*120, 10+200)
+for i in range(5):
+  img.paste(t1, (10+i*100, 10)) 
+  img.paste(t1, (10+i*110, 10+100))
+  img.paste(t1, (10+i*120, 10+200))
+
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+for i in range(5):
+  img.paste(t1, (10+i*100, 10)) 
+  img.paste(t1, (10+i*130, 10+100))
+  img.paste(t1, (10+i*110, 10+200))
+img.save('as.png')
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+for i in range(5):
+ti = Image.open('a.png')
+t1 = Image.open('a.png')
+t2 = Image.open('b.png')
+tiles = [Image.open('a.png'), Image.open('b.png'), Image.open('c.png')]
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+for i in range(5):
+  for tile in tiles:
+for i in range(5):
+  for index,tile in enumerate(tiles):
+    print in, tile.size
+for i in range(5):
+  for j,tile in enumerate(tiles):
+    img.paste(tile, (10 + 100 + j*10, 10 + j*100))
+img.save('as.png')
+img = Image.new('RGB', (600, 400), (100, 100, 100))
+for i in range(5):
+for j, tile in tiles:
+  for i in range(5):
+    img.paste(tile, (10 + i*(100 + j*10), 10 + j*100))
+for j, tile in enumerate(tiles):
+  for i in range(5):
+    img.paste(tile, (10 + i*(100 + j*10), 10 + j*100))
+img.save('as.png')
+draw = ImageDraw(img)
+import ImageDarw
+import ImageDraw
+draw = ImageDraw(img)
+draw = ImageDraw.Draw(img)
+draw.text((10, 250), 'floating text', (0, 0, 0))
+img.save('as.png')
+draw.text((500, 250), 'floating text floating text floating text', (0, 0, 0))
+img.save('as.png')
+draw.text((250, 250), 'floating text floating text floating text', (0, 0, 0))
+img.save('as.png')
+import as
+import autos as as
+import autos as st
+reload(st)
+x[0]
+tile[0]
+tiles[0]
+img = st.createTiledImage(tiles[0], (600, 400))
+img.save('tiled.png')
+img = st.createTiledImage(tiles[0], (100, 200))
+img.save('tiled.png')
+img = st.createTiledImage(tiles[0], (100, 200))
+reload(st)
+img = st.createTiledImage(tiles[0], (100, 200))
+img.save('tiled.png')
+reload(st)
+img = st.createTiledImage(tiles[0], (100, 200))
+reload(st)
+img = st.createTiledImage(tiles[0], (100, 200))
+img.save('tiled.png')
+asset (1, 2) is (1,2)
+assert (1, 2) is (1,2)
+assert (1, 2) is not (1,2)
+assert (1, 2) is not (1, 2)
+assert (1, 2) is (1, 2)
+assert (1, 2) == (1, 2)
+assert (1, 2) == (2, 2)
+assert (1, 2) is equal to (1, 2)
+assert (1, 2) is equal (1, 2)
+assert (1, 2) equal (1, 2)
+assert (1, 2) == (2, 2)
+assert (1, 2) == (1, 2)
+print assert (1, 2) == (1, 2)
+dmap = Image.new('L', (600, 400))
+dmap.paste(10, (25, 25, 125, 125))
+dmap.save('dmap.png')
+dmap.paste(100, (25, 25, 125, 125))
+dmap.save('dmap.png')
+dmap.paste(50, (25, 25, 125, 125))
+dmap.save('dmap.png')
+dmap.paste(60, (25, 150, 125, 250))
+dmap.save('dmap.png')
+dmap.paste(70, (25, 275, 125, 375))
+dmap.save('dmap.png')
+dmap = Image.new('L', (600, 400))
+dmap.paste(10, (100, 100, 200, 200))
+dmap.paste(60, (100, 100, 200, 200))
+dmap = Image.new('L', (600, 400))
+dmap.paste(50, (100, 25, 200, 125))
+dmap.paste(60, (100, 150, 200, 250))
+dmap.paste(70, (100, 275, 200, 375))
+dmap.save('dmap.png')
+reload(st)
+pix = dmap.load()
+pix[0, 0]
+pix[0, 10]
+pix[100, 110]
+dmap.size
+reload(st)
+img = st.createTiledImage(tiles[0], (600, 400))
+img.save('tiled.png')
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+range(400
+)
+img.size
+dmap.size
+for i in range(6):
+  for j in range(4):
+	print i, j
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+pixD = dmap.load()
+pixD[0, 399]
+pixD[0, 400]
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+st.createTiledImage('pat.png', (600, 400))
+tile = Image.open('pat.png')
+st.createTiledImage(tile, (800, 600))
+st.createTiledImage(tile, (600, 400))
+img = st.createTiledImage(tile, (600, 400))
+img.save('tiled.png')
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+relaod(st)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+tile.size
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+reload(st)
+simg = st.createDepthShiftedImage(dmap, img)
+simg.save('simg.png')
+readline.write_history_file('history.txt')
