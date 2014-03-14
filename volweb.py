@@ -2,33 +2,15 @@ from bottle import route, run, response
 from PIL import Image, ImageDraw
 import random
 import io
+from autos import createRandomTile
 
 @route('/hello')
 def hello():
     return "Hello Bottle!"
 
-# create image filled with random dots
-def createRandomTile(dims):
-  # create image
-  img = Image.new('RGB', dims)
-  draw = ImageDraw.Draw(img)
-  # calculate radius - % of min dimension 
-  r = int(min(*dims)/100)
-  # number of dots
-  n = 1000
-  # draw random circles
-  for i in range(n):
-    # -r is used so circle stays inside - cleaner for tiling
-    x, y = random.randint(0, dims[0]-r), random.randint(0, dims[1]-r)
-    fill = (random.randint(0, 255), random.randint(0, 255), 
-            random.randint(0, 255))
-    draw.ellipse((x-r, y-r, x+r, y+r), fill)
-  # return image
-  return img
-
 @route("/test_template")
 def test_template(): 
-    return '<h4>Random Tile Image</h4><img src="/img" />';
+    return '<h4>Random Tile </h4><img src="/img" />';
 
 @route('/img')
 def img():
