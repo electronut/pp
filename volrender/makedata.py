@@ -13,7 +13,7 @@ import Image
 def makeSphereCuboid():
     """create a volume with a sphere and a cuboid inside"""
     Nx, Ny, Nz = 256, 256, 256
-    Nx2, Ny2, Nz2 = Nx/2, Ny/2, Nz/2
+    Nx2, Ny2, Nz2 = int(Nx/2), int(Ny/2), int(Nz/2)
     # fill with zeros
     a = np.zeros(Nx*Ny*Nz, np.uint8).reshape(Nx, Ny, Nz)
     # set data
@@ -43,7 +43,7 @@ def makeSphereCuboid():
 # main() function
 def main():
   # use sys.argv if needed
-  print 'running makedata...'
+  print('running makedata...')
   makeSphereCuboid()
 
 # call main

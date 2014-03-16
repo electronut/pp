@@ -13,7 +13,7 @@ from OpenGL.GL.shaders import *
 import numpy, math
 import numpy as np
 
-import Image
+from PIL import Image
 
 def loadTexture(filename):
     """load OpenGL 2D texture from given image file"""
@@ -162,8 +162,8 @@ void main()
 # for testing
 if __name__ == '__main__':
     
-    print 'testing shaders'
+    print('testing shaders')
     
     loadShaders(strVS, strFS)
     
-    print 'done'
+    print('done')

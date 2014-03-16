@@ -81,12 +81,12 @@ class SliceRender:
 
         glUseProgram(self.program)
 
-        self.pMatrixUniform = glGetUniformLocation(self.program, 'uPMatrix')
+        self.pMatrixUniform = glGetUniformLocation(self.program, b'uPMatrix')
         self.mvMatrixUniform = glGetUniformLocation(self.program, 
-                                                  "uMVMatrix")
+                                                  b"uMVMatrix")
 
         # attributes
-        self.vertIndex = glGetAttribLocation(self.program, "aVert")
+        self.vertIndex = glGetAttribLocation(self.program, b"aVert")
  
         # set up vertex array object (VAO)
         self.vao = glGenVertexArrays(1)
@@ -115,7 +115,7 @@ class SliceRender:
         self.texture, self.Nx, self.Ny, self.Nz = volume
 
         # current slice index
-        self.currSliceIndex = self.Nz/2;
+        self.currSliceIndex = int(self.Nz/2);
         self.currSliceMax = self.Nz;
 
 
@@ -144,16 +144,16 @@ class SliceRender:
         glUniformMatrix4fv(self.mvMatrixUniform, 1, GL_FALSE, mvMatrix)
 
         # set current slice fraction
-        glUniform1f(glGetUniformLocation(self.program, "uSliceFrac"), 
+        glUniform1f(glGetUniformLocation(self.program, b"uSliceFrac"), 
                     float(self.currSliceIndex)/float(self.currSliceMax))
         # set current slice mode
-        glUniform1i(glGetUniformLocation(self.program, "uSliceMode"), 
+        glUniform1i(glGetUniformLocation(self.program, b"uSliceMode"), 
                     self.mode)
         
         # enable texture
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_3D, self.texture)
-        glUniform1i(glGetUniformLocation(self.program, "texture"), 0)
+        glUniform1i(glGetUniformLocation(self.program, b"texture"), 0)
 
         # bind VAO
         glBindVertexArray(self.vao)
@@ -167,17 +167,17 @@ class SliceRender:
         if key == 'x':
             self.mode = SliceRender.XSLICE
             # reset slice index
-            self.currSliceIndex = self.Nx/2
+            self.currSliceIndex = int(self.Nx/2)
             self.currSliceMax = self.Nx
         elif key == 'y':
             self.mode = SliceRender.YSLICE
             # reset slice index
-            self.currSliceIndex = self.Ny/2
+            self.currSliceIndex = int(self.Ny/2)
             self.currSliceMax = self.Ny
         elif key == 'z':
             self.mode = SliceRender.ZSLICE
             # reset slice index
-            self.currSliceIndex = self.Nz/2
+            self.currSliceIndex = int(self.Nz/2)
             self.currSliceMax = self.Nz
         elif key == 'l':
             self.currSliceIndex = (self.currSliceIndex + 1) % self.currSliceMax

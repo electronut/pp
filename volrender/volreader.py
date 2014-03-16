@@ -8,7 +8,7 @@ Utilities for reading 3D volumetric data as a 3D OpenGL texture.
 
 import os
 import numpy as np
-import Image
+from PIL import Image
 
 import OpenGL
 from OpenGL.GL import *
@@ -19,7 +19,7 @@ def loadVolume(dirName):
     """read volume from directory as a 3D texture"""
     # list images in directory
     files = sorted(os.listdir(dirName))
-    print 'loading mages from:', dirName  
+    print('loading mages from: %s' % dirName)
     imgDataList = []
     count = 0
     width, height = 0, 0
@@ -38,18 +38,18 @@ def loadVolume(dirName):
                 if (width, height) == (img.size[0], img.size[1]):
                     imgDataList.append(imgData)
                 else:
-                    print 'mismatch'
+                    print('mismatch')
                     raise RunTimeError("image size mismatch")
             count += 1
             #print img.size            
         except:
             # skip
-            print 'Invalid image: ', file_path
+            print('Invalid image: %s' % file_path)
 
     # load image data into single array
     depth = count
     data = np.concatenate(imgDataList)
-    print 'volume data dims:', width, height, depth
+    print('volume data dims: %d %d %d' % (width, height, depth))
 
     # load data into 3D texture
     texture = glGenTextures(1)

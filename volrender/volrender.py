@@ -34,7 +34,7 @@ class RenderWin:
         # make a window
         self.width, self.height = 512, 512
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, "volrender")
+        self.win = glfw.CreateWindow(self.width, self.height, b"volrender")
         # make context current
         glfw.MakeContextCurrent(self.win)
         
@@ -110,7 +110,7 @@ class RenderWin:
 
 # main() function
 def main():
-  print 'starting volrender...'
+  print('starting volrender...')
   # create parser
   parser = argparse.ArgumentParser(description="Volume Rendering...")
   # add expected arguments

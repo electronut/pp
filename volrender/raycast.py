@@ -162,18 +162,18 @@ class RayCastRender:
         glUseProgram(self.program)
 
         # set window dimensions
-        glUniform2f(glGetUniformLocation(self.program, "uWinDims"),
+        glUniform2f(glGetUniformLocation(self.program, b"uWinDims"),
                     float(self.width), float(self.height))
 
         # texture unit 0 - back-faces of cube
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_2D, texture)
-        glUniform1i(glGetUniformLocation(self.program, "texBackFaces"), 0)
+        glUniform1i(glGetUniformLocation(self.program, b"texBackFaces"), 0)
         
         # texture unit 1 - 3D volume texture
         glActiveTexture(GL_TEXTURE1)
         glBindTexture(GL_TEXTURE_3D, self.texVolume)
-        glUniform1i(glGetUniformLocation(self.program, "texVolume"), 1)
+        glUniform1i(glGetUniformLocation(self.program, b"texVolume"), 1)
 
         # draw front face of cubes
         self.raycube.renderFrontFace(pMatrix, mvMatrix, self.program)

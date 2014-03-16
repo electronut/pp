@@ -179,11 +179,11 @@ class RayCube:
         glUseProgram(program)
         
         # set proj matrix
-        glUniformMatrix4fv(glGetUniformLocation(program, 'uPMatrix'), 
+        glUniformMatrix4fv(glGetUniformLocation(program, b'uPMatrix'), 
                            1, GL_FALSE, pMatrix)
 
         # set modelview matrix
-        glUniformMatrix4fv(glGetUniformLocation(program, 'uMVMatrix'), 
+        glUniformMatrix4fv(glGetUniformLocation(program, b'uMVMatrix'), 
                            1, GL_FALSE, mvMatrix)
  
         # enable face culling
@@ -260,9 +260,9 @@ class RayCube:
             pass
             #print "fbo %d complete" % self.fboHandle
         elif status == GL_FRAMEBUFFER_UNSUPPORTED:
-            print "fbo %d unsupported" % self.fboHandle
+            print("fbo %d unsupported" % self.fboHandle)
         else:
-            print "fbo %d Error" % self.fboHandle
+            print("fbo %d Error" % self.fboHandle)
             
         glBindTexture(GL_TEXTURE_2D, 0)
         glBindFramebuffer(GL_FRAMEBUFFER, 0)
