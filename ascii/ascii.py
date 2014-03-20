@@ -11,19 +11,23 @@ import numpy as np
 
 from PIL import Image
 
-# from: http://paulbourke.net/dataformats/asciiart/
+# gray scale level values from: 
+# http://paulbourke.net/dataformats/asciiart/
+
+# 70 levels of gray
 gscale1 = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 keys = range(256)
 vals = [gscale1[int((v*69)/255)] for v in keys]
 gsmap1 = dict(zip(keys, vals))
 
+# 10 levels of gray
 gscale2 = '@%#*+=-:. '
 vals = [gscale2[int((v*9)/255)] for v in keys]
 gsmap2 = dict(zip(keys, vals))
 
-def getAverageRGB(image):
+def getAverageL(image):
     """
-    Given PIL Image, return average value of color as (r, g, b)
+    Given PIL Image, return average value of grayscale value
     """
     # get image as numpy array
     im = np.array(image)
@@ -50,7 +54,7 @@ def covertImageToAscii(fileName, cols, scale, moreLevels):
       for i in range(cols):
           # append cropped image
           img = image.crop((i*w, j*h, (i+1)*w, (j+1)*h))
-          avg = int(getAverageRGB(img))
+          avg = int(getAverageL(img))
           if moreLevels:
               gsval = gsmap1[avg]
           else:
