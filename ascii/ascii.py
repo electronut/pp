@@ -32,7 +32,7 @@ def getAverageRGB(image):
     # get average
     return np.average(im.reshape(w*h))
 
-def covertImageToAscii(fileName, cols, scale):
+def covertImageToAscii(fileName, cols, scale, moreLevels):
     """
     Given Image and dims (rows, cols) returns an m*n list of Images 
     """
@@ -43,7 +43,7 @@ def covertImageToAscii(fileName, cols, scale):
     rows = int(H/h)
     # ascii image is a list of strings
     aimg = []
-    print("rows: %d, cols: %d" % (rows, cols))
+    print("cols: %d, rows: %d" % (cols, rows))
     # generate list of dimensions
     for j in range(rows):
       aimg.append("")
@@ -51,7 +51,10 @@ def covertImageToAscii(fileName, cols, scale):
           # append cropped image
           img = image.crop((i*w, j*h, (i+1)*w, (j+1)*h))
           avg = int(getAverageRGB(img))
-          gsval = gsmap2[avg]
+          if moreLevels:
+              gsval = gsmap1[avg]
+          else:
+              gsval = gsmap2[avg]
           aimg[j] += gsval
     # return txt
     return aimg
@@ -67,7 +70,8 @@ def main():
   parser.add_argument('--scale', dest='scale', required=False)
   parser.add_argument('--out', dest='outFile', required=False)
   parser.add_argument('--cols', dest='cols', required=False)
-  
+  parser.add_argument('--morelevels',dest='moreLevels',action='store_true')
+
   # parse args
   args = parser.parse_args()
   
@@ -83,10 +87,10 @@ def main():
   # set cols
   cols = 80
   if args.cols:
-      cols = int(arg.cols)
+      cols = int(args.cols)
 
   # convert image to ascii txt
-  aimg = covertImageToAscii(imgFile, cols, scale)
+  aimg = covertImageToAscii(imgFile, cols, scale, args.moreLevels)
 
   # open file
   f = open(outFile, 'w')
