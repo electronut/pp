@@ -36,31 +36,45 @@ def getAverageL(image):
     # get average
     return np.average(im.reshape(w*h))
 
-def covertImageToAscii(fileName, cols, scale, moreLevels):
+def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
     """
     Given Image and dims (rows, cols) returns an m*n list of Images 
     """
+    # open image and convert to grayscale
     image = Image.open(fileName).convert('L')
+    # store dimensions
     W, H = image.size[0], image.size[1]
+    # compute width of tile
     w = int(W/cols)
+    # compute tile height based on aspect ratio and scale
     h = int(w/scale)
+    # compute number of rows
     rows = int(H/h)
-    # ascii image is a list of strings
-    aimg = []
+
     print("cols: %d, rows: %d" % (cols, rows))
+
+    # ascii image is a list of character strings
+    aimg = []
     # generate list of dimensions
     for j in range(rows):
+      # append an empty string
       aimg.append("")
       for i in range(cols):
-          # append cropped image
+          # crop image to tile 
           img = image.crop((i*w, j*h, (i+1)*w, (j+1)*h))
+          # get average luminance
           avg = int(getAverageL(img))
+          # invert if flag set
+          if invert:
+              avg = 255 - avg
+          # look up ascii char
           if moreLevels:
               gsval = gsmap1[avg]
           else:
               gsval = gsmap2[avg]
+          # append ascii char to string
           aimg[j] += gsval
-    # return txt
+    # return txt image
     return aimg
 
 # main() function
@@ -74,6 +88,7 @@ def main():
   parser.add_argument('--scale', dest='scale', required=False)
   parser.add_argument('--out', dest='outFile', required=False)
   parser.add_argument('--cols', dest='cols', required=False)
+  parser.add_argument('--invert', dest='invert', action='store_true')
   parser.add_argument('--morelevels',dest='moreLevels',action='store_true')
 
   # parse args
@@ -94,7 +109,7 @@ def main():
       cols = int(args.cols)
 
   # convert image to ascii txt
-  aimg = covertImageToAscii(imgFile, cols, scale, args.moreLevels)
+  aimg = covertImageToAscii(imgFile, cols, scale, args.moreLevels, args.invert)
 
   # open file
   f = open(outFile, 'w')
@@ -104,7 +119,7 @@ def main():
   # cleancup
   f.close()
 
-  print("done.")
+  print("ASCII art written to %s" % outFile)
 
 # call main
 if __name__ == '__main__':
