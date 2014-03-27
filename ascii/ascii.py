@@ -17,14 +17,8 @@ from PIL import Image
 
 # 70 levels of gray
 gscale1 = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
-keys = range(256)
-vals = [gscale1[int((v*69)/255)] for v in keys]
-gsmap1 = dict(zip(keys, vals))
-
 # 10 levels of gray
 gscale2 = '@%#*+=-:. '
-vals = [gscale2[int((v*9)/255)] for v in keys]
-gsmap2 = dict(zip(keys, vals))
 
 def getAverageL(image):
     """
@@ -41,6 +35,8 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
     """
     Given Image and dims (rows, cols) returns an m*n list of Images 
     """
+    # declare globals
+    global gscale1, gscale2
     # open image and convert to grayscale
     image = Image.open(fileName).convert('L')
     # store dimensions
@@ -49,37 +45,46 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
     # compute width of tile
     w = W/cols
     # compute tile height based on aspect ratio and scale
-    h = int(w/scale)
+    h = w/scale
     # compute number of rows
     rows = int(H/h)
-
+    
     print("cols: %d, rows: %d" % (cols, rows))
     print("tile dims: %d x %d" % (w, h))
+    
     # ascii image is a list of character strings
     aimg = []
     # generate list of dimensions
     for j in range(rows):
-      # append an empty string
-      aimg.append("")
-      for i in range(cols):
-          # crop image to tile
-          x2 = int((i+1)*w)
-          # correct last tile
-          if i == cols-1:
-              x2 = W
-          img = image.crop((int(i*w), j*h, x2, (j+1)*h))
-          # get average luminance
-          avg = int(getAverageL(img))
-          # invert if flag set
-          if invert:
-              avg = 255 - avg
-          # look up ascii char
-          if moreLevels:
-              gsval = gscale1[int((avg*69)/255)]
-          else:
-              gsval = gscale2[int((avg*9)/255)]
-          # append ascii char to string
-          aimg[j] += gsval
+        y1 = int(j*h)
+        y2 = int((j+1)*h)
+        # correct last tile
+        if j == rows-1:
+            y2 = H
+        # append an empty string
+        aimg.append("")
+        for i in range(cols):
+            # crop image to tile
+            x1 = int(i*w)
+            x2 = int((i+1)*w)
+            # correct last tile
+            if i == cols-1:
+                x2 = W
+            # crop image
+            img = image.crop((x1, y1, x2, y2))
+            # get average luminance
+            avg = int(getAverageL(img))
+            # invert if flag set
+            if invert:
+                avg = 255 - avg
+            # look up ascii char
+            if moreLevels:
+                gsval = gscale1[int((avg*69)/255)]
+            else:
+                gsval = gscale2[int((avg*9)/255)]
+            # append ascii char to string
+            aimg[j] += gsval
+    
     # return txt image
     return aimg
 
