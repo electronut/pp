@@ -8,6 +8,7 @@ Author: Mahesh Venkitachalam
 
 import sys, random, argparse
 import numpy as np
+import math
 
 from PIL import Image
 
@@ -44,15 +45,16 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
     image = Image.open(fileName).convert('L')
     # store dimensions
     W, H = image.size[0], image.size[1]
+    print("input image dims: %d x %d" % (W, H))
     # compute width of tile
-    w = int(W/cols)
+    w = W/cols
     # compute tile height based on aspect ratio and scale
     h = int(w/scale)
     # compute number of rows
     rows = int(H/h)
 
     print("cols: %d, rows: %d" % (cols, rows))
-
+    print("tile dims: %d x %d" % (w, h))
     # ascii image is a list of character strings
     aimg = []
     # generate list of dimensions
@@ -60,8 +62,12 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
       # append an empty string
       aimg.append("")
       for i in range(cols):
-          # crop image to tile 
-          img = image.crop((i*w, j*h, (i+1)*w, (j+1)*h))
+          # crop image to tile
+          x2 = int((i+1)*w)
+          # correct last tile
+          if i == cols-1:
+              x2 = W
+          img = image.crop((int(i*w), j*h, x2, (j+1)*h))
           # get average luminance
           avg = int(getAverageL(img))
           # invert if flag set
@@ -69,9 +75,9 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
               avg = 255 - avg
           # look up ascii char
           if moreLevels:
-              gsval = gsmap1[avg]
+              gsval = gscale1[int((avg*69)/255)]
           else:
-              gsval = gsmap2[avg]
+              gsval = gscale2[int((avg*9)/255)]
           # append ascii char to string
           aimg[j] += gsval
     # return txt image
@@ -116,7 +122,7 @@ def main():
     # write to file
   for k in range(len(aimg)):
       print(aimg[k], file=f)
-  # cleancup
+  # cleanup
   f.close()
 
   print("ASCII art written to %s" % outFile)
