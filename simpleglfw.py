@@ -259,6 +259,24 @@ class RenderWindow:
         # end
         glfw.Terminate()
 
+    def step(self):
+        # clear
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        
+        # build projection matrix
+        pMatrix = glutils.perspective(45.0, self.aspect, 0.1, 100.0)
+                
+        mvMatrix = glutils.lookAt([0.0, 0.0, -2.0], [0.0, 0.0, 0.0],
+                                          [0.0, 1.0, 0.0])
+        # render
+        self.scene.render(pMatrix, mvMatrix)
+        # step 
+        self.scene.step()
+
+        glfw.SwapBuffers(self.win)
+        # Poll for and process events
+        glfw.PollEvents()
+
 # main() function
 def main():
     print('starting simpleglfw...')

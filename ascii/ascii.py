@@ -31,7 +31,7 @@ def getAverageL(image):
     # get average
     return np.average(im.reshape(w*h))
 
-def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
+def covertImageToAscii(fileName, cols, scale, moreLevels):
     """
     Given Image and dims (rows, cols) returns an m*n list of Images 
     """
@@ -74,9 +74,6 @@ def covertImageToAscii(fileName, cols, scale, moreLevels, invert):
             img = image.crop((x1, y1, x2, y2))
             # get average luminance
             avg = int(getAverageL(img))
-            # invert if flag set
-            if invert:
-                avg = 255 - avg
             # look up ascii char
             if moreLevels:
                 gsval = gscale1[int((avg*69)/255)]
@@ -99,7 +96,6 @@ def main():
   parser.add_argument('--scale', dest='scale', required=False)
   parser.add_argument('--out', dest='outFile', required=False)
   parser.add_argument('--cols', dest='cols', required=False)
-  parser.add_argument('--invert', dest='invert', action='store_true')
   parser.add_argument('--morelevels',dest='moreLevels',action='store_true')
 
   # parse args
@@ -110,7 +106,7 @@ def main():
   outFile = 'out.txt'
   if args.outFile:
       outFile = args.outFile
-  # set scale
+  # set scale default as 0.43 which suits a Courier font
   scale = 0.43
   if args.scale:
       scale = float(args.scale)
@@ -120,7 +116,7 @@ def main():
       cols = int(args.cols)
 
   # convert image to ascii txt
-  aimg = covertImageToAscii(imgFile, cols, scale, args.moreLevels, args.invert)
+  aimg = covertImageToAscii(imgFile, cols, scale, args.moreLevels)
 
   # open file
   f = open(outFile, 'w')

@@ -8,7 +8,7 @@ Author: Mahesh Venkitachalam
 
 import OpenGL
 from OpenGL.GL import *
-import Image
+from PIL import Image
 
 class ImageRender:
     """
@@ -37,13 +37,16 @@ class ImageRender:
         glBindFramebuffer(GL_FRAMEBUFFER, 0)
         glBindRenderbuffer(GL_RENDERBUFFER, 0)
 
-    def saveImage(self, imgFile):
+    def saveImage(self):
         """write contents of FBO to given image file."""
-        data = glReadPixels(0, 0, self.width, self.height, 
-                            GL_RGBA, GL_UNSIGNED_BYTE)
-        img = Image.frombuffer("RGBA", (self.width, self.height), 
-                               data, "raw", "RGBA", 0, 0)
-        img.save(imgFile)
+        glReadBuffer(GL_FRONT)
+        buf = glReadPixels(0, 0, self.width, self.height, 
+                            GL_RGB, GL_UNSIGNED_BYTE)
+        #img = Image.frombuffer("RGB", (self.width, self.height), 
+        #                       data, "raw", "RGB", 0, 1)
+        img = Image.fromstring(mode="RGB", size=(self.width, self.height), 
+                             data=buf)
+        return img
 
     def reinit(self, width, height):
 
@@ -90,11 +93,11 @@ class ImageRender:
         status = glCheckFramebufferStatus(GL_FRAMEBUFFER)
         if status == GL_FRAMEBUFFER_COMPLETE:
             pass
-            print "fbo %d complete" % self.fboHandle
+            print("fbo %d complete" % self.fboHandle)
         elif status == GL_FRAMEBUFFER_UNSUPPORTED:
-            print "fbo %d unsupported" % self.fboHandle
+            print("fbo %d unsupported" % self.fboHandle)
         else:
-            print "fbo %d Error" % self.fboHandle
+            print("fbo %d Error" % self.fboHandle)
             
         glBindTexture(GL_TEXTURE_2D, 0)
         glBindFramebuffer(GL_FRAMEBUFFER, 0)
@@ -119,11 +122,11 @@ class ImageRender:
     
         # delete FBO
         if glIsFramebuffer(self.fboHandle):
-            glDeleteFramebuffers(int(self.fboHandle))
+            glDeleteFramebuffers([self.fboHandle])
     
         # delete texture
         if glIsTexture(self.texHandle):
-            glDeleteTextures(int(self.texHandle))
+            glDeleteTextures([self.texHandle])
 
         # delete render buffer
         """
