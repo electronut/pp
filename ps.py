@@ -218,10 +218,10 @@ class ParticleSystem:
         coneAngle = math.radians(20.0)
         # set up particle velocities
         for i in range(numP):
-            # azimuth
+            # inclination
             angleRatio = random.random()
             a = angleRatio*coneAngle
-            # inclination
+            # azimuth
             t = random.random()*(2.0*math.pi)
             # get veocity on sphere
             vx = math.sin(a)*math.cos(t)
