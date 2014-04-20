@@ -7,7 +7,7 @@ Author: Mahesh Venkitachalam
 Website: electronut.in
 """
 
-import sys, serial
+import sys, serial, argparse
 import numpy as np
 from time import sleep
 from collections import deque
@@ -53,19 +53,24 @@ class AnalogPlot:
 
 # main() function
 def main():
-  # expects 1 arg - serial port string
-  if(len(sys.argv) != 2):
-    print 'Example usage: python showdata.py "/dev/tty.usbmodem411"'
-    exit(1)
+  # create parser
+  parser = argparse.ArgumentParser(description="LDR serial")
+  # add expected arguments
+  parser.add_argument('--port', dest='port', required=True)
 
- #strPort = '/dev/tty.usbserial-A7006Yqh'
-  strPort = sys.argv[1];
+  # parse args
+  args = parser.parse_args()
+  
+  #strPort = '/dev/tty.usbserial-A7006Yqh'
+  strPort = args.port
+
+  print('reading from serial port %s...' % strPort)
 
   # plot parameters
   analogData = AnalogData(100)
   analogPlot = AnalogPlot(analogData)
 
-  print 'plotting data...'
+  print('plotting data...')
 
   # open serial port
   ser = serial.Serial(strPort, 9600)
@@ -78,7 +83,7 @@ def main():
         analogData.add(data)
         analogPlot.update(analogData)
     except KeyboardInterrupt:
-      print 'exiting'
+      print('exiting')
       break
   # close serial
   ser.flush()
