@@ -7,9 +7,7 @@ Author: Mahesh Venkitachalam
 Website: electronut.in
 """
 
-import sys, serial, argparse
-import numpy as np
-from time import sleep
+import serial, argparse
 from collections import deque
 
 import matplotlib.pyplot as plt 
