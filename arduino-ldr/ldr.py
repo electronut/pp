@@ -25,6 +25,12 @@ class AnalogPlot:
       self.a1Vals = deque([0.0]*maxLen)
       self.maxLen = maxLen
 
+  # add data
+  def add(self, data):
+      assert(len(data) == 2)
+      self.addToDeq(self.a0Vals, data[0])
+      self.addToDeq(self.a1Vals, data[1])
+
   # add to deque
   def addToDeq(self, buf, val):
       if len(buf) < self.maxLen:
@@ -32,12 +38,6 @@ class AnalogPlot:
       else:
           buf.pop()
           buf.appendleft(val)
-
-  # add data
-  def add(self, data):
-      assert(len(data) == 2)
-      self.addToDeq(self.a0Vals, data[0])
-      self.addToDeq(self.a1Vals, data[1])
 
   # update plot
   def update(self, frameNum, a0, a1):
