@@ -27,12 +27,6 @@ class AnalogPlot:
       self.ay = deque([0.0]*maxLen)
       self.maxLen = maxLen
 
-      # set plot to animated
-      plt.ion() 
-      self.axline, = plt.plot(self.ax)
-      self.ayline, = plt.plot(self.ay)
-      plt.ylim([0, 1023])
-
   # add to buffer
   def addToBuf(self, buf, val):
       if len(buf) < self.maxLen:
@@ -48,10 +42,19 @@ class AnalogPlot:
       self.addToBuf(self.ay, data[1])
 
   # update plot
-  def update(self):
-      self.axline.set_ydata(self.ax)
-      self.ayline.set_ydata(self.ay)
-      plt.draw()
+  def update(self, frameNum, a0, a1):
+      try:
+          line = self.ser.readline()
+          data = [float(val) for val in line.split()]
+          # print data
+          if(len(data) == 2):
+              self.add(data)
+              a0.set_data(range(self.maxLen), self.ax)
+              a1.set_data(range(self.maxLen), self.ay)
+      except KeyboardInterrupt:
+          print('exiting')
+      
+      return a0, 
 
   # clean up
   def close(self):
@@ -79,21 +82,23 @@ def main():
 
   print('plotting data...')
 
-  ser = analogPlot.ser
-  while True:
-    try:
-      line = ser.readline()
-      data = [float(val) for val in line.split()]
-      #print data
-      if(len(data) == 2):
-        analogPlot.add(data)
-        analogPlot.update()
-    except KeyboardInterrupt:
-      print('exiting')
-      break
+  # set up animation
+  fig = plt.figure()
+  ax = plt.axes(xlim=(0, 100), ylim=(0, 1023))
+  a0, = ax.plot([], [])
+  a1, = ax.plot([], [])
+  anim = animation.FuncAnimation(fig, analogPlot.update, 
+                                 fargs=(a0, a1), 
+                                 interval=50)
+
+  # show plot
+  plt.show()
   
   # clean up
   analogPlot.close()
+
+  print('exiting.')
+  
 
 # call main
 if __name__ == '__main__':
