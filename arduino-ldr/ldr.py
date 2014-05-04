@@ -23,12 +23,12 @@ class AnalogPlot:
       # open serial port
       self.ser = serial.Serial(strPort, 9600)
 
-      self.ax = deque([0.0]*maxLen)
-      self.ay = deque([0.0]*maxLen)
+      self.a0Vals = deque([0.0]*maxLen)
+      self.a1Vals = deque([0.0]*maxLen)
       self.maxLen = maxLen
 
-  # add to buffer
-  def addToBuf(self, buf, val):
+  # add to deque
+  def addToDeq(self, buf, val):
       if len(buf) < self.maxLen:
           buf.append(val)
       else:
@@ -38,8 +38,8 @@ class AnalogPlot:
   # add data
   def add(self, data):
       assert(len(data) == 2)
-      self.addToBuf(self.ax, data[0])
-      self.addToBuf(self.ay, data[1])
+      self.addToDeq(self.a0Vals, data[0])
+      self.addToDeq(self.a1Vals, data[1])
 
   # update plot
   def update(self, frameNum, a0, a1):
@@ -49,12 +49,12 @@ class AnalogPlot:
           # print data
           if(len(data) == 2):
               self.add(data)
-              a0.set_data(range(self.maxLen), self.ax)
-              a1.set_data(range(self.maxLen), self.ay)
-      except KeyboardInterrupt:
-          print('exiting')
-      
-      return a0, 
+              a0.set_data(range(self.maxLen), self.a0Vals)
+              a1.set_data(range(self.maxLen), self.a1Vals)
+      except:
+          pass
+
+      return a0, a1
 
   # clean up
   def close(self):
@@ -68,6 +68,7 @@ def main():
   parser = argparse.ArgumentParser(description="LDR serial")
   # add expected arguments
   parser.add_argument('--port', dest='port', required=True)
+  parser.add_argument('--N', dest='maxLen', required=False)
 
   # parse args
   args = parser.parse_args()
@@ -78,13 +79,18 @@ def main():
   print('reading from serial port %s...' % strPort)
 
   # plot parameters
-  analogPlot = AnalogPlot(strPort, 100)
+  maxLen = 100
+  if args.maxLen:
+      maxLen = int(args.maxLen)
+
+  # create plot object
+  analogPlot = AnalogPlot(strPort, maxLen)
 
   print('plotting data...')
 
   # set up animation
   fig = plt.figure()
-  ax = plt.axes(xlim=(0, 100), ylim=(0, 1023))
+  ax = plt.axes(xlim=(0, maxLen), ylim=(0, 1023))
   a0, = ax.plot([], [])
   a1, = ax.plot([], [])
   anim = animation.FuncAnimation(fig, analogPlot.update, 
