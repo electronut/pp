@@ -93,7 +93,7 @@ def main():
   a1, = ax.plot([], [])
   anim = animation.FuncAnimation(fig, analogPlot.update, 
                                  fargs=(a0, a1), 
-                                 interval=50)
+                                 interval=20)
 
   # show plot
   plt.show()
