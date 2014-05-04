@@ -31,13 +31,10 @@ class AnalogPlot:
       self.addToDeq(self.a0Vals, data[0])
       self.addToDeq(self.a1Vals, data[1])
 
-  # add to deque
+  # add to deque, pop oldest value
   def addToDeq(self, buf, val):
-      if len(buf) < self.maxLen:
-          buf.append(val)
-      else:
-          buf.pop()
-          buf.appendleft(val)
+      buf.pop()
+      buf.appendleft(val)
 
   # update plot
   def update(self, frameNum, a0, a1):
