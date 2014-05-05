@@ -27,17 +27,17 @@ import argparse
 
 # manual test for sending motor speeds
 def manualTest(ser):
-    print 'staring manual test...'
+    print('staring manual test...')
     try:
         while True:
-            print 'enter motor control info: eg. < 100 1 120 0 >'
-            strIn = raw_input()
+            print('enter motor control info: eg. < 100 1 120 0 >')
+            strIn = input()
             vals = [int(val) for val in strIn.split()[:4]]
             vals.insert(0, ord('H'))
             data = struct.pack('BBBBB', *vals)
             ser.write(data)
     except KeyboardInterrupt:
-        print 'exiting...'
+        print('exiting...')
         # shut off motors
         vals = [ord('H'), 0, 1, 0, 1]
         data = struct.pack('BBBBB', *vals)
@@ -62,7 +62,7 @@ def fftLive(ser):
   # with the index of the device named 'input' or 'mic'
   id_index = p.get_default_input_device_info()['index']
 
-  print 'opening stream...'
+  print('opening stream...')
   stream = p.open(format = pyaudio.paInt16,
                   channels = 1,
                   rate = sampleRate,
@@ -79,7 +79,7 @@ def fftLive(ser):
           # get FFT of data
           fftVals = numpy.fft.fft(dataArray)/n
           # get absolute values
-          fftVals = numpy.abs(fftVals[range(n/2)])
+          fftVals = numpy.abs(fftVals[list(range(n/2))])
           sz = len(fftVals)
           # average frequency information in nl bins
           nl = 16
@@ -120,9 +120,9 @@ def fftLive(ser):
           # a slight pause
           sleep(0.001)
   except KeyboardInterrupt:
-      print 'stopping...'
+      print('stopping...')
   finally:
-      print 'cleaning up'
+      print('cleaning up')
       stream.close()
       p.terminate()
       # shut off motors
@@ -144,7 +144,7 @@ def main():
 
     # open serial port
     strPort = args.serial_port_name
-    print 'opening ', strPort
+    print('opening ', strPort)
     ser = serial.Serial(strPort, 9600)
     if args.test:
         manualTest(ser)
