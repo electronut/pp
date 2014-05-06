@@ -28,9 +28,9 @@ def main():
         # get set of unique albums
         albums = findUniqueAlbums(str)
         # print out 
-        print 'unique albums:', len(albums)
+        print('unique albums:', len(albums))
         for album in albums:
-            print album
+            print(album)
     elif nargs > 2:
         albumSets = []
         for arg in sys.argv[1:]:
@@ -40,19 +40,19 @@ def main():
                 # get set of unique albums
                 albumSets.append(findUniqueAlbums(f.read()))
             except:
-                print 'Error: could not open', arg
+                print('Error: could not open', arg)
         # get common albums
         common = set.intersection(*albumSets)
-        print 'common albums:', len(common)
+        print('common albums:', len(common))
         for album in common:
-            print album
+            print(album)
 
     else:
-        print 'usage:\n'
-        print 'To list album names:'
-        print 'python playlist.py a.xml\n'
-        print 'To find common albums:'
-        print 'python playlist.py a.xml b.xml\n'
+        print('usage:\n')
+        print('To list album names:')
+        print('python playlist.py a.xml\n')
+        print('To find common albums:')
+        print('python playlist.py a.xml b.xml\n')
         
 
 # Standard boilerplate to call the main() function to begin
