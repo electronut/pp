@@ -1,10 +1,12 @@
-################################################################################
-# playlist.py
-#
-# Author: Mahesh Venkitachalam
-# 
-# Purpose: Prints out common albums from 2 iTunes Playlists 
-################################################################################
+
+"""
+playlist.py
+
+Description: Prints out common albums from 2 iTunes Playlists 
+
+Author: Mahesh Venkitachalam
+Website: electronut.in
+"""
 
 import re
 import sys
@@ -55,7 +57,6 @@ def main():
         print('python playlist.py a.xml b.xml\n')
         
 
-# Standard boilerplate to call the main() function to begin
-# the program.
+# main method
 if __name__ == '__main__':
     main()
