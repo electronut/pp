@@ -79,11 +79,11 @@ def fftLive(ser):
           # get FFT of data
           fftVals = numpy.fft.fft(dataArray)/n
           # get absolute values
-          fftVals = numpy.abs(fftVals[list(range(n/2))])
+          fftVals = numpy.abs(fftVals[list(range(int(n/2)))])
           sz = len(fftVals)
           # average frequency information in nl bins
           nl = 16
-          levels = [sum(fftVals[i:i+sz/nl])/(sz/nl) for i in range(0, sz, sz/nl)]
+          levels = [sum(fftVals[i:i+int(sz/nl)])/(int(sz/nl)) for i in range(0, sz, int(sz/nl))]
           # Apply scale
           # This is tricky, because we have only a fragment of the 
           # audio, and we can't normalize it properly. 
