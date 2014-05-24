@@ -2,12 +2,13 @@
 
 laser.py
 
-Author: Mahesh Venkitachalam
-
 Description: Analyze audio input using FFT and send motor speed/direction 
               information via serial port. This is used to create Lissajous 
               figures using 2 motors with mirrors, a laser pointer, and 
               an Arduino microcontroller.
+
+Author: Mahesh Venkitachalam
+Website: electronut.in
 
 Sample Run: 
 
