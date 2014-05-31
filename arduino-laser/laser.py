@@ -3,9 +3,9 @@
 laser.py
 
 Description: Analyze audio input using FFT and send motor speed/direction 
-              information via serial port. This is used to create Lissajous 
-              figures using 2 motors with mirrors, a laser pointer, and 
-              an Arduino microcontroller.
+              information via serial port. This is used to create 
+              Lissajous-like figures using 2 motors with mirrors, 
+              a laser pointer, and an Arduino microcontroller.
 
 Author: Mahesh Venkitachalam
 Website: electronut.in
@@ -93,12 +93,16 @@ def getInputDevice(p):
 
 # fft of live audio
 def fftLive(ser):
+  # initialize pyaudio
   p = pyaudio.PyAudio()
-  fftLen = 2**11
-  sampleRate = 44100
 
   # get pyAudio input device index
   inputIndex = getInputDevice(p)
+
+  # set FFT sample length
+  fftLen = 2**11
+  # set sample rate
+  sampleRate = 44100
 
   print('opening stream...')
   stream = p.open(format = pyaudio.paInt16,
