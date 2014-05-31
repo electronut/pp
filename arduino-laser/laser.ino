@@ -52,7 +52,7 @@ void loop()
   // 'H' (header), speed1, dir1, speed2, dir2
   if (Serial.available() >= 5) {
     if(Serial.read() == 'H') {
-      // read the most recent byte (which w  ill be from 0 to 255):
+      // read next 4 bytes
       byte s1 = Serial.read();
       byte d1 = Serial.read();
       byte s2 = Serial.read();
@@ -63,9 +63,11 @@ void loop()
         stop();
       }
       else {
+        // set speed and direction of both motors
         move(0, s1, d1);
         move(1, s2, d2);
       }
+      // small pause
       delay(20);
     }
     else {
@@ -79,37 +81,37 @@ void loop()
   }
 }
 
-
-// Move specific motor at speed and direction
-// motor: 0 for #2, 1 for #1
-// speed: 0 is off, and 255 is full speed
-// direction: 0 clockwise, 1 counter-clockwise
-
+// set motor speed and direction
+// motor: #1 -> 1, #2 -> 0
+// direction: 1/0 
 void move(int motor, int speed, int direction)
 {
 
-  digitalWrite(STBY, HIGH); //disable standby
+  // disable standby
+  digitalWrite(STBY, HIGH); 
 
   boolean inPin1 = LOW;
   boolean inPin2 = HIGH;
 
-  if(direction == 1){
+  if(direction == 1) {
     inPin1 = HIGH;
     inPin2 = LOW;
-  }
-
+  }        
+  
   if(motor == 1){
     digitalWrite(AIN1, inPin1);
     digitalWrite(AIN2, inPin2);
     analogWrite(PWMA, speed);
-  }else{
+  }
+  else{
     digitalWrite(BIN1, inPin1);
     digitalWrite(BIN2, inPin2);
     analogWrite(PWMB, speed);
   }
 }
 
+// bring motors to a stop
 void stop(){
-  //enable standby  
+  // enable standby  
   digitalWrite(STBY, LOW);
 }
