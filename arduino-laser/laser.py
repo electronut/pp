@@ -45,6 +45,30 @@ def manualTest(ser):
         ser.write(data)
         ser.close()
 
+# automatic test for sending motor speeds
+def autoTest(ser):
+    print('staring automatic test...')
+    try:
+        while True:
+            # for each direction combination
+            for dr in [(0, 0), (1, 0), (0, 1), (1, 1)]:
+                # for a range of speeds
+                for j in range(25, 180, 10):
+                    for i in range(25, 180, 10):
+                        vals = [ord('H'), i, dr[0], j, dr[1]]
+                        print(vals[1:])
+                        data = struct.pack('BBBBB', *vals)
+                        ser.write(data)
+                        sleep(0.1)
+    except KeyboardInterrupt:
+        print('exiting...')
+        # shut off motors
+        vals = [ord('H'), 0, 1, 0, 1]
+        data = struct.pack('BBBBB', *vals)
+        ser.write(data)
+        ser.close()
+
+
 # fft of live audio
 def fftLive(ser):
   p = pyaudio.PyAudio()
@@ -140,15 +164,18 @@ def main():
     parser = argparse.ArgumentParser(description='Analyzes audio input and sends motor control information via serial port')
     # add arguments
     parser.add_argument('--port', dest='serial_port_name', required=True)
-    parser.add_argument('--test', action='store_true', default=False)
+    parser.add_argument('--mtest', action='store_true', default=False)
+    parser.add_argument('--atest', action='store_true', default=False)
     args = parser.parse_args()
 
     # open serial port
     strPort = args.serial_port_name
     print('opening ', strPort)
     ser = serial.Serial(strPort, 9600)
-    if args.test:
+    if args.mtest:
         manualTest(ser)
+    elif args.atest:
+        autoTest(ser)
     else:
         fftLive(ser)
         
