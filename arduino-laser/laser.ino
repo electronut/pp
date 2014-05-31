@@ -46,8 +46,8 @@ void setup(){
 }
 
 // main loop that reads motor data sent by laser.py 
-void loop() {
-		 
+void loop() 
+{		 
   // The data sent is of the form:
   // 'H' (header), speed1, dir1, speed2, dir2
   if (Serial.available() >= 5) {
