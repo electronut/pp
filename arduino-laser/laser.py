@@ -69,23 +69,36 @@ def autoTest(ser):
         ser.close()
 
 
+# get pyaudio input device
+def getInputDevice(p):
+    index = None
+    nDevices = p.get_device_count()
+    print('Found %d devices:' % nDevices)
+    for i in range(nDevices):
+        deviceInfo = p.get_device_info_by_index(i)
+        devName = deviceInfo['name']
+        print(devName)
+        # look for the "input" keyword
+        # choose the first such device as input
+        # change this loop to modify this behavior
+        # maybe you want "mic"?
+        if not index:
+            if 'input' in devName.lower():
+                index = i
+    # print out chosen device
+    if index is not None:
+        devName = p.get_device_info_by_index(index)["name"]
+        print("Input device chosen: %s" % devName)
+    return index
+
 # fft of live audio
 def fftLive(ser):
   p = pyaudio.PyAudio()
   fftLen = 2**11
   sampleRate = 44100
 
-  # get input device index:
-  # If this part of the code fails, please try the following 
-  # inside the Python interpreter
-  #
-  # >>> import pyaudio
-  # >>> p = pyaudio.PyAudio()
-  # >>> n = p.get_device_count()
-  # >>> p.get_device_info_by_index(i) for i in range(n)]
-  # now look through this list, and replace the line below
-  # with the index of the device named 'input' or 'mic'
-  id_index = p.get_default_input_device_info()['index']
+  # get pyAudio input device index
+  inputIndex = getInputDevice(p)
 
   print('opening stream...')
   stream = p.open(format = pyaudio.paInt16,
@@ -93,7 +106,7 @@ def fftLive(ser):
                   rate = sampleRate,
                   input = True,
                   frames_per_buffer = fftLen,
-                  input_device_index = id_index)
+                  input_device_index = inputIndex)
   try:
       while True:
           # read a chunk of data
