@@ -117,11 +117,10 @@ def fftLive(ser):
           data  = stream.read(fftLen)
           # convert to numpy array
           dataArray = numpy.frombuffer(data, dtype=numpy.int16)
-          n = len(dataArray)
           # get FFT of data
-          fftVals = numpy.fft.fft(dataArray)/n
+          fftVals = numpy.fft.rfft(dataArray)//fftLen
           # get absolute values
-          fftVals = numpy.abs(fftVals[list(range(int(n/2)))])
+          fftVals = numpy.abs(fftVals)
           sz = len(fftVals)
           # average frequency information in nl bins
           nl = 16
