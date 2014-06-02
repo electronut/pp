@@ -104,15 +104,46 @@ def showAudioFFT(fileName):
 
     pyplot.show()
 
+def showFuncFFT():
+
+    N = 2048
+
+    # audio data 
+    x = np.arange(N)
+    y = np.sin(2*math.pi*x)
+
+    # FFT
+    fft = np.abs(np.fft.rfft(y))*2.0/N
+    freq = range(len(fft))
+
+    pyplot.title('Function FFT')
+
+    # plot audio
+    pyplot.subplot(2, 1, 1)
+    pyplot.plot( x, y, '-' )
+    pyplot.xlabel('time')
+    pyplot.ylabel('Amplitude')
+    
+    # plot FFT
+    pyplot.subplot(2, 1, 2)
+    pyplot.plot(freq, fft, '-' )
+    pyplot.xlabel('frequency')
+    pyplot.ylabel('Intensity')
+    
+    #pyplot.subplots_adjust(bottom=-0.2)
+
+    pyplot.show()
+
 
 # main() function
 def main():
     # use sys.argv if needed
     print('testing FFT...')
     
-    grabAudio('song.bin')
-    showAudioFFT('song.bin')
+    #grabAudio('song.bin')
+    #showAudioFFT('song.bin')
   
+    showFuncFFT()
 
 # call main
 if __name__ == '__main__':
