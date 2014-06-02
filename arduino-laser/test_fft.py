@@ -60,21 +60,48 @@ def grabAudio(fileName):
                     frames_per_buffer = fftLen,
                     input_device_index = inputIndex)
     loop = True
+    first = True
     while loop:
-        # read a chunk of data
+        # read a chunk of data - discard first
         data  = stream.read(fftLen)
-        f = open(fileName, 'wb')
-        f.write(data)
-        f.close()
-        loop = False
-
+        if not first:
+            f = open(fileName, 'wb')
+            f.write(data)
+            f.close()
+            loop = False
+        first = False
+        
 def showAudioFFT(fileName):
     f = open(fileName, 'rb')
     y = f.read()
     f.close()
-    x = range(2048)
+
+    N = 2048
+
+    # audio data 
+    x = range(N)
     y = np.frombuffer(y, np.int16)
+
+    # FFT
+    fft = np.abs(np.fft.rfft(y))*2.0/N
+    freq = range(len(fft))
+
+    pyplot.title('Audio FFT')
+
+    # plot audio
+    pyplot.subplot(2, 1, 1)
     pyplot.plot( x, y, '-' )
+    pyplot.xlabel('time')
+    pyplot.ylabel('Amplitude')
+    
+    # plot FFT
+    pyplot.subplot(2, 1, 2)
+    pyplot.plot(freq, fft, '-' )
+    pyplot.xlabel('frequency')
+    pyplot.ylabel('Intensity')
+    
+    #pyplot.subplots_adjust(bottom=-0.2)
+
     pyplot.show()
 
 
