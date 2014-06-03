@@ -29,7 +29,7 @@ def drawCircleTurtle(x, y, r):
 # draw spirograph using Turtle
 def drawSpiroTurtle(xc, yc):
     # parameters
-    R = 100
+    R = 200
     r = random.randint(0, 90)
     k = r/R
     l = random.random()
@@ -72,7 +72,7 @@ def main():
   #drawCircleTurtle(10, 10, 50)
 
   while True:
-      drawSpiroTurtle(100, 100)
+      drawSpiroTurtle(0, 0)
       turtle.clear()
 
 # call main
