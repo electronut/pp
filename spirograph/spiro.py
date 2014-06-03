@@ -30,7 +30,7 @@ def drawCircleTurtle(x, y, r):
 def drawSpiroTurtle(xc, yc):
     # parameters
     R = 100
-    r = random.randint(0, 60)
+    r = random.randint(0, 90)
     k = r/R
     l = random.random()
 
@@ -71,9 +71,9 @@ def main():
   # args = parser.parse_args()
   #drawCircleTurtle(10, 10, 50)
 
-  drawSpiroTurtle(100, 100)
-  
-  input('press enter to exit')
+  while True:
+      drawSpiroTurtle(100, 100)
+      turtle.clear()
 
 # call main
 if __name__ == '__main__':
