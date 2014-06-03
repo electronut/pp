@@ -14,6 +14,9 @@ from matplotlib import pyplot
 from time import sleep
 import argparse
 import pyaudio
+import math 
+
+N = 4096
 
 # get pyaudio input device
 def getInputDevice(p):
@@ -48,7 +51,7 @@ def grabAudio(fileName):
     inputIndex = getInputDevice(p)
     
     # set FFT sample length
-    fftLen = 2**11
+    fftLen = N
     # set sample rate
     sampleRate = 44100
 
@@ -76,15 +79,19 @@ def showAudioFFT(fileName):
     y = f.read()
     f.close()
 
-    N = 2048
-
     # audio data 
     x = range(N)
     y = np.frombuffer(y, np.int16)
 
+    print("signal max: %f RMS: %f abs: %f " % (np.max(y), 
+                                               np.sqrt(np.mean(y**2)), 
+                                               np.mean(np.abs(y))))
+
     # FFT
     fft = np.abs(np.fft.rfft(y))*2.0/N
     freq = range(len(fft))
+
+    print("FFT max: %f " % (np.max(fft)))
 
     pyplot.title('Audio FFT')
 
@@ -106,11 +113,9 @@ def showAudioFFT(fileName):
 
 def showFuncFFT():
 
-    N = 2048
-
     # audio data 
     x = np.arange(N)
-    y = np.sin(2*math.pi*x)
+    y = 4*np.sin(10*2*math.pi*x/N) + 2.5*np.sin(30*2*math.pi*x/N) 
 
     # FFT
     fft = np.abs(np.fft.rfft(y))*2.0/N
@@ -140,10 +145,10 @@ def main():
     # use sys.argv if needed
     print('testing FFT...')
     
-    #grabAudio('song.bin')
-    #showAudioFFT('song.bin')
+    grabAudio('song.bin')
+    showAudioFFT('song.bin')
   
-    showFuncFFT()
+    #showFuncFFT()
 
 # call main
 if __name__ == '__main__':
