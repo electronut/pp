@@ -34,6 +34,11 @@ def drawSpiroTurtle(xc, yc):
     k = r/R
     l = random.random()
 
+    # set color
+    turtle.color(random.random(),
+                 random.random(),
+                 random.random())
+
     print(R, r, l)
     # got to start
     turtle.up()
