@@ -8,7 +8,7 @@ Author: Mahesh Venkitachalam
 Website: electronut.in
 """
 
-import re
+import re, argparse
 import sys
 
 def findUniqueAlbums(str):
@@ -19,42 +19,29 @@ def findUniqueAlbums(str):
 
 # Gather our code in a main() function
 def main():
-    # Command line args are in sys.argv[1], sys.argv[2] ..
-    # sys.argv[0] is the script name itself and can be ignored
-    nargs = len(sys.argv)
-    if nargs == 2:
-        # open file
-        f = open(sys.argv[1])
-        # read contents
-        str = f.read()
-        # get set of unique albums
-        albums = findUniqueAlbums(str)
-        # print out 
-        print('unique albums:', len(albums))
-        for album in albums:
-            print(album)
-    elif nargs > 2:
-        albumSets = []
-        for arg in sys.argv[1:]:
-            try:
-                f = open(arg)
-                # read contents
-                # get set of unique albums
-                albumSets.append(findUniqueAlbums(f.read()))
-            except:
-                print('Error: could not open', arg)
-        # get common albums
-        common = set.intersection(*albumSets)
-        print('common albums:', len(common))
-        for album in common:
-            print(album)
+    # create parser
+    parser = argparse.ArgumentParser(description="Comparing iTunes playlists...")
+    # add expected arguments
+    parser.add_argument('--common', nargs = '*', dest='plFiles', required=True)
 
-    else:
-        print('usage:\n')
-        print('To list album names:')
-        print('python playlist.py a.xml\n')
-        print('To find common albums:')
-        print('python playlist.py a.xml b.xml\n')
+    # parse args
+    args = parser.parse_args()
+
+    albumSets = []
+    for arg in args.plFiles:
+        try:
+            f = open(arg)
+            # read contents
+            # get set of unique albums
+            albumSets.append(findUniqueAlbums(f.read()))
+        except:
+            print('Error: could not open', arg)
+    # get common albums
+    common = set.intersection(*albumSets)
+    print('common albums:', len(common))
+    for album in common:
+        print(album)
+
         
 
 # main method
