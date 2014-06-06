@@ -89,7 +89,13 @@ def showAudioFFT(fileName):
 
     # FFT
     fft = np.abs(np.fft.rfft(y))*2.0/N
-    freq = range(len(fft))
+    freq = np.fft.rfftfreq(y.size, 1/44100.0)
+
+    levels = [np.sum(fft[0:200])/200,
+              np.sum(fft[200:1000])/800,
+              np.sum(fft[1000:2500])/1500]
+
+    print(levels)
 
     print("FFT max: %f " % (np.max(fft)))
 
@@ -107,8 +113,6 @@ def showAudioFFT(fileName):
     pyplot.xlabel('frequency')
     pyplot.ylabel('Intensity')
     
-    #pyplot.subplots_adjust(bottom=-0.2)
-
     pyplot.show()
 
 def showFuncFFT():
@@ -119,7 +123,8 @@ def showFuncFFT():
 
     # FFT
     fft = np.abs(np.fft.rfft(y))*2.0/N
-    freq = range(len(fft))
+    #freqs = range(len(fft))
+    freqs = np.fft.rfftfreq(y.size, 1/N)
 
     pyplot.title('Function FFT')
 
@@ -131,7 +136,7 @@ def showFuncFFT():
     
     # plot FFT
     pyplot.subplot(2, 1, 2)
-    pyplot.plot(freq, fft, '-' )
+    pyplot.plot(freqs[:100], fft[:100], '-' )
     pyplot.xlabel('frequency')
     pyplot.ylabel('Intensity')
     
