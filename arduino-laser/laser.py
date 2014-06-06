@@ -117,22 +117,18 @@ def fftLive(ser):
           data  = stream.read(fftLen)
           # convert to numpy array
           dataArray = numpy.frombuffer(data, dtype=numpy.int16)
+
           # get FFT of data
-          fftVals = numpy.fft.rfft(dataArray)//fftLen
-          # get absolute values
+          fftVals = numpy.fft.rfft(dataArray)*2.0/fftLen
+          # get absolute values of complex numbers
           fftVals = numpy.abs(fftVals)
-          sz = len(fftVals)
-          # average frequency information in nl bins
-          nBands = 4
-          bw = sz//nBands
-          levels = [numpy.sum(fftVals[i:i+bw])//bw for i in range(0, sz, bw)]
-          # Apply scale
-          # This is tricky, because we have only a fragment of the 
-          # audio, and we can't normalize it properly. 
-          # So this is a bit of a hack to get it in the [0-255] value
-          # range, which is the motor speed
-          levels = [int(255*l/10.0) % 255  for l in levels]
-          
+          # get average of 3 frequency bands
+          # 0-100 Hz, 100-1000 Hz and 1000-2500 Hz
+          levels = [numpy.sum(fftVals[0:100])/100,
+                    numpy.sum(fftVals[100:1000])/900,
+                    numpy.sum(fftVals[1000:2500])/1500]
+
+
           # The data sent is of the form:
           # 'H' (header), speed1, dir1, speed2, dir2
           vals = [ord('H'), 100, 1, 100, 1]
@@ -145,16 +141,17 @@ def fftLive(ser):
           # are in sync with the music.
 
           # speed1
-          vals[1] = levels[0]
-          # dir1
+          vals[1] = int(5*levels[0]) % 255
+          # speed2
+          vals[3] = int(100 + levels[1]) % 255
+
+          # dir
           d1 = 0
-          if levels[1] > 128:
+          if levels[2] > 0.1:
               d1 = 1
           vals[2] = d1
-          # speed2
-          vals[3] = (50 + levels[2]) % 255
-          # dir2
           vals[4] = 0
+
           # pack data
           data = struct.pack('BBBBB', *vals)
           # write data to serial port
