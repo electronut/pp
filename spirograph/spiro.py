@@ -16,36 +16,44 @@ from PIL import Image
 from datetime import datetime    
 
 
-# draw spirograph using Turtle
-def drawSpiroTurtle(xc, yc):
-    # parameters
-    R = 200
-    r = random.randint(0, 90)
-    k = r/R
-    l = random.random()
-
+# draw spirograph
+def drawSpiro(xc, yc, R, r, l):
     # set color
     turtle.color(random.random(),
                  random.random(),
                  random.random())
 
-    print(R, r, l)
-    # got to start
+    # get ratio if radii
+    k = r/R
+
+    # got to first point
     turtle.up()
-    # draw spirograph
-    theta = 360*10
-    for i in range(0, theta, 2):
-        a = math.radians(i)
+    a = 0.0
+    x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
+    y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
+    turtle.setpos(xc + x, yc + y)
+    turtle.down()
+    
+    # draw rest of points
+    theta = 2.0*math.pi*10
+    for a in np.linspace(0, theta, 10*100):
         x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-        if i == 2:
-            turtle.down()
         turtle.setpos(xc + x, yc + y)
     
-# class that creates a Spirograph
-class Spiro:
-    def __init__(self, R, r, l, xc, yc):
-        pass
+
+# draw random spirographs one after the other
+def drawRandomSpiros():
+    xc, yc = 0, 0
+    
+    while True:
+         R = random.randint(150, 250)
+         r = random.randint(0, 90)
+         k = r/R
+         l = random.random()
+         drawSpiro(xc, yc, R, r, l)
+         turtle.clear()
+         
 
 # save spiros to image
 def saveDrawing():
@@ -74,7 +82,13 @@ def main():
 
   # parse args
   args = parser.parse_args()
-  
+
+  # set to 80% screen width
+  turtle.setup(width=0.8)
+
+  # set cursor shape
+  turtle.shape('turtle')
+
   # set title
   turtle.title("Spirographs!")
   # add key handler for saving images
@@ -82,13 +96,13 @@ def main():
   # start listening 
   turtle.listen()
 
+  # checks args and draw
   if args.sparams:
+      params = [float(x) for x in args.sparams]
       # draw spirograph with given parameters
-      drawSprio()
+      drawSpiro(0, 0, *params)
   else:
       drawRandomSpiros()
-
-  drawSpiroTurtle(0, 0)
 
   # start turtle main loop
   turtle.mainloop()
