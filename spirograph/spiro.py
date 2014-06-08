@@ -15,10 +15,6 @@ import random
 from PIL import Image
 from datetime import datetime    
 
-# save drawing as image
-# put params in EXIF data
-def saveImage(fileName):
-    pass
 
 # draw spirograph using Turtle
 def drawSpiroTurtle(xc, yc):
@@ -51,20 +47,20 @@ class Spiro:
     def __init__(self, R, r, l, xc, yc):
         pass
 
-def pauseDrawing():
-    print('pause drawing')
-
+# save spiros to image
 def saveDrawing():
-    print('saving drawing')
-
     # generate unique file name
     dateStr = (datetime.now()).strftime("%d%b%Y-%H%M%S")
     fileName = 'spiro-' + dateStr 
-
+    print('saving drawing to %s.eps/png' % fileName)
+    # get tkinter canvas
     canvas = turtle.getcanvas()
+    # save postscipt image
     canvas.postscript(file = fileName + '.eps')
+    # use PIL to convert to PNG
     img = Image.open(fileName + '.eps')
     img.save(fileName + '.png', 'png')
+
 
 # main() function
 def main():
@@ -72,34 +68,29 @@ def main():
   print('generating spirograph...')
   # create parser
   parser = argparse.ArgumentParser(description="Spirograph...")
-  """
+  
   # add expected arguments
-  parser.add_argument('--file', dest='imgFile', required=True)
-  parser.add_argument('--scale', dest='scale', required=False)
-  parser.add_argument('--out', dest='outFile', required=False)
-  parser.add_argument('--cols', dest='cols', required=False)
-  parser.add_argument('--morelevels',dest='moreLevels',action='store_true')
-  """
-
-  parser.add_argument('--sparams', nargs=3, dest='sparams', required=True)
+  parser.add_argument('--sparams', nargs=3, dest='sparams', required=False)
 
   # parse args
   args = parser.parse_args()
-
-  print(args)
-
-  #drawCircleTurtle(10, 10, 50)
-
+  
+  # set title
   turtle.title("Spirographs!")
-
-  turtle.onkey(pauseDrawing, "a")
-
+  # add key handler for saving images
   turtle.onkey(saveDrawing, "s")
-
+  # start listening 
   turtle.listen()
+
+  if args.sparams:
+      # draw spirograph with given parameters
+      drawSprio()
+  else:
+      drawRandomSpiros()
 
   drawSpiroTurtle(0, 0)
 
+  # start turtle main loop
   turtle.mainloop()
 
 # call main
@@ -113,4 +104,9 @@ if __name__ == '__main__':
 - manual spiro params
 - peroidicity
 
+- home work
+
+- spiral
+- pause drawing
+- align turtle
 """
