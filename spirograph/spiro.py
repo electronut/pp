@@ -13,20 +13,8 @@ import math
 import turtle
 import random
 from PIL import Image
+from datetime import datetime    
 
-# draw circle using turtle
-def drawCircleTurtle(x, y, r):
-    # got to start of circle
-    turtle.up()
-    turtle.setpos(x + r, y)
-    turtle.down()
-
-
-    # draw circle
-    for i in range(0, 365, 5):
-        a = math.radians(i)
-        turtle.setpos(x + r*math.cos(a), y + r*math.sin(a))
-    
 # save drawing as image
 # put params in EXIF data
 def saveImage(fileName):
@@ -68,10 +56,15 @@ def pauseDrawing():
 
 def saveDrawing():
     print('saving drawing')
+
+    # generate unique file name
+    dateStr = (datetime.now()).strftime("%d%b%Y-%H%M%S")
+    fileName = 'spiro-' + dateStr 
+
     canvas = turtle.getcanvas()
-    canvas.postscript(file = "spiro.eps")
-    img = Image.open("spiro.eps")
-    img.save("spiro.png", "png")
+    canvas.postscript(file = fileName + '.eps')
+    img = Image.open(fileName + '.eps')
+    img.save(fileName + '.png', 'png')
 
 # main() function
 def main():
@@ -88,8 +81,13 @@ def main():
   parser.add_argument('--morelevels',dest='moreLevels',action='store_true')
   """
 
+  parser.add_argument('--sparams', nargs=3, dest='sparams', required=True)
+
   # parse args
-  # args = parser.parse_args()
+  args = parser.parse_args()
+
+  print(args)
+
   #drawCircleTurtle(10, 10, 50)
 
   turtle.title("Spirographs!")
