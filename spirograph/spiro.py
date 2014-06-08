@@ -16,10 +16,87 @@ from PIL import Image
 from datetime import datetime    
 
 
+# A class that draws a spirograph
+class Spiro:
+    # constructor
+    def __init__(self, xc, yc, R, r, l, col):
+        # spirograph parameters
+        self.xc = xc
+        self.yc = yc
+        self.R = R
+        self.r = r
+        self.l = l
+        self.col = col
+        # create own turtle
+        self.t = turtle.Turtle()
+        # set cursor shape
+        self.t.shape('turtle')
+        
+        # set step
+        self.step = math.radians(5.0)
+        # set initial angle
+        self.a = 0.0
+
+        # get ratio of radii
+        k = self.k = r/R
+
+        # set color
+        self.t.color(*col)
+
+        # go to first point
+        self.t.up()
+        a = 0.0
+        x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
+        y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
+        self.t.setpos(xc + x, yc + y)
+        self.t.down()
+        
+    # update by one step
+    def update(self):
+        # increment angle
+        self.a += self.step
+        # draw
+        a, R, k, l = self.a, self.R, self.k, self.l
+        x = self.R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
+        y = self.R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
+        self.t.setpos(self.xc + x, self.yc + y)
+
+# A class for animating spirographs
+class SpiroAnimator:
+    # constructor
+    def __init__(self):
+        # create spiro objects
+        self.spiros = []
+        width = turtle.window_width()
+        height = turtle.window_height()
+        for i in range(4):
+            R = random.randint(150, 250)
+            r = random.randint(0, 90)
+            l = random.random()
+            xc = random.randint(0, width/4)
+            yc = random.randint(0, height/4)
+            col = (random.random(),
+                   random.random(),
+                   random.random())
+            # create a spiro
+            spiro = Spiro(xc, yc, R, r, l, col)
+            # add to list 
+            self.spiros.append(spiro)
+        # start update
+        self.update()
+
+    def update(self):
+        # update all spiros
+        for spiro in self.spiros:
+            spiro.update()
+        # call timer again
+        turtle.ontimer(self.update, 1)
+
+    
 # draw spirograph
-def drawSpiro(xc, yc, R, r, l):
+def drawSpiro(t, xc, yc, R, r, l):
     # set color
-    turtle.color(random.random(),
+    t.color(random.random(),
                  random.random(),
                  random.random())
 
@@ -27,19 +104,19 @@ def drawSpiro(xc, yc, R, r, l):
     k = r/R
 
     # got to first point
-    turtle.up()
+    t.up()
     a = 0.0
     x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
     y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-    turtle.setpos(xc + x, yc + y)
-    turtle.down()
+    t.setpos(xc + x, yc + y)
+    t.down()
     
     # draw rest of points
     theta = 2.0*math.pi*10
     for a in np.linspace(0, theta, 10*100):
         x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-        turtle.setpos(xc + x, yc + y)
+        t.setpos(xc + x, yc + y)
     
 
 # draw random spirographs one after the other
@@ -100,9 +177,11 @@ def main():
   if args.sparams:
       params = [float(x) for x in args.sparams]
       # draw spirograph with given parameters
-      drawSpiro(0, 0, *params)
+      #drawSpiro(0, 0, *params)
+      spiro = Spiro(0, 0, *params)
+      spiro.draw()
   else:
-      drawRandomSpiros()
+      spiroAnim = SpiroAnimator()
 
   # start turtle main loop
   turtle.mainloop()
