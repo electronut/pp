@@ -12,6 +12,7 @@ import numpy as np
 import math
 import turtle
 import random
+from PIL import Image
 
 # draw circle using turtle
 def drawCircleTurtle(x, y, r):
@@ -26,6 +27,11 @@ def drawCircleTurtle(x, y, r):
         a = math.radians(i)
         turtle.setpos(x + r*math.cos(a), y + r*math.sin(a))
     
+# save drawing as image
+# put params in EXIF data
+def saveImage(fileName):
+    pass
+
 # draw spirograph using Turtle
 def drawSpiroTurtle(xc, yc):
     # parameters
@@ -43,7 +49,8 @@ def drawSpiroTurtle(xc, yc):
     # got to start
     turtle.up()
     # draw spirograph
-    for i in range(0, 3600, 2):
+    theta = 360*10
+    for i in range(0, theta, 2):
         a = math.radians(i)
         x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
@@ -51,13 +58,27 @@ def drawSpiroTurtle(xc, yc):
             turtle.down()
         turtle.setpos(xc + x, yc + y)
     
+# class that creates a Spirograph
+class Spiro:
+    def __init__(self, R, r, l, xc, yc):
+        pass
+
+def pauseDrawing():
+    print('pause drawing')
+
+def saveDrawing():
+    print('saving drawing')
+    canvas = turtle.getcanvas()
+    canvas.postscript(file = "spiro.eps")
+    img = Image.open("spiro.eps")
+    img.save("spiro.png", "png")
 
 # main() function
 def main():
   # use sys.argv if needed
   print('generating spirograph...')
   # create parser
-  parser = argparse.ArgumentParser(description="Sprirograph...")
+  parser = argparse.ArgumentParser(description="Spirograph...")
   """
   # add expected arguments
   parser.add_argument('--file', dest='imgFile', required=True)
@@ -71,10 +92,27 @@ def main():
   # args = parser.parse_args()
   #drawCircleTurtle(10, 10, 50)
 
-  while True:
-      drawSpiroTurtle(0, 0)
-      turtle.clear()
+  turtle.title("Spirographs!")
+
+  turtle.onkey(pauseDrawing, "a")
+
+  turtle.onkey(saveDrawing, "s")
+
+  turtle.listen()
+
+  drawSpiroTurtle(0, 0)
+
+  turtle.mainloop()
 
 # call main
 if __name__ == '__main__':
   main()
+
+"""
+- keyboard - pause
+- keyboard - save file - time stamp, EXIF
+- multiple random spiros
+- manual spiro params
+- peroidicity
+
+"""
