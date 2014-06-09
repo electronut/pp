@@ -116,6 +116,8 @@ def drawSpiro(xc, yc, R, r, l):
 
 # save spiros to image
 def saveDrawing():
+    # hide turtle
+    turtle.hideturtle()
     # generate unique file name
     dateStr = (datetime.now()).strftime("%d%b%Y-%H%M%S")
     fileName = 'spiro-' + dateStr 
@@ -127,7 +129,8 @@ def saveDrawing():
     # use PIL to convert to PNG
     img = Image.open(fileName + '.eps')
     img.save(fileName + '.png', 'png')
-
+    # show turtle
+    turtle.showturtle()
 
 # main() function
 def main():
@@ -175,6 +178,8 @@ if __name__ == '__main__':
   main()
 
 """
+- HIDE turtle - key
+
 - keyboard - pause
 - keyboard - save file - time stamp, EXIF
 - multiple random spiros
