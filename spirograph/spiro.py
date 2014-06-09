@@ -19,7 +19,7 @@ from datetime import datetime
 # A class that draws a spirograph
 class Spiro:
     # constructor
-    def __init__(self, xc, yc, R, r, l, col):
+    def __init__(self, xc, yc, col, R, r, l):
         # spirograph parameters
         self.xc = xc
         self.yc = yc
@@ -79,7 +79,7 @@ class SpiroAnimator:
                    random.random(),
                    random.random())
             # create a spiro
-            spiro = Spiro(xc, yc, R, r, l, col)
+            spiro = Spiro(xc, yc, col, R, r, l)
             # add to list 
             self.spiros.append(spiro)
         # start update
@@ -94,43 +94,25 @@ class SpiroAnimator:
 
     
 # draw spirograph
-def drawSpiro(t, xc, yc, R, r, l):
-    # set color
-    t.color(random.random(),
-                 random.random(),
-                 random.random())
-
+def drawSpiro(xc, yc, R, r, l):
     # get ratio if radii
     k = r/R
 
     # got to first point
-    t.up()
+    turtle.up()
     a = 0.0
     x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
     y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-    t.setpos(xc + x, yc + y)
-    t.down()
+    turtle.setpos(xc + x, yc + y)
+    turtle.down()
     
     # draw rest of points
     theta = 2.0*math.pi*10
     for a in np.linspace(0, theta, 10*100):
         x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-        t.setpos(xc + x, yc + y)
+        turtle.setpos(xc + x, yc + y)
     
-
-# draw random spirographs one after the other
-def drawRandomSpiros():
-    xc, yc = 0, 0
-    
-    while True:
-         R = random.randint(150, 250)
-         r = random.randint(0, 90)
-         k = r/R
-         l = random.random()
-         drawSpiro(xc, yc, R, r, l)
-         turtle.clear()
-         
 
 # save spiros to image
 def saveDrawing():
@@ -177,9 +159,11 @@ def main():
   if args.sparams:
       params = [float(x) for x in args.sparams]
       # draw spirograph with given parameters
-      #drawSpiro(0, 0, *params)
-      spiro = Spiro(0, 0, *params)
-      spiro.draw()
+      # set color
+      turtle.color(random.random(),
+                 random.random(),
+                 random.random())
+      drawSpiro(0, 0, *params)
   else:
       spiroAnim = SpiroAnimator()
 

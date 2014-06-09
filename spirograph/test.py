@@ -6,8 +6,7 @@ Testing Turtle graphics
 Author: Mahesh Venkitachalam
 Website: electronut.in
 """
-import sys, random
-import numpy as np
+
 import math
 import turtle
 
@@ -41,8 +40,6 @@ def drawSpiralTurtle(x, y, r):
 def main():
     print('testing...')
     
-    turtle.shape('turtle')
-
     #drawCircleTurtle(100, 100, 50)
 
     drawSpiralTurtle(0, 0, 5)
