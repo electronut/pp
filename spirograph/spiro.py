@@ -14,7 +14,7 @@ import turtle
 import random
 from PIL import Image
 from datetime import datetime    
-
+from fractions import gcd
 
 # A class that draws a spirograph
 class Spiro:
@@ -23,8 +23,8 @@ class Spiro:
         # spirograph parameters
         self.xc = xc
         self.yc = yc
-        self.R = R
-        self.r = r
+        self.R = int(R)
+        self.r = int(r)
         self.l = l
         self.col = col
         # create own turtle
@@ -34,6 +34,12 @@ class Spiro:
         
         # set step
         self.step = math.radians(5.0)
+
+        # reduce r/R to smallest form by dividing with GCD
+        gcdVal = gcd(self.r, self.R)
+        self.nRot = self.r//gcdVal
+        self.nRev = self.R//gcdVal
+        print(gcdVal)
         # set initial angle
         self.a = 0.0
 
@@ -46,11 +52,21 @@ class Spiro:
         # go to first point
         self.t.up()
         a = 0.0
-        x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
-        y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
+        x = self.R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
+        y = self.R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
         self.t.setpos(xc + x, yc + y)
         self.t.down()
-        
+
+    # draw the whole thing
+    def draw(self):
+        # draw rest of points
+        R, k, l = self.R, self.k, self.l
+        for i in range(0, 360*self.nRot + 5, 5):
+            a = math.radians(i)
+            x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
+            y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
+            self.t.setpos(self.xc + x, self.yc + y)
+
     # update by one step
     def update(self):
         # increment angle
@@ -126,28 +142,6 @@ class SpiroAnimator:
             else:
                 spiro.t.showturtle()
             
-
-# draw spirograph
-def drawSpiro(xc, yc, R, r, l):
-    # get ratio if radii
-    k = r/R
-
-    # got to first point
-    turtle.up()
-    a = 0.0
-    x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
-    y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-    turtle.setpos(xc + x, yc + y)
-    turtle.down()
-    
-    # draw rest of points
-    theta = 2.0*math.pi*10
-    for a in np.linspace(0, theta, 10*100):
-        x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
-        y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-        turtle.setpos(xc + x, yc + y)
-    
-
 # save spiros to image
 def saveDrawing():
     # hide turtle
@@ -175,55 +169,56 @@ def toggleTurtle():
 
 # main() function
 def main():
-  # use sys.argv if needed
-  print('generating spirograph...')
-  # create parser
-  parser = argparse.ArgumentParser(description="Spirograph...")
+    # use sys.argv if needed
+    print('generating spirograph...')
+    # create parser
+    parser = argparse.ArgumentParser(description="Spirograph...")
   
-  # add expected arguments
-  parser.add_argument('--sparams', nargs=3, dest='sparams', required=False)
+    # add expected arguments
+    parser.add_argument('--sparams', nargs=3, dest='sparams', required=False)
 
-  # parse args
-  args = parser.parse_args()
+    # parse args
+    args = parser.parse_args()
 
-  # set to 80% screen width
-  turtle.setup(width=0.8)
+    # set to 80% screen width
+    turtle.setup(width=0.8)
 
-  # set cursor shape
-  turtle.shape('turtle')
+    # set cursor shape
+    turtle.shape('turtle')
 
-  # set title
-  turtle.title("Spirographs!")
-  # add key handler for saving images
-  turtle.onkey(saveDrawing, "s")
-  # start listening 
-  turtle.listen()
+    # set title
+    turtle.title("Spirographs!")
+    # add key handler for saving images
+    turtle.onkey(saveDrawing, "s")
+    # start listening 
+    turtle.listen()
 
-  # checks args and draw
-  if args.sparams:
-      params = [float(x) for x in args.sparams]
-      # add key handler to toggle turtle cursor
-      turtle.onkey(toggleTurtle, "t")
-      # draw spirograph with given parameters
-      # set color
-      turtle.color(random.random(),
-                 random.random(),
-                 random.random())
-      drawSpiro(0, 0, *params)
-  else:
-      # hide main turtle cursor
-      turtle.hideturtle()
-      # create animator object
-      spiroAnim = SpiroAnimator()
-      # add key handler to toggle turtle cursor
-      turtle.onkey(spiroAnim.toggleTurtles, "t")
+    # hide main turtle cursor
+    turtle.hideturtle()
 
-  # start turtle main loop
-  turtle.mainloop()
+    # checks args and draw
+    if args.sparams:
+        params = [float(x) for x in args.sparams]
+        # add key handler to toggle turtle cursor
+        turtle.onkey(toggleTurtle, "t")
+        # draw spirograph with given parameters
+        col = (random.random(),
+               random.random(),
+               random.random())
+        spiro = Spiro(0, 0, col, *params)
+        spiro.draw()
+    else:
+        # create animator object
+        spiroAnim = SpiroAnimator()
+        # add key handler to toggle turtle cursor
+        turtle.onkey(spiroAnim.toggleTurtles, "t")
+
+    # start turtle main loop
+    turtle.mainloop()
 
 # call main
 if __name__ == '__main__':
-  main()
+    main()
 
 """
 - HIDE turtle - key
