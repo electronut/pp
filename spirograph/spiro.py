@@ -31,30 +31,37 @@ class Spiro:
         self.t = turtle.Turtle()
         # set cursor shape
         self.t.shape('turtle')
-        
-        # set step
-        self.step = math.radians(5.0)
-
+        # set step in degrees
+        self.step = 5
         # reduce r/R to smallest form by dividing with GCD
         gcdVal = gcd(self.r, self.R)
         self.nRot = self.r//gcdVal
         self.nRev = self.R//gcdVal
         print(gcdVal)
-        # set initial angle
-        self.a = 0.0
-
         # get ratio of radii
-        k = self.k = r/R
-
+        self.k = r/R
         # set color
         self.t.color(*col)
+        # current angle
+        self.a = 0
+        # set drawing complete flag
+        self.drawingComplete = False
+        # initiatize drawing
+        self.restart()
 
+    # restart drawing
+    def restart(self):
+        # set flag
+        self.drawingComplete = False
+        # show turtle
+        self.t.showturtle()
         # go to first point
         self.t.up()
+        R, k, l = self.R, self.k, self.l
         a = 0.0
         x = self.R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = self.R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
-        self.t.setpos(xc + x, yc + y)
+        self.t.setpos(self.xc + x, self.yc + y)
         self.t.down()
 
     # draw the whole thing
@@ -66,16 +73,26 @@ class Spiro:
             x = R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
             y = R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
             self.t.setpos(self.xc + x, self.yc + y)
-
+        # done - hide turtle
+        self.t.hideturtle()
+    
     # update by one step
     def update(self):
+        # skip if done
+        if self.drawingComplete:
+            return
         # increment angle
         self.a += self.step
-        # draw
-        a, R, k, l = self.a, self.R, self.k, self.l
+        # draw step
+        R, k, l = self.R, self.k, self.l
+        # set angle
+        a = math.radians(self.a)
         x = self.R*((1-k)*math.cos(a) + l*k*math.cos((1-k)*a/k))
         y = self.R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
         self.t.setpos(self.xc + x, self.yc + y)
+        # check if drawing is complete and set flag
+        if self.a >= 360*self.nRot:
+            self.drawingComplete = True
 
     # clear everything
     def clear(self):
@@ -89,20 +106,13 @@ class SpiroAnimator:
         self.spiros = []
         # timer value in milliseconds
         self.deltaT = 10
-        # restart time in milliseconds
-        self.restartT = 10000
-        # running time of current drawing
-        self.currT = 0 
         # create spiro objects
         self.restart()
-        # start update
-        self.update()
-
+ 
     # restart sprio drawing
     def restart(self):
         # clear everything
-        for spiro in self.spiros:
-            spiro.clear()     
+        turtle.clear()
 
         self.spiros = []
         width = turtle.window_width()
@@ -120,18 +130,22 @@ class SpiroAnimator:
             spiro = Spiro(xc, yc, col, R, r, l)
             # add to list 
             self.spiros.append(spiro)
+        # call timer
+        turtle.ontimer(self.update, self.deltaT)
 
     def update(self):
         # update all spiros
+        nComplete = 0
         for spiro in self.spiros:
-            spiro.update()       
-        # inc running time
-        self.currT += self.deltaT
-        # restart 
-        if self.currT >= self.restartT:
-            self.currT = 0
+            # update
+            spiro.update()
+            # count completed ones
+            if spiro.drawingComplete:
+                nComplete+= 1
+        # if all spiros are complete, restart
+        if nComplete == len(self.spiros):
             self.restart()
-        # call timer again
+        # call timer
         turtle.ontimer(self.update, self.deltaT)
 
     # toggle turtle on/off
@@ -165,7 +179,7 @@ def toggleTurtle():
     if turtle.isvisible():
         turtle.hideturtle()
     else:
-        turtle.showturtle()
+        turtle.showturtle()    
 
 # main() function
 def main():
@@ -212,6 +226,8 @@ def main():
         spiroAnim = SpiroAnimator()
         # add key handler to toggle turtle cursor
         turtle.onkey(spiroAnim.toggleTurtles, "t")
+        # add key handler to restart animation
+        turtle.onkey(spiroAnim.restart, "space")
 
     # start turtle main loop
     turtle.mainloop()
