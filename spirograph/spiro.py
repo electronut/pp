@@ -92,7 +92,15 @@ class SpiroAnimator:
         # call timer again
         turtle.ontimer(self.update, 1)
 
-    
+    # toggle turtle on/off
+    def toggleTurtles(self):
+        for spiro in self.spiros:
+            if spiro.t.isvisible():
+                spiro.t.hideturtle()
+            else:
+                spiro.t.showturtle()
+            
+
 # draw spirograph
 def drawSpiro(xc, yc, R, r, l):
     # get ratio if radii
@@ -132,6 +140,13 @@ def saveDrawing():
     # show turtle
     turtle.showturtle()
 
+# toggle turtle on/off
+def toggleTurtle():
+    if turtle.isvisible():
+        turtle.hideturtle()
+    else:
+        turtle.showturtle()
+
 # main() function
 def main():
   # use sys.argv if needed
@@ -161,6 +176,8 @@ def main():
   # checks args and draw
   if args.sparams:
       params = [float(x) for x in args.sparams]
+      # add key handler to toggle turtle cursor
+      turtle.onkey(toggleTurtle, "t")
       # draw spirograph with given parameters
       # set color
       turtle.color(random.random(),
@@ -168,7 +185,12 @@ def main():
                  random.random())
       drawSpiro(0, 0, *params)
   else:
+      # hide main turtle cursor
+      turtle.hideturtle()
+      # create animator object
       spiroAnim = SpiroAnimator()
+      # add key handler to toggle turtle cursor
+      turtle.onkey(spiroAnim.toggleTurtles, "t")
 
   # start turtle main loop
   turtle.mainloop()
