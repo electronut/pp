@@ -61,11 +61,33 @@ class Spiro:
         y = self.R*((1-k)*math.sin(a) - l*k*math.sin((1-k)*a/k))
         self.t.setpos(self.xc + x, self.yc + y)
 
+    # clear everything
+    def clear(self):
+        self.t.clear()
+
 # A class for animating spirographs
 class SpiroAnimator:
     # constructor
     def __init__(self):
+        # list of spiros
+        self.spiros = []
+        # timer value in milliseconds
+        self.deltaT = 10
+        # restart time in milliseconds
+        self.restartT = 10000
+        # running time of current drawing
+        self.currT = 0 
         # create spiro objects
+        self.restart()
+        # start update
+        self.update()
+
+    # restart sprio drawing
+    def restart(self):
+        # clear everything
+        for spiro in self.spiros:
+            spiro.clear()     
+
         self.spiros = []
         width = turtle.window_width()
         height = turtle.window_height()
@@ -82,15 +104,19 @@ class SpiroAnimator:
             spiro = Spiro(xc, yc, col, R, r, l)
             # add to list 
             self.spiros.append(spiro)
-        # start update
-        self.update()
 
     def update(self):
         # update all spiros
         for spiro in self.spiros:
-            spiro.update()
+            spiro.update()       
+        # inc running time
+        self.currT += self.deltaT
+        # restart 
+        if self.currT >= self.restartT:
+            self.currT = 0
+            self.restart()
         # call timer again
-        turtle.ontimer(self.update, 1)
+        turtle.ontimer(self.update, self.deltaT)
 
     # toggle turtle on/off
     def toggleTurtles(self):
