@@ -154,6 +154,8 @@ class SpiroAnimator:
                    random.random())
             # set spiro params
             spiro.setparams(xc, yc, col, R, r, l)
+            # restart drawing
+            spiro.restart()
 
     def update(self):
         # update all spiros
