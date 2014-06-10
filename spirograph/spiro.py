@@ -114,23 +114,15 @@ class SpiroAnimator:
         # timer value in milliseconds
         self.deltaT = 10
         # get window dimensions
-        width = turtle.window_width()
-        height = turtle.window_height()
+        self.width = turtle.window_width()
+        self.height = turtle.window_height()
         # create spiro objects
         self.spiros = []
         for i in range(N):
             # generate random parameters
-            R = random.randint(150, 250)
-            r = random.randint(0, 90)
-            l = random.random()
-            xc = random.randint(0, width/4)
-            yc = random.randint(0, height/4)
-            col = (random.random(),
-                   random.random(),
-                   random.random())
+            rparams = self.genRandomParams()
             # set spiro params
-            spiro = Spiro(xc, yc, col, R, r, l)
-            print(xc, yc, col, R, r, l)
+            spiro = Spiro(*rparams)
             self.spiros.append(spiro)
         # call timer
         turtle.ontimer(self.update, self.deltaT)
@@ -144,18 +136,25 @@ class SpiroAnimator:
             # clear
             spiro.clear()
             # generate random parameters
-            R = random.randint(150, 250)
-            r = random.randint(0, 90)
-            l = random.random()
-            xc = random.randint(0, width/4)
-            yc = random.randint(0, height/4)
-            col = (random.random(),
-                   random.random(),
-                   random.random())
+            rparams = self.genRandomParams()
             # set spiro params
-            spiro.setparams(xc, yc, col, R, r, l)
+            spiro.setparams(*rparams)
             # restart drawing
             spiro.restart()
+
+    # generate random parameters
+    def genRandomParams(self):
+        width, height = self.width, self.height
+        R = random.randint(50, min(width, height)//2)
+        r = random.randint(10, 9*R//10)
+        l = random.uniform(0.1, 0.9)
+        r1 = random.random()*min(width, height)/2
+        t1 = random.uniform(0.0, 2*math.pi)
+        xc, yc = r1*math.cos(t1), r1*math.sin(t1)
+        col = (random.random(),
+               random.random(),
+               random.random())
+        return (xc, yc, col, R, r, l)
 
     def update(self):
         # update all spiros
