@@ -20,6 +20,24 @@ from fractions import gcd
 class Spiro:
     # constructor
     def __init__(self, xc, yc, col, R, r, l):
+
+        # create own turtle
+        self.t = turtle.Turtle()
+        # set cursor shape
+        self.t.shape('turtle')
+        # set step in degrees
+        self.step = 5
+        # set drawing complete flag
+        self.drawingComplete = False
+
+        # set parameters
+        self.setparams(xc, yc, col, R, r, l)
+
+        # initiatize drawing
+        self.restart()
+
+    # set parameters
+    def setparams(self, xc, yc, col, R, r, l):
         # spirograph parameters
         self.xc = xc
         self.yc = yc
@@ -27,27 +45,16 @@ class Spiro:
         self.r = int(r)
         self.l = l
         self.col = col
-        # create own turtle
-        self.t = turtle.Turtle()
-        # set cursor shape
-        self.t.shape('turtle')
-        # set step in degrees
-        self.step = 5
         # reduce r/R to smallest form by dividing with GCD
         gcdVal = gcd(self.r, self.R)
         self.nRot = self.r//gcdVal
         self.nRev = self.R//gcdVal
-        print(gcdVal)
         # get ratio of radii
         self.k = r/R
         # set color
         self.t.color(*col)
         # current angle
         self.a = 0
-        # set drawing complete flag
-        self.drawingComplete = False
-        # initiatize drawing
-        self.restart()
 
     # restart drawing
     def restart(self):
@@ -93,6 +100,8 @@ class Spiro:
         # check if drawing is complete and set flag
         if self.a >= 360*self.nRot:
             self.drawingComplete = True
+            # done - hide turtle
+            self.t.hideturtle()
 
     # clear everything
     def clear(self):
@@ -101,23 +110,16 @@ class Spiro:
 # A class for animating spirographs
 class SpiroAnimator:
     # constructor
-    def __init__(self):
-        # list of spiros
-        self.spiros = []
+    def __init__(self, N):
         # timer value in milliseconds
         self.deltaT = 10
-        # create spiro objects
-        self.restart()
- 
-    # restart sprio drawing
-    def restart(self):
-        # clear everything
-        turtle.clear()
-
-        self.spiros = []
+        # get window dimensions
         width = turtle.window_width()
         height = turtle.window_height()
-        for i in range(4):
+        # create spiro objects
+        self.spiros = []
+        for i in range(N):
+            # generate random parameters
             R = random.randint(150, 250)
             r = random.randint(0, 90)
             l = random.random()
@@ -126,12 +128,32 @@ class SpiroAnimator:
             col = (random.random(),
                    random.random(),
                    random.random())
-            # create a spiro
+            # set spiro params
             spiro = Spiro(xc, yc, col, R, r, l)
-            # add to list 
+            print(xc, yc, col, R, r, l)
             self.spiros.append(spiro)
         # call timer
         turtle.ontimer(self.update, self.deltaT)
+    
+    # restart sprio drawing
+    def restart(self):
+        # get window dimensions
+        width = turtle.window_width()
+        height = turtle.window_height()
+        for spiro in self.spiros:
+            # clear
+            spiro.clear()
+            # generate random parameters
+            R = random.randint(150, 250)
+            r = random.randint(0, 90)
+            l = random.random()
+            xc = random.randint(0, width/4)
+            yc = random.randint(0, height/4)
+            col = (random.random(),
+                   random.random(),
+                   random.random())
+            # set spiro params
+            spiro.setparams(xc, yc, col, R, r, l)
 
     def update(self):
         # update all spiros
@@ -174,13 +196,6 @@ def saveDrawing():
     # show turtle
     turtle.showturtle()
 
-# toggle turtle on/off
-def toggleTurtle():
-    if turtle.isvisible():
-        turtle.hideturtle()
-    else:
-        turtle.showturtle()    
-
 # main() function
 def main():
     # use sys.argv if needed
@@ -213,8 +228,6 @@ def main():
     # checks args and draw
     if args.sparams:
         params = [float(x) for x in args.sparams]
-        # add key handler to toggle turtle cursor
-        turtle.onkey(toggleTurtle, "t")
         # draw spirograph with given parameters
         col = (random.random(),
                random.random(),
@@ -223,7 +236,7 @@ def main():
         spiro.draw()
     else:
         # create animator object
-        spiroAnim = SpiroAnimator()
+        spiroAnim = SpiroAnimator(4)
         # add key handler to toggle turtle cursor
         turtle.onkey(spiroAnim.toggleTurtles, "t")
         # add key handler to restart animation
