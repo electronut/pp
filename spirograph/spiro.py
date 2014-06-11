@@ -48,7 +48,6 @@ class Spiro:
         # reduce r/R to smallest form by dividing with GCD
         gcdVal = gcd(self.r, self.R)
         self.nRot = self.r//gcdVal
-        self.nRev = self.R//gcdVal
         # get ratio of radii
         self.k = r/R
         # set color
