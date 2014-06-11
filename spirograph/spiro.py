@@ -128,9 +128,6 @@ class SpiroAnimator:
     
     # restart sprio drawing
     def restart(self):
-        # get window dimensions
-        width = turtle.window_width()
-        height = turtle.window_height()
         for spiro in self.spiros:
             # clear
             spiro.clear()
