@@ -12,15 +12,28 @@ import re, argparse
 import sys
 from matplotlib import pyplot
 import plistlib
+import numpy as np
 
 def plotStats(fileName):
     # read in playlist
     plist = plistlib.readPlist(fileName)
-    
+    # get the tracks
     tracks = plist['Tracks']
+    # create a track-length dict
+    trackLen = {}
     # iterate through tracks
     for k, v in tracks.items():
-        print(v['Album'])
+        try:
+            trackLen[v['Name']] = v['Total Time']
+        except:
+            print("Error", k, v)
+    #print(trackLen)
+
+    # plot
+    x = np.arange(len(trackLen))
+    y = np.array(list(trackLen.values()), np.int32)
+    pyplot.plot(x, y, 'o')
+    pyplot.show()
 
 def findUniqueAlbums(str):
     """given the XML playlist as string, returns a set of unique albums 
