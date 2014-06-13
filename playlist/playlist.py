@@ -19,19 +19,23 @@ def plotStats(fileName):
     plist = plistlib.readPlist(fileName)
     # get the tracks
     tracks = plist['Tracks']
-    # create a track-length dict
-    trackLen = {}
+    # create a list of (duration, rating) tuples
+    ratings = []
+    durations = []
     # iterate through tracks
-    for k, v in tracks.items():
+    for trackId, track in tracks.items():
         try:
-            trackLen[v['Name']] = v['Total Time']
+            ratings.append(track['Album Rating'])
+            durations.append(track['Total Time'])
         except:
-            print("Error", k, v)
-    #print(trackLen)
+            # ignore
+            pass
+
+    print(len(ratings))
 
     # plot
-    x = np.arange(len(trackLen))
-    y = np.array(list(trackLen.values()), np.int32)
+    y = np.array(durations, np.int32)
+    x = np.array(ratings, np.int32)
     pyplot.plot(x, y, 'o')
     pyplot.show()
 
