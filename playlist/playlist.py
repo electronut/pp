@@ -19,9 +19,34 @@ def findCommonTracks(fileNames):
     """
     Find common tracks in given playlist files, and save them 
     to common.txt.
-    """
-    print(fileNames)
-    pass
+    """    
+    # a list of sets of track names
+    trackNameSets = []
+    for fileName in fileNames:
+        # create a new set
+        trackNames = set()
+        # read in playlist
+        plist = plistlib.readPlist(fileName)
+        # get the tracks
+        tracks = plist['Tracks']
+        # iterate through tracks
+        for trackId, track in tracks.items():
+            try:
+                # add name to set
+                trackNames.add(track['Name'])
+            except Exception as e:
+                # print(e)
+                # ignore
+                pass
+        # add to list
+        trackNameSets.append(trackNames)    
+    # get set of common tracks
+    commonTracks = set.intersection(*trackNameSets)
+    # write to file
+    f = open("common.txt", 'w')
+    for val in commonTracks:
+        f.write("%s\n" % val)
+    f.close()
 
 def plotStats(fileName):
     """
