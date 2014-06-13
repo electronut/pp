@@ -59,6 +59,7 @@ def plotStats(fileName):
     # create a list of (duration, rating) tuples
     ratings = []
     durations = []
+    years = []
     # iterate through tracks
     for trackId, track in tracks.items():
         try:
@@ -73,6 +74,8 @@ def plotStats(fileName):
     pyplot.title('Silly Playlist Stats')
     pyplot.plot(x, y, 'o')
     pyplot.axis([0, 1.05*np.max(x), -1, 110])
+    pyplot.xlabel('Track duration')
+    pyplot.ylabel('Track rating')
     pyplot.show()
 
 
