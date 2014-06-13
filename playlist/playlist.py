@@ -136,32 +136,14 @@ def main():
     args = parser.parse_args()
 
     if args.plFiles:
-        """
-        albumSets = []
-        for arg in args.plFiles:
-            try:
-                f = open(arg)
-                # read contents
-                # get set of unique albums
-                albumSets.append(findUniqueAlbums(f.read()))
-            except:
-                print('Error: could not open', arg)
-
-        # get common albums
-        common = set.intersection(*albumSets)
-        print('common albums:', len(common))
-        for album in common:
-            print(album)
-        """
         # find common tracks
         findCommonTracks(args.plFiles)
     elif args.plFile:
         # plot stats
         plotStats(args.plFile)
     else:
+        # find duplicate tracks
         findDuplicates(args.plFileD)
-        
-    # find duplicate tracks
 
 # main method
 if __name__ == '__main__':
