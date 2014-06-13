@@ -2,7 +2,7 @@
 """
 playlist.py
 
-Description: Prints out common albums from 2 iTunes Playlists 
+Description: Playing with iTunes Playlists.
 
 Author: Mahesh Venkitachalam
 Website: electronut.in
@@ -14,7 +14,19 @@ from matplotlib import pyplot
 import plistlib
 import numpy as np
 
+
+def findCommonTracks(fileNames):
+    """
+    Find common tracks in given playlist files, and save them 
+    to common.txt.
+    """
+    print(fileNames)
+    pass
+
 def plotStats(fileName):
+    """
+    Plot some statistics by readin track information from playlist.
+    """
     # read in playlist
     plist = plistlib.readPlist(fileName)
     # get the tracks
@@ -30,14 +42,12 @@ def plotStats(fileName):
         except:
             # ignore
             pass
-
-    print(len(ratings))
-
     # plot
-    y = np.array(durations, np.int32)
-    x = np.array(ratings, np.int32)
+    x = np.array(durations, np.int32)
+    y = np.array(ratings, np.int32)
+    pyplot.title('Silly Playlist Stats')
     pyplot.plot(x, y, 'o')
-    pyplot.axis([-1, 110, 0, 1.05*np.max(y)])
+    pyplot.axis([0, 1.05*np.max(x), -1, 110])
     pyplot.show()
 
 
@@ -85,12 +95,6 @@ def findDuplicates(fileName):
         f.write("[%d] %s\n" % (val[0], val[1]))
     f.close()
 
-def findUniqueAlbums(str):
-    """given the XML playlist as string, returns a set of unique albums 
-    """
-    uniqAlbums = set(re.findall(r'<key>Album</key><string>(.+)</string>', str))
-    return uniqAlbums
-
 # Gather our code in a main() function
 def main():
     # create parser
@@ -104,6 +108,7 @@ def main():
     args = parser.parse_args()
 
     if args.plFiles:
+        """
         albumSets = []
         for arg in args.plFiles:
             try:
@@ -119,6 +124,9 @@ def main():
         print('common albums:', len(common))
         for album in common:
             print(album)
+        """
+        # find common tracks
+        findCommonTracks(args.plFiles)
     elif args.plFile:
         # plot stats
         plotStats(args.plFile)
