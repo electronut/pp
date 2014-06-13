@@ -55,6 +55,7 @@ def findDuplicates(fileName):
             # is there an entry already?
             if name in trackNames:
                 # if name and duration matches, increment count
+                # duration rounded to nearest second
                 if duration//1000 == trackNames[name][0]//1000:
                     count = trackNames[name][1]
                     trackNames[name] = (duration, count+1)
