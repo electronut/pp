@@ -37,6 +37,7 @@ def plotStats(fileName):
     y = np.array(durations, np.int32)
     x = np.array(ratings, np.int32)
     pyplot.plot(x, y, 'o')
+    pyplot.axis([-1, 110, 0, 1.05*np.max(y)])
     pyplot.show()
 
 
