@@ -35,6 +35,50 @@ def plotStats(fileName):
     pyplot.plot(x, y, 'o')
     pyplot.show()
 
+
+def findDuplicates(fileName):
+    """
+    Find duplicate tracks in given playlist.
+    """
+    print('Finding duplicate tracks in %s...' % fileName)
+    # read in playlist
+    plist = plistlib.readPlist(fileName)
+    # get the tracks
+    tracks = plist['Tracks']
+    # create a track name dict
+    trackNames = {}
+    # iterate through tracks
+    for trackId, track in tracks.items():
+        try:
+            name = track['Name']
+            duration = track['Total Time']
+            # is there an entry already?
+            if name in trackNames:
+                # if name and duration matches, increment count
+                if duration//1000 == trackNames[name][0]//1000:
+                    count = trackNames[name][1]
+                    trackNames[name] = (duration, count+1)
+            else:
+                # add entry - duration and count
+                trackNames[name] = (duration, 1)
+        except:
+            # ignore
+            pass
+    # store duplicates as (name, count) tuples
+    dups = []
+    for k, v in trackNames.items():
+        if v[1] > 1:
+            dups.append((v[1], k))
+    # save dups to file
+    if len(dups) > 0:
+        print("Found %d duplicates. Track names saved to dup.txt" % len(dups))
+    else:
+        prints("No duplicate tracks found!")
+    f = open("dups.txt", 'w')
+    for val in dups:
+        f.write("[%d] %s\n" % (val[0], val[1]))
+    f.close()
+
 def findUniqueAlbums(str):
     """given the XML playlist as string, returns a set of unique albums 
     """
@@ -48,6 +92,7 @@ def main():
     # add expected arguments
     parser.add_argument('--common', nargs = '*', dest='plFiles', required=False)
     parser.add_argument('--stats', dest='plFile', required=False)
+    parser.add_argument('--dup', dest='plFileD', required=False)
 
     # parse args
     args = parser.parse_args()
@@ -68,10 +113,13 @@ def main():
         print('common albums:', len(common))
         for album in common:
             print(album)
-    else:
+    elif args.plFile:
         # plot stats
         plotStats(args.plFile)
+    else:
+        findDuplicates(args.plFileD)
         
+    # find duplicate tracks
 
 # main method
 if __name__ == '__main__':
