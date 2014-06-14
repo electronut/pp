@@ -161,6 +161,8 @@ def main():
     elif args.plFileD:
         # find duplicate tracks
         findDuplicates(args.plFileD)
+    else:
+        print("These are not the tracks you are looking for.")
 
 # main method
 if __name__ == '__main__':
