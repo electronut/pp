@@ -43,10 +43,15 @@ def findCommonTracks(fileNames):
     # get set of common tracks
     commonTracks = set.intersection(*trackNameSets)
     # write to file
-    f = open("common.txt", 'w')
-    for val in commonTracks:
-        f.write("%s\n" % val)
-    f.close()
+    if len(commonTracks) > 0:
+        f = open("common.txt", 'w')
+        for val in commonTracks:
+            f.write("%s\n" % val)
+        f.close()
+        print("%d common tracks found. "
+              "Track names written to common.txt." % len(commonTracks))
+    else:
+        print("No common tracks!")
 
 def plotStats(fileName):
     """
@@ -136,10 +141,13 @@ def findDuplicates(fileName):
 def main():
     # create parser
     parser = argparse.ArgumentParser(description="Comparing iTunes playlists...")
+    # add a mutually exclusive group of arguments
+    group = parser.add_mutually_exclusive_group()
+
     # add expected arguments
-    parser.add_argument('--common', nargs = '*', dest='plFiles', required=False)
-    parser.add_argument('--stats', dest='plFile', required=False)
-    parser.add_argument('--dup', dest='plFileD', required=False)
+    group .add_argument('--common', nargs = '*', dest='plFiles', required=False)
+    group .add_argument('--stats', dest='plFile', required=False)
+    group .add_argument('--dup', dest='plFileD', required=False)
 
     # parse args
     args = parser.parse_args()
@@ -150,7 +158,7 @@ def main():
     elif args.plFile:
         # plot stats
         plotStats(args.plFile)
-    else:
+    elif args.plFileD:
         # find duplicate tracks
         findDuplicates(args.plFileD)
 
