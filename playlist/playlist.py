@@ -56,10 +56,9 @@ def plotStats(fileName):
     plist = plistlib.readPlist(fileName)
     # get the tracks
     tracks = plist['Tracks']
-    # create a list of (duration, rating) tuples
+    # create lists of ratings and duration
     ratings = []
     durations = []
-    years = []
     # iterate through tracks
     for trackId, track in tracks.items():
         try:
