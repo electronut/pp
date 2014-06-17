@@ -28,6 +28,16 @@ for i in range(len(data)):
 print len(bits)
 print bits
 
+x = []
+for i in range(0, 40, 8):
+    x.append(int(bits[i:i+8], 2))
+if (sum(x[:4]) == x[4]):
+    print('checksum verified')
+
+strRH = str(x[0]) + '.' + str(x[1])
+strT = str(x[2]) + '.' + str(x[3])
+print("RH = %s, T = %s" % (strRH, strT))
+
 # plot
 x = np.array(vals[::2])
 y = np.array(vals[1::2])
