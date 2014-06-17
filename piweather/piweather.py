@@ -41,7 +41,9 @@ def getDHT11Data(pinNum):
 
     # set pin as input
     wiringpi.pinMode(pinNum, 0)
-
+    # wait for 20us
+    wiringpi.delayMicroseconds(20)
+    
     # read data for t = (50 + 70) * 40 + 160 us
     # ~ 5 ms = 5000 us    
     samples = []
@@ -52,7 +54,7 @@ def getDHT11Data(pinNum):
         val = wiringpi.digitalRead(pinNum)
         samples.append(val)
         # sample every 20 microseconds
-        wiringpi.delayMicroseconds(srate)
+        #wiringpi.delayMicroseconds(srate)
     
     f = open('samples.txt', 'w')
     for i in range(len(samples)):
