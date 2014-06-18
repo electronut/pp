@@ -224,7 +224,7 @@ def main():
     thread = threading.Thread(target=genData)
     thread.daemon = True
     thread.start()
-    run(host='192.168.4.31', port='8080', debug=False)
+    run(host='192.168.4.31', port='8080', debug=True)
 
 # call main
 if __name__ == '__main__':
