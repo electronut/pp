@@ -185,7 +185,7 @@ def genData():
         #print dataVals
         sleep(0.1)
 
-def genDH11Data():
+def getDHT11Data():
     global deque
     while True:
         humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
@@ -193,7 +193,7 @@ def genDH11Data():
             dataVals.append(temperature)
         else:
             pass
-        sleep(0.5)
+        sleep(0.1)
         
 @route('/getdata', method='GET')
 def getdata():
