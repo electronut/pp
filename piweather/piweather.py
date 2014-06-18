@@ -185,6 +185,16 @@ def genData():
         #print dataVals
         sleep(0.1)
 
+def genDH11Data():
+    global deque
+    while True:
+        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+        if humidity is not None and temperature is not None:
+            dataVals.append(temperature)
+        else:
+            pass
+        sleep(0.5)
+        
 @route('/getdata', method='GET')
 def getdata():
     global dataVals
@@ -221,7 +231,7 @@ def main():
         sleep(2)
     """
 
-    thread = threading.Thread(target=genData)
+    thread = threading.Thread(target=getDHT11Data)
     thread.daemon = True
     thread.start()
     run(host='192.168.4.31', port='8080', debug=True)
