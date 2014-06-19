@@ -21,13 +21,6 @@ import Adafruit_DHT
 def hello():
     return "Hello Bottle World!"
 
-# Sensor should be set to Adafruit_DHT.DHT11,
-# Adafruit_DHT22, or Adafruit_AM2302.
-sensor = Adafruit_DHT.DHT11
-
-# Example using a Raspberry Pi with DHT sensor
-# connected to pin 23.
-pin = 23
 
 def blink():
     """
@@ -176,63 +169,26 @@ $(function() {
 </html>
 '''
 
-dataVals = deque()
-
-def genData():
-    global deque
-    while True:
-        val = 100*random.random()
-        dataVals.append(val)
-        #print dataVals
-        sleep(0.1)
-
-def getDHT11Data():
-    global deque
-    while True:
-        RH, T = Adafruit_DHT.read_retry(sensor, pin)
-        if RH is not None and T is not None:
-            dataVals.append((RH, T))
-        else:
-            pass
-        sleep(0.1)
         
 @route('/getdata', method='GET')
 def getdata():
+    """
     global dataVals
     val = dataVals[0]
     dataVals.popleft()
     #print val
     return {"RH": val[0], "T": val[1]}
-
+    """
+    RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
+    return {"RH": RH, "T": T}
+    
 
 # main() function
 def main():
     # use sys.argv if needed
     print 'starting piweather...'
     
-    """
-    pinNum = 16
-    while True:
-
-        # Try to grab a sensor reading.  
-        # Use the read_retry method which will retry up
-        # to 15 times to get a sensor reading 
-        # (waiting 2 seconds between each retry).
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-
-        # Note that sometimes you won't get a reading and
-        # the results will be null (because Linux can't
-        # guarantee the timing of calls to read the sensor).  
-        # If this happens try again!
-        if humidity is not None and temperature is not None:
-            print 'Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity)
-        else:
-            print 'Failed to get reading. Try again!'
-
-        sleep(2)
-    """
-
-    thread = threading.Thread(target=getDHT11Data)
+    thread = threading.Thread(target=getdata)
     thread.daemon = True
     thread.start()
     run(host='192.168.4.31', port='8080', debug=True)
