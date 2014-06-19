@@ -137,9 +137,9 @@ $(document).ready(function() {
         }
 
         // ajax callback
-        function onDataReceived(jsonData) {            
+        function onDataReceived2(jsonData) {   
             // set to plot
-            plot.setData([jsonData.t, jsonData.vals]);
+            plot.setData([jsonData.vals]);
             plot.draw();
         }
 
@@ -148,7 +148,7 @@ $(document).ready(function() {
 		    url: "fullplot",
 			type: "GET",
 			dataType: "json",
-			success: onDataReceived,
+			success: onDataReceived2,
             error: onError
 		}); 
 
@@ -188,8 +188,8 @@ $(document).ready(function() {
 @route('/fullplot', method='GET')
 def fullplot():
     t = list(range(100))
-    vals = 100*[100*random.random()]
-    return {"t": t, "vals": vals}
+    vals = t #100*[100*random.random()]
+    return {"vals": zip(t, vals)}
     
     
 @route('/getdata', method='GET')
