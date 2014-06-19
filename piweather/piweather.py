@@ -153,8 +153,12 @@ $(function() {
 </head>
 <body>
 
+    <form action="">
+    <input type="checkbox" name="ckLight" value="on">Enable Lighting.<br>
+    </form>
+
 	<div id="header">
-		<h2>Sensor Data</h2>
+		<h2>Temperature/Humidity</h2>
 	</div>
 
 	<div id="content">
