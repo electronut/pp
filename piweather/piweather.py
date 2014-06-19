@@ -71,35 +71,31 @@ $(document).ready(function() {
 			  }
 		};
     
-    // empty plot
-	var plot = $.plot("#placeholder", [[]], 
-                      options);
-
+    // create empty plot
+	var plot = $.plot("#placeholder", [[]], options);
+    // initilaize data arrays
     var RH = [];
     var T = []; 
-
+    
     function getData() {
-
         // ajax callback
-        function onDataReceived(jsonData) {
-            
-            // add data
+        function onDataReceived(jsonData) {            
+            // add RH data
 			RH.push([RH.length, jsonData.RH]);
             // removed oldest
             if (RH.length > 100) {
                 RH.splice(0, 1);
             }
-
+            // add T data
             T.push([T.length, jsonData.T]);
             // removed oldest
             if (T.length > 100) {
                 T.splice(0, 1);
             }
-
             // set to plot
             plot.setData([RH, T]);
             plot.draw();
-		    }
+		}
 
         // error handler
         function onError(){
@@ -107,25 +103,23 @@ $(document).ready(function() {
         }
         
         // make ajax call
-				$.ajax({
-					  url: "getdata",
-					  type: "GET",
-					  dataType: "json",
-					  success: onDataReceived,
+		$.ajax({
+		    url: "getdata",
+			type: "GET",
+			dataType: "json",
+			success: onDataReceived,
             error: onError
-				});        
-    }
+		});        
+     }
 
-		function update() {
-
+	 function update() {
         // get data
         getData();
-
         // set timeout
-			  setTimeout(update, 100);
-		}
+		setTimeout(update, 1000);
+	 }
 
-		update();
+	 update();
 
      $('#ckLED').click(function() {
          var isChecked = $("#ckLED").is(":checked") ? 1:0;
@@ -135,16 +129,37 @@ $(document).ready(function() {
          data: { strID:'ckLED', strState:isChecked }
          });
       });
+
+     $('#btnFullPlot').click(function() {
+         // error handler
+        function onError(){
+            $('#ajax-panel').html('<p><strong>Full Plot Ajax error!</strong> </p>');
+        }
+
+        // ajax callback
+        function onDataReceived(jsonData) {            
+            // set to plot
+            plot.setData([jsonData.t, jsonData.vals]);
+            plot.draw();
+        }
+
+        // make ajax call
+		$.ajax({
+		    url: "fullplot",
+			type: "GET",
+			dataType: "json",
+			success: onDataReceived,
+            error: onError
+		}); 
+
+     });
+
 });
 
     </script>
 
 </head>
 <body>
-
-    <form action="">
-    <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
-    </form>
 
 	<div id="header">
 		<h2>Temperature/Humidity</h2>
@@ -159,13 +174,24 @@ $(document).ready(function() {
         <div id="ajax-panel"> </div>
 	</div>
 
+    <form action="">
+    <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
+    </form>
     <button id="btnStop">Stop</button>
+    <button id="btnFullPlot">Full Plot</button>
 
 </body>
 </html>
 '''
 
-        
+    
+@route('/fullplot', method='GET')
+def fullplot():
+    t = list(range(100))
+    vals = 100*[100*random.random()]
+    return {"t": t, "vals": vals}
+    
+    
 @route('/getdata', method='GET')
 def getdata():
     RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
