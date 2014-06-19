@@ -175,6 +175,9 @@ $(document).ready(function() {
 
         <div id="ajax-panel"> </div>
 	</div>
+
+    <button id="btnStop">Stop</button>
+
 </body>
 </html>
 '''
