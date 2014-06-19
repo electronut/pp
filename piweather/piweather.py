@@ -55,7 +55,7 @@ def plot():
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Flot</title>
+	<title>PiWeather</title>
     <style>
      .demo-placeholder {
 	width: 80%;
@@ -172,13 +172,6 @@ $(function() {
         
 @route('/getdata', method='GET')
 def getdata():
-    """
-    global dataVals
-    val = dataVals[0]
-    dataVals.popleft()
-    #print val
-    return {"RH": val[0], "T": val[1]}
-    """
     RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
     return {"RH": RH, "T": T}
     
