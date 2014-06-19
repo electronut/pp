@@ -99,10 +99,11 @@ $(function() {
 		};
     
     // empty plot
-		var plot = $.plot("#placeholder", [[]], 
+	var plot = $.plot("#placeholder", [[]], 
                       options);
 
-    var data = [];
+    var RH = [];
+    var T = []; 
 
     function getData() {
 
@@ -110,20 +111,20 @@ $(function() {
         function onDataReceived(jsonData) {
             
             // add data
-					  data.push(jsonData.data);
+			RH.push([RH.length, jsonData.RH]);
             // removed oldest
-            if (data.length > 100) {
-                data.splice(0, 1);
+            if (RH.length > 100) {
+                RH.splice(0, 1);
             }
 
-            // prepare data
-            var res = [];
-			      for (var i = 0; i < data.length; ++i) {
-				        res.push([i, data[i]])
-			      }
-            
+            T.push([T.length, jsonData.T]);
+            // removed oldest
+            if (T.length > 100) {
+                T.splice(0, 1);
+            }
+
             // set to plot
-            plot.setData([res]);
+            plot.setData([RH, T]);
             plot.draw();
 		    }
 
@@ -188,9 +189,9 @@ def genData():
 def getDHT11Data():
     global deque
     while True:
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
-        if humidity is not None and temperature is not None:
-            dataVals.append(temperature)
+        RH, T = Adafruit_DHT.read_retry(sensor, pin)
+        if RH is not None and T is not None:
+            dataVals.append((RH, T))
         else:
             pass
         sleep(0.1)
@@ -201,7 +202,7 @@ def getdata():
     val = dataVals[0]
     dataVals.popleft()
     #print val
-    return {"label": "A", "data": val}
+    return {"RH": val[0], "T": val[1]}
 
 
 # main() function
