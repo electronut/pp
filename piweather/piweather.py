@@ -68,7 +68,7 @@ def plot():
 	<script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
     <script language="javascript" type="text/javascript">
 
-$(function() {
+$(document).ready(function() {
 
     // plot options
     var options = {
@@ -146,6 +146,12 @@ $(function() {
 		}
 
 		update();
+
+     $('#ckLight').click(function() {
+        if (!$(this).is(':checked')) {
+            return confirm("Are you sure?");
+        }
+      });
 });
 
     </script>
@@ -154,7 +160,7 @@ $(function() {
 <body>
 
     <form action="">
-    <input type="checkbox" name="ckLight" value="on">Enable Lighting.<br>
+    <input type="checkbox" id="ckLight" value="on">Enable Lighting.<br>
     </form>
 
 	<div id="header">
