@@ -147,10 +147,13 @@ $(document).ready(function() {
 
 		update();
 
-     $('#ckLight').click(function() {
-        if (!$(this).is(':checked')) {
-            return confirm("Are you sure?");
-        }
+     $('#ckLED').click(function() {
+         var isChecked = $("#ckLED").is(":checked") ? 1:0;
+         $.ajax({
+         url: '/action',
+         type: 'POST',
+         data: { strID:'ckLED', strState:isChecked }
+         });
       });
 });
 
@@ -160,7 +163,7 @@ $(document).ready(function() {
 <body>
 
     <form action="">
-    <input type="checkbox" id="ckLight" value="on">Enable Lighting.<br>
+    <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
     </form>
 
 	<div id="header">
@@ -188,12 +191,22 @@ def getdata():
     RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
     return {"RH": RH, "T": T}
     
+@route('/action', method='POST')
+def action():
+    val = request.forms.get('strState')
+    on = bool(int(val))
+    GPIO.output(18, on) 
 
 # main() function
 def main():
     # use sys.argv if needed
     print 'starting piweather...'
     
+    # setup GPIO
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(18, GPIO.OUT)
+    GPIO.output(18, False)
+
     thread = threading.Thread(target=getdata)
     thread.daemon = True
     thread.start()
