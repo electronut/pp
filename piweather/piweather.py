@@ -21,26 +21,6 @@ import Adafruit_DHT
 def hello():
     return "Hello Bottle World!"
 
-
-def blink():
-    """
-    Make LED connected to pin 18 (board) blink
-    """
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(18, GPIO.OUT)
-    
-    while True:
-        try:
-            GPIO.output(18, True)
-            sleep(0.5)
-            GPIO.output(18, False)
-            sleep(0.5)
-        except:
-            print 'exiting...'
-            # off
-            GPIO.output(18, False)
-            break
-
 @route('/<filename:re:.*\.js>')
 def javascripts(filename):
     return static_file(filename, root='flot')
