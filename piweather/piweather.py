@@ -50,24 +50,27 @@ $(document).ready(function() {
 
     // plot options
     var options = {
-			  series: {
-				    shadowSize: 0
-			  },
-        lines: {
-				    show: true
-			  },
-			  points: {
-				    show: true
-			  },
-			  yaxis: {
+        series: {
+				lines: {
+					show: true
+				},
+				points: {
+					show: true
+				}
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			},
+			yaxis: {
 				    min: 0,
 				    max: 100
-			  },
-        xaxis: {
+			},
+            xaxis: {
 				    min: 0,
 				    max: 100
-			  }
-		};
+		   }
+        };
     
     // create empty plot
 	var plot = $.plot("#placeholder", [[]], options);
@@ -91,7 +94,7 @@ $(document).ready(function() {
                 T.splice(0, 1);
             }
             // set to plot
-            plot.setData([RH, T]);
+            plot.setData([{label: "RH", data: RH}, T]);
             plot.draw();
 		}
 
