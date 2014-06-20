@@ -182,17 +182,52 @@ $(document).ready(function() {
 </html>
 '''
 
-    
+class SensorDataCache:
+    """
+    Class that caches sensor data.
+    """
+    def __init__(self, fileName, N):
+        # does file already exist?
+
+        # if yes, check contents
+        
+        # corrupt - reopen
+        
+        self.deqVals = deque()
+        self.fileName = fileName
+        self.N = N
+
+    def add(self, data):
+        # keep N latest values
+        self.deqVals.append(data)
+        if len(self.deqVals) > self.N:
+            self.deqVals.popleft()
+            
+    def write(self):
+        # write values to file
+        f = open(fileName, 'w')
+        for val in self.deqVals:
+            f.write('%f %f\n' % (val[0], val[1]))
+        f.close()
+
+# create sensor data cache object    
+sData = SensorDataCache('sdata.txt', 1000)
+
 @route('/fullplot', method='GET')
 def fullplot():
+    """
     t = list(range(100))
     vals = t #100*[100*random.random()]
     return {"vals": zip(t, vals)}
-    
+    """
+    return {"vals" : list(sData.deqVals)}
     
 @route('/getdata', method='GET')
 def getdata():
     RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
+    # add to cache
+    sData.add((RH, T))
+    # return dict
     return {"RH": RH, "T": T}
     
 @route('/action', method='POST')
