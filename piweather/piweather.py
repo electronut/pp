@@ -51,7 +51,7 @@ $(document).ready(function() {
     // plot options
     var options = {
 			  series: {
-				    shadowSize: 0	
+				    shadowSize: 0
 			  },
         lines: {
 				    show: true
@@ -136,8 +136,15 @@ $(document).ready(function() {
 
         // ajax callback
         function onDataReceived2(jsonData) {   
+             var RH = [];
+             var T = []
+             for (var i = 0; i < jsonData.vals.length; ++i) {
+				 RH.push([i, jsonData.vals[i][0]]);
+                 T.push([i, jsonData.vals[i][1]]);
+			 }
+
             // set to plot
-            plot.setData([jsonData.vals]);
+            plot.setData([RH, T]);
             plot.draw();
         }
 
@@ -154,9 +161,9 @@ $(document).ready(function() {
 
 });
 
-    </script>
-
+</script>
 </head>
+
 <body>
 
 	<div id="header">
@@ -172,61 +179,15 @@ $(document).ready(function() {
         <div id="ajax-panel"> </div>
 	</div>
 
-    <form action="">
     <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
-    </form>
-    <button id="btnStop">Stop</button>
-    <button id="btnFullPlot">Full Plot</button>
 
 </body>
 </html>
 '''
-
-class SensorDataCache:
-    """
-    Class that caches sensor data.
-    """
-    def __init__(self, fileName, N):
-        # does file already exist?
-
-        # if yes, check contents
-        
-        # corrupt - reopen
-        
-        self.deqVals = deque()
-        self.fileName = fileName
-        self.N = N
-
-    def add(self, data):
-        # keep N latest values
-        self.deqVals.append(data)
-        if len(self.deqVals) > self.N:
-            self.deqVals.popleft()
-            
-    def write(self):
-        # write values to file
-        f = open(fileName, 'w')
-        for val in self.deqVals:
-            f.write('%f %f\n' % (val[0], val[1]))
-        f.close()
-
-# create sensor data cache object    
-sData = SensorDataCache('sdata.txt', 1000)
-
-@route('/fullplot', method='GET')
-def fullplot():
-    """
-    t = list(range(100))
-    vals = t #100*[100*random.random()]
-    return {"vals": zip(t, vals)}
-    """
-    return {"vals" : list(sData.deqVals)}
     
 @route('/getdata', method='GET')
 def getdata():
     RH, T = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, 23)
-    # add to cache
-    sData.add((RH, T))
     # return dict
     return {"RH": RH, "T": T}
     
@@ -236,37 +197,10 @@ def action():
     on = bool(int(val))
     GPIO.output(18, on) 
 
-
-# from 
-# http://stackoverflow.com/questions/11282218/bottle-web-framework-how-to-stop
-class Watcher:
-    def __init__(self):
-        self.child = os.fork()
-        if self.child == 0:
-            return
-        else:
-            self.watch()
-
-    def watch(self):
-        try:
-            os.wait()
-        except KeyboardInterrupt:
-            print 'Caught KeyBoardInterrupt'
-            self.kill()
-        sys.exit()
-
-    def kill(self):
-        try:
-            os.kill(self.child, signal.SIGKILL)
-        except OSError: pass
-
 # main() function
 def main():
     # use sys.argv if needed
     print 'starting piweather...'
-
-    Watcher()
-
     # setup GPIO
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(18, GPIO.OUT)
