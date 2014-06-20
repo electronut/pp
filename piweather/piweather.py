@@ -8,11 +8,9 @@ Author: Mahesh Venkitachalam
 
 from bottle import route, run, request, response
 from bottle import static_file
-import threading
 from collections import deque
 import random
-
-import sys
+import os, sys
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
@@ -203,19 +201,42 @@ def action():
     on = bool(int(val))
     GPIO.output(18, on) 
 
+
+# from 
+# http://stackoverflow.com/questions/11282218/bottle-web-framework-how-to-stop
+class Watcher:
+    def __init__(self):
+        self.child = os.fork()
+        if self.child == 0:
+            return
+        else:
+            self.watch()
+
+    def watch(self):
+        try:
+            os.wait()
+        except KeyboardInterrupt:
+            print 'Caught KeyBoardInterrupt'
+            self.kill()
+        sys.exit()
+
+    def kill(self):
+        try:
+            os.kill(self.child, signal.SIGKILL)
+        except OSError: pass
+
 # main() function
 def main():
     # use sys.argv if needed
     print 'starting piweather...'
-    
+
+    Watcher()
+
     # setup GPIO
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(18, GPIO.OUT)
     GPIO.output(18, False)
 
-    thread = threading.Thread(target=getdata)
-    thread.daemon = True
-    thread.start()
     run(host='192.168.4.31', port='8080', debug=True)
 
 # call main
