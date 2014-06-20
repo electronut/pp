@@ -10,7 +10,7 @@ from bottle import route, run, request, response
 from bottle import static_file
 from collections import deque
 import random
-import os, sys
+import threading, time, os, signal, sys, operator
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
