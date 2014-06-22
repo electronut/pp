@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>SimpleFlot</title>  
+  <style>
+    .demo-placeholder {
+    width: 80%;
+	  height: 80%;
+    }
+  </style>
+	<script language="javascript" type="text/javascript" 
+          src="flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" 
+          src="flot/jquery.flot.js"></script>
+  <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+       // create plot
+       var data = [];
+       for(var i = 0; i < 500; i ++) {
+          data.push([i, Math.exp(-i/100)*Math.sin(Math.PI*i/10)]);
+       }
+	     var plot = $.plot("#placeholder", [data]);
+    });
+</script>
+</head>
+
+<body>
+  <h3>A Simple Flot</h3>
+  <div class="demo-container">
+	  <div id="placeholder" class="demo-placeholder"></div>
+  </div>
+</body>
+</html>
