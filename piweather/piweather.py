@@ -36,8 +36,10 @@ def plot():
 	line-height: 1.2em;
     }
     </style>
-	<script language="javascript" type="text/javascript" src="jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" 
+       src="jquery.js"></script>
+	<script language="javascript" type="text/javascript" 
+       src="jquery.flot.js"></script>
     <script language="javascript" type="text/javascript">
 
 $(document).ready(function() {
