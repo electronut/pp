@@ -21,10 +21,6 @@ def hello():
 def javascripts(filename):
     return static_file(filename, root='flot')
 
-@route('/<filename:re:.*\.css>')
-def stylesheets(filename):
-    return static_file(filename, root='flot/examples')
-
 @route('/plot')
 def plot():
     return '''
