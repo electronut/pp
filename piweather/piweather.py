@@ -8,9 +8,7 @@ Author: Mahesh Venkitachalam
 
 from bottle import route, run, request, response
 from bottle import static_file
-from collections import deque
 import random
-import threading, time, os, signal, sys, operator
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
@@ -51,35 +49,27 @@ $(document).ready(function() {
     // plot options
     var options = {
         series: {
-				lines: {
-					show: true
-				},
-				points: {
-					show: true
-				}
-			},
-			grid: {
-				hoverable: true,
-				clickable: true
-			},
-			yaxis: {
-				    min: 0,
-				    max: 100
-			},
-            xaxis: {
-				    min: 0,
-				    max: 100
-		   }
-        };
+		  lines: {
+			show: true
+		  },
+		  points: {
+			show: true
+		  }
+		},
+	    yaxis: {min: 0, max: 100},
+        xaxis: {min: 0, max: 100}
+    };
     
     // create empty plot
 	var plot = $.plot("#placeholder", [[]], options);
-    // initilaize data arrays
+
+    // initialize data arrays
     var RH = [];
     var T = []; 
     
+    // get data from server
     function getData() {
-        // ajax callback
+        // AJAX callback
         function onDataReceived(jsonData) {            
             // add RH data
 			RH.push([RH.length, jsonData.RH]);
@@ -98,12 +88,12 @@ $(document).ready(function() {
             plot.draw();
 		}
 
-        // error handler
+        // AJAX error handler
         function onError(){
             $('#ajax-panel').html('<p><strong>Ajax error!</strong> </p>');
         }
         
-        // make ajax call
+        // make the AJAX call
 		$.ajax({
 		    url: "getdata",
 			type: "GET",
@@ -113,6 +103,7 @@ $(document).ready(function() {
 		});        
      }
 
+     // define an update function
 	 function update() {
         // get data
         getData();
@@ -120,47 +111,18 @@ $(document).ready(function() {
 		setTimeout(update, 1000);
 	 }
 
+     // call update
 	 update();
-
+ 
+     // define click handler for LED ctrl
      $('#ckLED').click(function() {
          var isChecked = $("#ckLED").is(":checked") ? 1:0;
          $.ajax({
-         url: '/action',
-         type: 'POST',
-         data: { strID:'ckLED', strState:isChecked }
+           url: '/ledctrl',
+           type: 'POST',
+           data: { strID:'ckLED', strState:isChecked }
          });
       });
-
-     $('#btnFullPlot').click(function() {
-         // error handler
-        function onError(){
-            $('#ajax-panel').html('<p><strong>Full Plot Ajax error!</strong> </p>');
-        }
-
-        // ajax callback
-        function onDataReceived2(jsonData) {   
-             var RH = [];
-             var T = []
-             for (var i = 0; i < jsonData.vals.length; ++i) {
-				 RH.push([i, jsonData.vals[i][0]]);
-                 T.push([i, jsonData.vals[i][1]]);
-			 }
-
-            // set to plot
-            plot.setData([RH, T]);
-            plot.draw();
-        }
-
-        // make ajax call
-		$.ajax({
-		    url: "fullplot",
-			type: "GET",
-			dataType: "json",
-			success: onDataReceived2,
-            error: onError
-		}); 
-
-     });
 
 });
 
@@ -168,22 +130,17 @@ $(document).ready(function() {
 </head>
 
 <body>
-
 	<div id="header">
 		<h2>Temperature/Humidity</h2>
 	</div>
 
 	<div id="content">
-
 		<div class="demo-container">
 			<div id="placeholder" class="demo-placeholder"></div>
 		</div>
-
         <div id="ajax-panel"> </div>
 	</div>
-
     <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
-
 </body>
 </html>
 '''
@@ -194,21 +151,20 @@ def getdata():
     # return dict
     return {"RH": RH, "T": T}
     
-@route('/action', method='POST')
-def action():
+@route('/ledctrl', method='POST')
+def ledctrl():
     val = request.forms.get('strState')
     on = bool(int(val))
     GPIO.output(18, on) 
 
 # main() function
 def main():
-    # use sys.argv if needed
     print 'starting piweather...'
     # setup GPIO
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(18, GPIO.OUT)
     GPIO.output(18, False)
-
+    # start server
     run(host='192.168.4.31', port='8080', debug=True)
 
 # call main
