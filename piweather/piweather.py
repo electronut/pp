@@ -8,7 +8,7 @@ Author: Mahesh Venkitachalam
 
 from bottle import route, run, request, response
 from bottle import static_file
-import random
+import random, argparse
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
@@ -183,12 +183,21 @@ def ledctrl():
 # main() function
 def main():
     print 'starting piweather...'
+    # create parser
+    parser = argparse.ArgumentParser(description="PiWeather...")
+    # add expected arguments
+    parser.add_argument('--ip', dest='ipAddr', required=True)
+    parser.add_argument('--port', dest='portNum', required=True)
+
+    # parse args
+    args = parser.parse_args()
+
     # setup GPIO
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(18, GPIO.OUT)
     GPIO.output(18, False)
     # start server
-    run(host='192.168.4.31', port='8080', debug=True)
+    run(host=args.ipAddr, port=args.portNum, debug=True)
 
 # call main
 if __name__ == '__main__':
