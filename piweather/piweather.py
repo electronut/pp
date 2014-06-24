@@ -31,8 +31,8 @@ def plot():
 	<title>PiWeather</title>
     <style>
      .demo-placeholder {
-	width: 80%;
-	height: 80%;
+	width: 90%;
+	height: 50%;
 	font-size: 14px;
 	line-height: 1.2em;
     }
@@ -57,8 +57,12 @@ $(document).ready(function() {
 			show: true
 		  }
 		},
+        grid: {
+		  hoverable: true,
+		  clickable: true
+		},
 	    yaxes: [{min: 0, max: 100}],
-        xaxes: [{min: 0, max: 100}]
+        xaxes: [{min: 0, max: 100}],
     };
     
     // create empty plot
@@ -132,6 +136,16 @@ $(document).ready(function() {
          });
       });
 
+     $("#placeholder").bind("plotclick", function (event, pos, item) {
+          if (item) {
+            plot.highlight(item.series, item.datapoint);
+            var strData = ' [Clicked Data: ' + 
+                           timeStamp[item.dataIndex] + ': T = ' + 
+                           T[item.dataIndex] + ', RH = ' + RH[item.dataIndex]
+                          + ']';
+            $('#data-values').html(strData);
+          }
+     });
 });
 
 </script>
@@ -148,7 +162,11 @@ $(document).ready(function() {
 		</div>
         <div id="ajax-panel"> </div>
 	</div>
-    <input type="checkbox" id="ckLED" value="on">Enable Lighting.<br>
+    <div>
+      <input type="checkbox" id="ckLED" value="on">Enable Lighting.
+      <span id="data-values"> </span>
+    </div>
+    
 </body>
 </html>
 '''
