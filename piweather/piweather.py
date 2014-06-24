@@ -33,8 +33,6 @@ def plot():
      .demo-placeholder {
 	width: 90%;
 	height: 50%;
-	font-size: 14px;
-	line-height: 1.2em;
     }
     </style>
 	<script language="javascript" type="text/javascript" 
