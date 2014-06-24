@@ -12,7 +12,6 @@ import random
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
-import calendar, datetime
 
 @route('/hello')
 def hello():
