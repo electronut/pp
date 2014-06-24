@@ -12,6 +12,7 @@ import random
 import RPi.GPIO as GPIO
 from time import sleep  
 import Adafruit_DHT
+import calendar, datetime
 
 @route('/hello')
 def hello():
@@ -40,6 +41,8 @@ def plot():
        src="jquery.js"></script>
 	<script language="javascript" type="text/javascript" 
        src="jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" 
+       src="jquery.flot.time.js"></script>
     <script language="javascript" type="text/javascript">
 
 $(document).ready(function() {
@@ -54,8 +57,8 @@ $(document).ready(function() {
 			show: true
 		  }
 		},
-	    yaxis: {min: 0, max: 100},
-        xaxis: {min: 0, max: 100}
+	    yaxes: [{min: 0, max: 100}],
+        xaxes: [{min: 0, max: 100}]
     };
     
     // create empty plot
@@ -64,25 +67,32 @@ $(document).ready(function() {
     // initialize data arrays
     var RH = [];
     var T = []; 
-    
+    var timeStamp = [];    
     // get data from server
     function getData() {
         // AJAX callback
-        function onDataReceived(jsonData) {            
+        function onDataReceived(jsonData) {    
+            timeStamp.push(Date());
             // add RH data
-			RH.push([RH.length, jsonData.RH]);
+			RH.push(jsonData.RH);
             // removed oldest
             if (RH.length > 100) {
-                RH.splice(0, 1);
+              RH.splice(0, 1);
             }
             // add T data
-            T.push([T.length, jsonData.T]);
+            T.push(jsonData.T);
             // removed oldest
             if (T.length > 100) {
-                T.splice(0, 1);
+              T.splice(0, 1);
+            }
+            s1 = [];
+            s2 = [];
+            for (var i = 0; i < RH.length; i++) {
+                s1.push([i, RH[i]]);
+                s2.push([i, T[i]]);
             }
             // set to plot
-            plot.setData([{label: "RH", data: RH}, T]);
+            plot.setData([s1, s2]);
             plot.draw();
 		}
 
