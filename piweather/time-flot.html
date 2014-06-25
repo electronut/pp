@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>TimeFlot</title>  
+  <style>
+    .demo-placeholder {
+    width: 80%;
+	  height: 80%;
+    }
+  </style>
+	<script language="javascript" type="text/javascript" 
+          src="flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" 
+          src="flot/jquery.flot.js"></script>
+  <script language="javascript" type="text/javascript" 
+          src="flot/jquery.flot.time.js"></script>
+  <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+       // plot options
+      var options = {
+        series: {
+		  lines: {
+			show: true
+		  },
+		  points: {
+			show: true
+		  }
+		  },
+    xaxis: {mode: "time", timeformat: "%m-%y-%H::%M::%S"}
+       };
+
+       // create plot
+       var data = [];
+       t = (new Date()).getTime()
+       for(var i = 0; i < 500; i ++) {
+          data.push([t, Math.exp(-i/100)*Math.sin(Math.PI*i/10)]);
+          t = t + 1000;
+       }
+	     var plot = $.plot("#placeholder", [data], options);
+    });
+</script>
+</head>
+
+<body>
+  <h3>A Time Series Flot</h3>
+  <div class="demo-container">
+	  <div id="placeholder" class="demo-placeholder"></div>
+  </div>
+</body>
+</html>
