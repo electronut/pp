@@ -55,7 +55,6 @@ $(document).ready(function() {
 		  }
 		},
         grid: {
-		  hoverable: true,
 		  clickable: true
 		},
 	    yaxes: [{min: 0, max: 100}],
