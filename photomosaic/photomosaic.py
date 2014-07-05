@@ -173,7 +173,7 @@ def createPhotomosaic(target_image, input_images, grid_size,
     output_images.append(input_images[match_index])
     # user feedback
     if count > 0 and batch_size > 10 and count % batch_size is 0:
-      print('processed ', str(count), ' of ', str(len(target_images)), '...') 
+      print('processed %d of %d...' %(count, len(target_images)))
     count += 1
     # remove selected image from input if flag set
     if not reuse_images:
