@@ -10,7 +10,7 @@ A Ray Casting Volume Renderer for medical data visualization.
 import sys, argparse, os
 from slicerender import *
 from raycast import *
-import cyglfw3 as glfw
+import glfw
 
 class RenderWin:
     """GLFW Rendering window class"""
@@ -20,23 +20,23 @@ class RenderWin:
         cwd = os.getcwd()
 
         # initialize glfw - this changes cwd
-        glfw.Init()
+        glfw.glfwInit()
         
         # restore cwd
         os.chdir(cwd)
 
         # version hints
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
-        glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
-        glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MAJOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MINOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_PROFILE, glfw.GLFW_OPENGL_CORE_PROFILE)
 
         # make a window
         self.width, self.height = 512, 512
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, b"volrender")
+        self.win = glfw.glfwCreateWindow(self.width, self.height, b"volrender")
         # make context current
-        glfw.MakeContextCurrent(self.win)
+        glfw.glfwMakeContextCurrent(self.win)
         
         # initialize GL
         glViewport(0, 0, self.width, self.height)
@@ -44,9 +44,9 @@ class RenderWin:
         glClearColor(0.0, 0.0, 0.0, 0.0)
 
         # set window callbacks
-        glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
-        glfw.SetKeyCallback(self.win, self.onKeyboard)
-        glfw.SetWindowSizeCallback(self.win, self.onSize)
+        glfw.glfwSetMouseButtonCallback(self.win, self.onMouseButton)
+        glfw.glfwSetKeyCallback(self.win, self.onKeyboard)
+        glfw.glfwSetWindowSizeCallback(self.win, self.onSize)
 
         # load volume data
         self.volume =  volreader.loadVolume(imageDir)
@@ -63,12 +63,12 @@ class RenderWin:
     def onKeyboard(self, win, key, scancode, action, mods):
         #print 'keyboard: ', win, key, scancode, action, mods
         # ESC to quit
-        if key is glfw.KEY_ESCAPE:
+        if key is glfw.GLFW_KEY_ESCAPE:
             self.renderer.close()
             self.exitNow = True
         else:
-            if action is glfw.PRESS or action is glfw.REPEAT:
-                if key == glfw.KEY_V:
+            if action is glfw.GLFW_PRESS or action is glfw.GLFW_REPEAT:
+                if key == glfw.GLFW_KEY_V:
                     # toggle render mode
                     if isinstance(self.renderer, RayCastRender):
                         self.renderer = SliceRender(self.width, self.height, 
@@ -80,9 +80,9 @@ class RenderWin:
                     self.renderer.reshape(self.width, self.height)
                 else:
                     # send key press to renderer
-                    keyDict = {glfw.KEY_X : 'x', glfw.KEY_Y: 'y', 
-                               glfw.KEY_Z: 'z', 
-                               glfw.KEY_LEFT: 'l', glfw.KEY_RIGHT: 'r'}
+                    keyDict = {glfw.GLFW_KEY_X : 'x', glfw.GLFW_KEY_Y: 'y', 
+                               glfw.GLFW_KEY_Z: 'z', 
+                               glfw.GLFW_KEY_LEFT: 'l', glfw.GLFW_KEY_RIGHT: 'r'}
                     try:
                         self.renderer.keyPressed(keyDict[key])
                     except:
@@ -98,15 +98,15 @@ class RenderWin:
 
     def run(self):
         # start loop
-        while not glfw.WindowShouldClose(self.win) and not self.exitNow:
+        while not glfw.glfwWindowShouldClose(self.win) and not self.exitNow:
             # render
             self.renderer.draw()
             # swap buffers
-            glfw.SwapBuffers(self.win)
+            glfw.glfwSwapBuffers(self.win)
             # wait for events
-            glfw.WaitEvents()
+            glfw.glfwWaitEvents()
         # end
-        glfw.Terminate()
+        glfw.glfwTerminate()
 
 # main() function
 def main():

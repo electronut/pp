@@ -13,7 +13,7 @@ from OpenGL.GL import *
 import numpy, math, sys, os
 import glutils
 
-import cyglfw3 as glfw
+import glfw
 
 strVS = """
 #version 330 core
@@ -173,24 +173,25 @@ class RenderWindow:
         cwd = os.getcwd()
 
         # initialize glfw - this changes cwd
-        glfw.Init()
+        glfw.glfwInit()
         
         # restore cwd
         os.chdir(cwd)
 
         # version hints
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
-        glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
-        glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MAJOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MINOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_PROFILE, 
+                            glfw.GLFW_OPENGL_CORE_PROFILE)
     
         # make a window
         self.width, self.height = 640, 480
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, 
-                                     b'simpleglfw')
+        self.win = glfw.glfwCreateWindow(self.width, self.height, 
+                                         b'simpleglfw')
         # make context current
-        glfw.MakeContextCurrent(self.win)
+        glfw.glfwMakeContextCurrent(self.win)
         
         # initialize GL
         glViewport(0, 0, self.width, self.height)
@@ -198,9 +199,9 @@ class RenderWindow:
         glClearColor(0.5, 0.5, 0.5,1.0)
 
         # set window callbacks
-        glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
-        glfw.SetKeyCallback(self.win, self.onKeyboard)
-        glfw.SetWindowSizeCallback(self.win, self.onSize)        
+        glfw.glfwSetMouseButtonCallback(self.win, self.onMouseButton)
+        glfw.glfwSetKeyCallback(self.win, self.onKeyboard)
+        glfw.glfwSetWindowSizeCallback(self.win, self.onSize)        
 
         # create 3D
         self.scene = Scene()
@@ -215,9 +216,9 @@ class RenderWindow:
 
     def onKeyboard(self, win, key, scancode, action, mods):
         #print 'keyboard: ', win, key, scancode, action, mods
-        if action == glfw.PRESS:
+        if action == glfw.GLFW_PRESS:
             # ESC to quit
-            if key == glfw.KEY_ESCAPE: 
+            if key == glfw.GLFW_KEY_ESCAPE: 
                 self.exitNow = True
             else:
                 # toggle cut
@@ -232,11 +233,11 @@ class RenderWindow:
 
     def run(self):
         # initializer timer
-        glfw.SetTime(0.0)
+        glfw.glfwSetTime(0)
         t = 0.0
-        while not glfw.WindowShouldClose(self.win) and not self.exitNow:
+        while not glfw.glfwWindowShouldClose(self.win) and not self.exitNow:
             # update every x seconds
-            currT = glfw.GetTime()
+            currT = glfw.glfwGetTime()
             if currT - t > 0.1:
                 # update time
                 t = currT
@@ -253,11 +254,11 @@ class RenderWindow:
                 # step 
                 self.scene.step()
 
-                glfw.SwapBuffers(self.win)
+                glfw.glfwSwapBuffers(self.win)
                 # Poll for and process events
-                glfw.PollEvents()
+                glfw.glfwPollEvents()
         # end
-        glfw.Terminate()
+        glfw.glfwTerminate()
 
     def step(self):
         # clear

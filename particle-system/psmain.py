@@ -13,7 +13,7 @@ import numpy
 from ps import ParticleSystem, Camera
 from box import Box
 import glutils
-import cyglfw3 as glfw
+import glfw
 
 class PSMaker:
     """GLFW Rendering window class for Particle System"""
@@ -31,24 +31,25 @@ class PSMaker:
         cwd = os.getcwd()
 
         # initialize glfw - this changes cwd
-        glfw.Init()
+        glfw.glfwInit()
         
         # restore cwd
         os.chdir(cwd)
 
         # version hints
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MAJOR, 3)
-        glfw.WindowHint(glfw.CONTEXT_VERSION_MINOR, 3)
-        glfw.WindowHint(glfw.OPENGL_FORWARD_COMPAT, GL_TRUE)
-        glfw.WindowHint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MAJOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_CONTEXT_VERSION_MINOR, 3)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+        glfw.glfwWindowHint(glfw.GLFW_OPENGL_PROFILE, 
+                            glfw.GLFW_OPENGL_CORE_PROFILE)
 
         # make a window
         self.width, self.height = 640, 480
         self.aspect = self.width/float(self.height)
-        self.win = glfw.CreateWindow(self.width, self.height, 
+        self.win = glfw.glfwCreateWindow(self.width, self.height, 
                                      b"Particle System")
         # make context current
-        glfw.MakeContextCurrent(self.win)
+        glfw.glfwMakeContextCurrent(self.win)
         
         # initialize GL
         glViewport(0, 0, self.width, self.height)
@@ -56,9 +57,9 @@ class PSMaker:
         glClearColor(0.2, 0.2, 0.2,1.0)
 
         # set window callbacks
-        glfw.SetMouseButtonCallback(self.win, self.onMouseButton)
-        glfw.SetKeyCallback(self.win, self.onKeyboard)
-        glfw.SetWindowSizeCallback(self.win, self.onSize)        
+        glfw.glfwSetMouseButtonCallback(self.win, self.onMouseButton)
+        glfw.glfwSetKeyCallback(self.win, self.onKeyboard)
+        glfw.glfwSetWindowSizeCallback(self.win, self.onSize)        
 
         # create 3D
         self.psys = ParticleSystem(self.numP)
@@ -74,19 +75,19 @@ class PSMaker:
 
     def onKeyboard(self, win, key, scancode, action, mods):
         #print 'keyboard: ', win, key, scancode, action, mods
-        if action == glfw.PRESS:
+        if action == glfw.GLFW_PRESS:
             # ESC to quit
-            if key == glfw.KEY_ESCAPE: 
+            if key == glfw.GLFW_KEY_ESCAPE: 
                 self.exitNow = True
-            elif key == glfw.KEY_R:
+            elif key == glfw.GLFW_KEY_R:
                 self.rotate = not self.rotate
-            elif key == glfw.KEY_B:
+            elif key == glfw.GLFW_KEY_B:
                 # toggle billboarding
                 self.psys.enableBillboard = not self.psys.enableBillboard
-            elif key == glfw.KEY_D:
+            elif key == glfw.GLFW_KEY_D:
                 # toggle depth mask
                 self.psys.disableDepthMask = not self.psys.disableDepthMask
-            elif key == glfw.KEY_T:
+            elif key == glfw.GLFW_KEY_T:
                 # toggle transparency
                 self.psys.enableBlend = not self.psys.enableBlend
         
@@ -110,11 +111,11 @@ class PSMaker:
 
     def run(self):
         # initializer timer
-        glfw.SetTime(0.0)
+        glfw.glfwSetTime(0)
         t = 0.0
-        while not glfw.WindowShouldClose(self.win) and not self.exitNow:
+        while not glfw.glfwWindowShouldClose(self.win) and not self.exitNow:
             # update every x seconds
-            currT = glfw.GetTime()
+            currT = glfw.glfwGetTime()
             if currT - t > 0.01:
                 # update time
                 t = currT
@@ -137,11 +138,11 @@ class PSMaker:
                 # step 
                 self.step()
 
-                glfw.SwapBuffers(self.win)
+                glfw.glfwSwapBuffers(self.win)
                 # Poll for and process events
-                glfw.PollEvents()
+                glfw.glfwPollEvents()
         # end
-        glfw.Terminate()
+        glfw.glfwTerminate()
 
 # main() function
 def main():
