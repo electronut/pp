@@ -49,7 +49,7 @@ class Spiro:
         gcdVal = gcd(self.r, self.R)
         self.nRot = self.r//gcdVal
         # get ratio of radii
-        self.k = r/R
+        self.k = r/float(R)
         # set color
         self.t.color(*col)
         # current angle
