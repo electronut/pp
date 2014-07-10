@@ -201,7 +201,9 @@ def main():
     parser = argparse.ArgumentParser(description="Spirograph...")
   
     # add expected arguments
-    parser.add_argument('--sparams', nargs=3, dest='sparams', required=False)
+    parser.add_argument('--sparams', nargs=3, dest='sparams', required=False, 
+                        help="The three arguments in sparams: R, r, l.")
+                        
 
     # parse args
     args = parser.parse_args()
