@@ -1,0 +1,3234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2012-10-13T05:49:08Z</date>
+	<key>Application Version</key><string>10.7</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/</string>
+	<key>Library Persistent ID</key><string>5E7B8CC1F12D8073</string>
+	<key>Tracks</key>
+	<dict>
+		<key>3083</key>
+		<dict>
+			<key>Track ID</key><integer>3083</integer>
+			<key>Name</key><string>Don't Know Why</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Jesse Harris</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4541105</integer>
+			<key>Total Time</key><integer>186152</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3389372040</integer>
+			<key>Play Date UTC</key><date>2011-05-27T14:44:00Z</date>
+			<key>Normalization</key><integer>1983</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>5689E1B7D789DB2A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/01%20Don't%20Know%20Why.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3085</key>
+		<dict>
+			<key>Track ID</key><integer>3085</integer>
+			<key>Name</key><string>Seven Years</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Lee Alexander</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3541604</integer>
+			<key>Total Time</key><integer>145285</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3381677171</integer>
+			<key>Play Date UTC</key><date>2011-02-27T13:16:11Z</date>
+			<key>Normalization</key><integer>1310</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>1B90E5159B1ACEEC</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/02%20Seven%20Years.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3087</key>
+		<dict>
+			<key>Track ID</key><integer>3087</integer>
+			<key>Name</key><string>Cold Cold Heart</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Hank Williams</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5321333</integer>
+			<key>Total Time</key><integer>218637</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3381677390</integer>
+			<key>Play Date UTC</key><date>2011-02-27T13:19:50Z</date>
+			<key>Normalization</key><integer>1060</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>654C01ACECA3323E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/03%20Cold%20Cold%20Heart.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3089</key>
+		<dict>
+			<key>Track ID</key><integer>3089</integer>
+			<key>Name</key><string>Feelin' The Same Way</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Lee Alexander</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4327100</integer>
+			<key>Total Time</key><integer>177259</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1796</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>F68251A3B2E26BD6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/04%20Feelin'%20The%20Same%20Way.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3091</key>
+		<dict>
+			<key>Track ID</key><integer>3091</integer>
+			<key>Name</key><string>Come Away With Me</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Norah Jones</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4829635</integer>
+			<key>Total Time</key><integer>198157</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3403722850</integer>
+			<key>Play Date UTC</key><date>2011-11-09T17:04:10Z</date>
+			<key>Normalization</key><integer>1088</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>3FAB50E83AB08B5F</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/05%20Come%20Away%20With%20Me.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3093</key>
+		<dict>
+			<key>Track ID</key><integer>3093</integer>
+			<key>Name</key><string>Shoot The Moon</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Jesse Harris</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5767324</integer>
+			<key>Total Time</key><integer>237190</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389511623</integer>
+			<key>Play Date UTC</key><date>2011-05-29T05:30:23Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>B3CF6A1584218FB4</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/06%20Shoot%20The%20Moon.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3095</key>
+		<dict>
+			<key>Track ID</key><integer>3095</integer>
+			<key>Name</key><string>Turn Me On</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>J.D. Loudermilk</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3766213</integer>
+			<key>Total Time</key><integer>154643</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389511778</integer>
+			<key>Play Date UTC</key><date>2011-05-29T05:32:58Z</date>
+			<key>Normalization</key><integer>1756</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>1AA0D6FE32CCFA35</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/07%20Turn%20Me%20On.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3097</key>
+		<dict>
+			<key>Track ID</key><integer>3097</integer>
+			<key>Name</key><string>Lonestar</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Lee Alexander</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4539612</integer>
+			<key>Total Time</key><integer>186083</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389511964</integer>
+			<key>Play Date UTC</key><date>2011-05-29T05:36:04Z</date>
+			<key>Normalization</key><integer>1062</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>FC4C1B830A689A0A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/08%20Lonestar.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3099</key>
+		<dict>
+			<key>Track ID</key><integer>3099</integer>
+			<key>Name</key><string>I've Got To See You Again</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Jesse Harris</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6154861</integer>
+			<key>Total Time</key><integer>253328</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:11Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389512217</integer>
+			<key>Play Date UTC</key><date>2011-05-29T05:40:17Z</date>
+			<key>Normalization</key><integer>1318</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>AE078C5C4C578C8D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/09%20I've%20Got%20To%20See%20You%20Again.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3101</key>
+		<dict>
+			<key>Track ID</key><integer>3101</integer>
+			<key>Name</key><string>Painter Song</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>J.C. Hopkins/Lee Alexander</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3948960</integer>
+			<key>Total Time</key><integer>162259</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:12Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389512379</integer>
+			<key>Play Date UTC</key><date>2011-05-29T05:42:59Z</date>
+			<key>Normalization</key><integer>1094</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6EF014009BBE0453</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/10%20Painter%20Song.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3103</key>
+		<dict>
+			<key>Track ID</key><integer>3103</integer>
+			<key>Name</key><string>One Flight Down</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Jesse Harris</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4530246</integer>
+			<key>Total Time</key><integer>185688</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:12Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1775</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>1A77E3058CBC1B33</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/11%20One%20Flight%20Down.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3105</key>
+		<dict>
+			<key>Track ID</key><integer>3105</integer>
+			<key>Name</key><string>Nightingale</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Norah Jones</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6129129</integer>
+			<key>Total Time</key><integer>252260</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:12Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1610</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D7F9E54BF5A06457</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/12%20Nightingale.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3107</key>
+		<dict>
+			<key>Track ID</key><integer>3107</integer>
+			<key>Name</key><string>The Long Day Is Over</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Jesse Harris/Norah Jones</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4005595</integer>
+			<key>Total Time</key><integer>164581</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:26Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:12Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1060</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Long Day Is Over</string>
+			<key>Persistent ID</key><string>905316609998CE72</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/13%20The%20Long%20Day%20Is%20Over.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3109</key>
+		<dict>
+			<key>Track ID</key><integer>3109</integer>
+			<key>Name</key><string>The Nearness Of You</string>
+			<key>Artist</key><string>Norah Jones</string>
+			<key>Composer</key><string>Hoagy Carmichael/Ned Washington</string>
+			<key>Album</key><string>Come Away With Me</string>
+			<key>Genre</key><string>Pop</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4577341</integer>
+			<key>Total Time</key><integer>187685</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>14</integer>
+			<key>Track Count</key><integer>14</integer>
+			<key>Year</key><integer>2002</integer>
+			<key>Date Modified</key><date>2006-08-07T05:24:26Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:12Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1009</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Nearness Of You</string>
+			<key>Persistent ID</key><string>53F9F50A04A60E20</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Norah%20Jones/Come%20Away%20With%20Me/14%20The%20Nearness%20Of%20You.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3261</key>
+		<dict>
+			<key>Track ID</key><integer>3261</integer>
+			<key>Name</key><string>Udu Chant</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5394974</integer>
+			<key>Total Time</key><integer>221145</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:23Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3378127219</integer>
+			<key>Play Date UTC</key><date>2011-01-17T11:10:19Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2B032417AE44DC20</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/01%20Udu%20Chant.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3263</key>
+		<dict>
+			<key>Track ID</key><integer>3263</integer>
+			<key>Name</key><string>Island Groove</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira, Babatunde Olatunji</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8359244</integer>
+			<key>Total Time</key><integer>343909</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:23Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1151</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>5915F196039F13B3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/02%20Island%20Groove.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3265</key>
+		<dict>
+			<key>Track ID</key><integer>3265</integer>
+			<key>Name</key><string>Light Over Shadow</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Airto Moreira, Babatunde Olatunji, Flora Purim</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5649122</integer>
+			<key>Total Time</key><integer>231455</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:23Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>5FE92046266D7F16</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/03%20Light%20Over%20Shadow.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3267</key>
+		<dict>
+			<key>Track ID</key><integer>3267</integer>
+			<key>Name</key><string>Dance Of The Hunter's Fire</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Airto Moreira, Babatunde Olatunji, Flora Purim, T. H. “Vikku” Vinayakram</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4453553</integer>
+			<key>Total Time</key><integer>181671</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1200</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A32F78AE2438D783</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/04%20Dance%20Of%20The%20Hunter's%20Fire.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3269</key>
+		<dict>
+			<key>Track ID</key><integer>3269</integer>
+			<key>Name</key><string>Jewe (You Are The One)</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Babatunde Olatunji</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6024645</integer>
+			<key>Total Time</key><integer>247082</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1159</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A6303BD922A35C82</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/05%20Jewe%20(You%20Are%20The%20One).m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3271</key>
+		<dict>
+			<key>Track ID</key><integer>3271</integer>
+			<key>Name</key><string>The Hunt</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira, Babatunde Olatunji, T. H. “Vikku” Vinayakram</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5515948</integer>
+			<key>Total Time</key><integer>225905</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1183</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Hunt</string>
+			<key>Persistent ID</key><string>EE7577CD7CC1DFF1</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/06%20The%20Hunt.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3273</key>
+		<dict>
+			<key>Track ID</key><integer>3273</integer>
+			<key>Name</key><string>Temple Caves</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira, Babatunde Olatunji</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4849679</integer>
+			<key>Total Time</key><integer>199179</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1117</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>99E9D0C5A8B2051E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/07%20Temple%20Caves.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3275</key>
+		<dict>
+			<key>Track ID</key><integer>3275</integer>
+			<key>Name</key><string>The Dancing Sorcerer</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Zakir Hussain, Airto Moreira</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4343732</integer>
+			<key>Total Time</key><integer>177097</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>976</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Dancing Sorcerer</string>
+			<key>Persistent ID</key><string>57FFEB75A2BD3F17</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/08%20The%20Dancing%20Sorcerer.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3277</key>
+		<dict>
+			<key>Track ID</key><integer>3277</integer>
+			<key>Name</key><string>Bones</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Mickey Hart, Zakir Hussain, Babatunde Olatunji, Flora Purim</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6169530</integer>
+			<key>Total Time</key><integer>253119</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>930</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>BCD8FF9FB18D6D78</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/09%20Bones.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3279</key>
+		<dict>
+			<key>Track ID</key><integer>3279</integer>
+			<key>Name</key><string>Lost River</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira, Babatunde Olatunji, Flora Purim</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4363201</integer>
+			<key>Total Time</key><integer>177909</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6F04FA6851B75949</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/10%20Lost%20River.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3281</key>
+		<dict>
+			<key>Track ID</key><integer>3281</integer>
+			<key>Name</key><string>Evening Samba</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Sikiru Adepoju, Mickey Hart, Zakir Hussain, Airto Moreira, Babatunde Olatunji, T. H. “Vikku” Vinayakram</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6661701</integer>
+			<key>Total Time</key><integer>273529</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:24Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1090</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>21676665E3B08FDD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/11%20Evening%20Samba.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3283</key>
+		<dict>
+			<key>Track ID</key><integer>3283</integer>
+			<key>Name</key><string>Iyanu (Surprises)</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Babatunde Olatunji</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3052699</integer>
+			<key>Total Time</key><integer>123342</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:25Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1189</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E27691D2F2EA77AB</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/12%20Iyanu%20(Surprises).m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3285</key>
+		<dict>
+			<key>Track ID</key><integer>3285</integer>
+			<key>Name</key><string>Mysterious Island</string>
+			<key>Artist</key><string>Mickey Hart</string>
+			<key>Composer</key><string>Mickey Hart, Airto Moreira, Flora Purim, Jeff Sterling</string>
+			<key>Album</key><string>Planet Drum</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8363902</integer>
+			<key>Total Time</key><integer>343886</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1991</integer>
+			<key>Date Modified</key><date>2006-08-07T15:15:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:25Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1000</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C1E7B9E8EE5967EE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Mickey%20Hart/Planet%20Drum/13%20Mysterious%20Island.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3391</key>
+		<dict>
+			<key>Track ID</key><integer>3391</integer>
+			<key>Name</key><string>Prologue</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6377436</integer>
+			<key>Total Time</key><integer>265240</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3389617969</integer>
+			<key>Play Date UTC</key><date>2011-05-30T11:02:49Z</date>
+			<key>Normalization</key><integer>1061</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>885F82670F5BFB3C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/01%20Prologue.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3393</key>
+		<dict>
+			<key>Track ID</key><integer>3393</integer>
+			<key>Name</key><string>The Mummers' Dance</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8911392</integer>
+			<key>Total Time</key><integer>370681</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389618339</integer>
+			<key>Play Date UTC</key><date>2011-05-30T11:08:59Z</date>
+			<key>Normalization</key><integer>1408</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Sort Name</key><string>Mummers' Dance</string>
+			<key>Persistent ID</key><string>3A91637475846A5D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/02%20The%20Mummers'%20Dance.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3395</key>
+		<dict>
+			<key>Track ID</key><integer>3395</integer>
+			<key>Name</key><string>Skellig</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8919847</integer>
+			<key>Total Time</key><integer>370681</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389618710</integer>
+			<key>Play Date UTC</key><date>2011-05-30T11:15:10Z</date>
+			<key>Normalization</key><integer>1495</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>0537EF58BB0FF5E5</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/03%20Skellig.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3397</key>
+		<dict>
+			<key>Track ID</key><integer>3397</integer>
+			<key>Name</key><string>Marco Polo</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7657442</integer>
+			<key>Total Time</key><integer>319133</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389619029</integer>
+			<key>Play Date UTC</key><date>2011-05-30T11:20:29Z</date>
+			<key>Normalization</key><integer>1744</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>F6248302AA5939F5</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/04%20Marco%20Polo.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3399</key>
+		<dict>
+			<key>Track ID</key><integer>3399</integer>
+			<key>Name</key><string>The Highwayman</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Alfred Noyes</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>14989127</integer>
+			<key>Total Time</key><integer>620667</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Sort Name</key><string>Highwayman</string>
+			<key>Persistent ID</key><string>64D32AB78E932D09</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/05%20The%20Highwayman.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3401</key>
+		<dict>
+			<key>Track ID</key><integer>3401</integer>
+			<key>Name</key><string>La Serenissima</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7513168</integer>
+			<key>Total Time</key><integer>310008</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>50FF2816CB4804E3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/06%20La%20Serenissima.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3403</key>
+		<dict>
+			<key>Track ID</key><integer>3403</integer>
+			<key>Name</key><string>Night Ride Across The Caucasus</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>12386918</integer>
+			<key>Total Time</key><integer>512648</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-08-07T08:53:04Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3383588163</integer>
+			<key>Play Date UTC</key><date>2011-03-21T16:06:03Z</date>
+			<key>Normalization</key><integer>1378</integer>
+			<key>Artwork Count</key><integer>2</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>0B41640737DF5278</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/07%20Night%20Ride%20Across%20The%20Caucasus.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3405</key>
+		<dict>
+			<key>Track ID</key><integer>3405</integer>
+			<key>Name</key><string>Dante's Prayer</string>
+			<key>Artist</key><string>Loreena McKennitt</string>
+			<key>Composer</key><string>Loreena McKennitt</string>
+			<key>Album</key><string>The Book Of Secrets</string>
+			<key>Genre</key><string>New Age</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>10443284</integer>
+			<key>Total Time</key><integer>431077</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2006-07-31T03:38:32Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Book Of Secrets</string>
+			<key>Persistent ID</key><string>05A6BBABC4F0F411</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Loreena%20McKennitt/The%20Book%20Of%20Secrets/08%20Dante's%20Prayer.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3593</key>
+		<dict>
+			<key>Track ID</key><integer>3593</integer>
+			<key>Name</key><string>Part I</string>
+			<key>Artist</key><string>Keith Jarrett</string>
+			<key>Composer</key><string>Keith Jarrett</string>
+			<key>Album</key><string>The Koln Concert</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>37811783</integer>
+			<key>Total Time</key><integer>1561610</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>4</integer>
+			<key>Year</key><integer>1975</integer>
+			<key>Date Modified</key><date>2006-07-27T16:19:42Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:50Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3389984791</integer>
+			<key>Play Date UTC</key><date>2011-06-03T16:56:31Z</date>
+			<key>Normalization</key><integer>874</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Koln Concert</string>
+			<key>Persistent ID</key><string>510557EFCBAD559F</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Keith%20Jarrett/The%20Koln%20Concert/01%20Part%20I.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3595</key>
+		<dict>
+			<key>Track ID</key><integer>3595</integer>
+			<key>Name</key><string>Part II A</string>
+			<key>Artist</key><string>Keith Jarrett</string>
+			<key>Composer</key><string>Keith Jarrett</string>
+			<key>Album</key><string>The Koln Concert</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>21674287</integer>
+			<key>Total Time</key><integer>894756</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>4</integer>
+			<key>Year</key><integer>1975</integer>
+			<key>Date Modified</key><date>2006-07-27T16:19:44Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:50Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3389985685</integer>
+			<key>Play Date UTC</key><date>2011-06-03T17:11:25Z</date>
+			<key>Normalization</key><integer>774</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Koln Concert</string>
+			<key>Persistent ID</key><string>7BE6157C7A944DEE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Keith%20Jarrett/The%20Koln%20Concert/02%20Part%20II%20A.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3597</key>
+		<dict>
+			<key>Track ID</key><integer>3597</integer>
+			<key>Name</key><string>Part II B</string>
+			<key>Artist</key><string>Keith Jarrett</string>
+			<key>Composer</key><string>Keith Jarrett</string>
+			<key>Album</key><string>The Koln Concert</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>26508430</integer>
+			<key>Total Time</key><integer>1094517</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>4</integer>
+			<key>Year</key><integer>1975</integer>
+			<key>Date Modified</key><date>2006-07-27T16:19:46Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:50Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389986780</integer>
+			<key>Play Date UTC</key><date>2011-06-03T17:29:40Z</date>
+			<key>Normalization</key><integer>781</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Koln Concert</string>
+			<key>Persistent ID</key><string>F14B6F46956F15A5</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Keith%20Jarrett/The%20Koln%20Concert/03%20Part%20II%20B.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3599</key>
+		<dict>
+			<key>Track ID</key><integer>3599</integer>
+			<key>Name</key><string>Part II C</string>
+			<key>Artist</key><string>Keith Jarrett</string>
+			<key>Composer</key><string>Keith Jarrett</string>
+			<key>Album</key><string>The Koln Concert</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>10098304</integer>
+			<key>Total Time</key><integer>416843</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>4</integer>
+			<key>Year</key><integer>1975</integer>
+			<key>Date Modified</key><date>2006-07-27T16:19:48Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:50Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3389987197</integer>
+			<key>Play Date UTC</key><date>2011-06-03T17:36:37Z</date>
+			<key>Normalization</key><integer>948</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Koln Concert</string>
+			<key>Persistent ID</key><string>29B257311FC05657</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Keith%20Jarrett/The%20Koln%20Concert/04%20Part%20II%20C.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3621</key>
+		<dict>
+			<key>Track ID</key><integer>3621</integer>
+			<key>Name</key><string>Sayonee</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7416200</integer>
+			<key>Total Time</key><integer>305526</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:50Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:53Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>918</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E00D1FC101EF9DAF</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/01%20Sayonee.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3623</key>
+		<dict>
+			<key>Track ID</key><integer>3623</integer>
+			<key>Name</key><string>Meri Awaaz Suno</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8072232</integer>
+			<key>Total Time</key><integer>332647</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:46Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:53Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1014</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>DE82B341A348847D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/02%20Meri%20Awaaz%20Suno.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3625</key>
+		<dict>
+			<key>Track ID</key><integer>3625</integer>
+			<key>Name</key><string>Khudi</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6058236</integer>
+			<key>Total Time</key><integer>249311</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:42Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1092</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6AB6983D144D3680</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/03%20Khudi.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3627</key>
+		<dict>
+			<key>Track ID</key><integer>3627</integer>
+			<key>Name</key><string>Yaar Bina</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5526756</integer>
+			<key>Total Time</key><integer>227182</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:40Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1059</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>A93B567A32741520</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/04%20Yaar%20Bina.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3629</key>
+		<dict>
+			<key>Track ID</key><integer>3629</integer>
+			<key>Name</key><string>Mukh Gae</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8098433</integer>
+			<key>Total Time</key><integer>333715</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:38Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>924</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>687CE56748388723</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/05%20Mukh%20Gae.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3631</key>
+		<dict>
+			<key>Track ID</key><integer>3631</integer>
+			<key>Name</key><string>Heer</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7062398</integer>
+			<key>Total Time</key><integer>290898</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:34Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>943</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>43AB15622BF10A3E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/06%20Heer.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3633</key>
+		<dict>
+			<key>Track ID</key><integer>3633</integer>
+			<key>Name</key><string>Wahda Hoo</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7087509</integer>
+			<key>Total Time</key><integer>291943</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:30Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>899</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>CF4A02ACE1A2B1F3</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/07%20Wahda%20Hoo.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3635</key>
+		<dict>
+			<key>Track ID</key><integer>3635</integer>
+			<key>Name</key><string>Kyun Parishan</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5737137</integer>
+			<key>Total Time</key><integer>235936</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:28Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>963</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>1293852C7E2937CB</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/08%20Kyun%20Parishan.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3637</key>
+		<dict>
+			<key>Track ID</key><integer>3637</integer>
+			<key>Name</key><string>Mahiwal</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8754082</integer>
+			<key>Total Time</key><integer>360813</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:24Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:54Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1030</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>0C762D78D78C7DB1</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/09%20Mahiwal.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3639</key>
+		<dict>
+			<key>Track ID</key><integer>3639</integer>
+			<key>Name</key><string>Kisne Suna</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5763699</integer>
+			<key>Total Time</key><integer>237051</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:20Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>909</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E0CB4CF446887C04</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/10%20Kisne%20Suna.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3641</key>
+		<dict>
+			<key>Track ID</key><integer>3641</integer>
+			<key>Name</key><string>Lal Meri Pat</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7748353</integer>
+			<key>Total Time</key><integer>319249</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:18Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>906</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6514CDA229D09DBD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/11%20Lal%20Meri%20Pat.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3643</key>
+		<dict>
+			<key>Track ID</key><integer>3643</integer>
+			<key>Name</key><string>Dil Nahin Lag Raha</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5734991</integer>
+			<key>Total Time</key><integer>235843</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:14Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>949</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>18C965876072104E</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/12%20Dil%20Nahin%20Lag%20Raha.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3645</key>
+		<dict>
+			<key>Track ID</key><integer>3645</integer>
+			<key>Name</key><string>Loishay</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5300292</integer>
+			<key>Total Time</key><integer>217755</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>910</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>7E543F949F7465D2</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/13%20Loishay.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3647</key>
+		<dict>
+			<key>Track ID</key><integer>3647</integer>
+			<key>Name</key><string>Saeein Alaap</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>1325568</integer>
+			<key>Total Time</key><integer>53009</integer>
+			<key>Track Number</key><integer>14</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1207</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>5EB968A945AE2176</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/14%20Saeein%20Alaap.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>3649</key>
+		<dict>
+			<key>Track ID</key><integer>3649</integer>
+			<key>Name</key><string>Saeein</string>
+			<key>Artist</key><string>Junoon</string>
+			<key>Album</key><string>Azadi</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6784242</integer>
+			<key>Total Time</key><integer>279427</integer>
+			<key>Track Number</key><integer>15</integer>
+			<key>Track Count</key><integer>15</integer>
+			<key>Date Modified</key><date>2006-08-13T06:39:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:55:55Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>877</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2F31B1864638D709</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Junoon/Azadi/15%20Saeein.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4053</key>
+		<dict>
+			<key>Track ID</key><integer>4053</integer>
+			<key>Name</key><string>The Esio Trot</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>10514925</integer>
+			<key>Total Time</key><integer>433770</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:06Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Esio Trot</string>
+			<key>Persistent ID</key><string>7685DCB23B82A22A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/01%20The%20Esio%20Trot.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4055</key>
+		<dict>
+			<key>Track ID</key><integer>4055</integer>
+			<key>Name</key><string>Water Dance</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>10159717</integer>
+			<key>Total Time</key><integer>419095</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:06Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1243</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>4CC983DB8EE26174</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/02%20Water%20Dance.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4057</key>
+		<dict>
+			<key>Track ID</key><integer>4057</integer>
+			<key>Name</key><string>Hymn</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3892899</integer>
+			<key>Total Time</key><integer>159891</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1383</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>02D7DDD50DADFF60</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/03%20Hymn.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4059</key>
+		<dict>
+			<key>Track ID</key><integer>4059</integer>
+			<key>Name</key><string>Night Spinner</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7209204</integer>
+			<key>Total Time</key><integer>297167</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1249</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C37FEE66D7CA29CA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/04%20Night%20Spinner.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4061</key>
+		<dict>
+			<key>Track ID</key><integer>4061</integer>
+			<key>Name</key><string>In The Grotto</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>14034114</integer>
+			<key>Total Time</key><integer>582656</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2D5BD74BA272B2BE</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/05%20In%20The%20Grotto.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4063</key>
+		<dict>
+			<key>Track ID</key><integer>4063</integer>
+			<key>Name</key><string>Looking East</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6766964</integer>
+			<key>Total Time</key><integer>278893</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:37Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1256</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>62C27FDF1BD1023A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/06%20Looking%20East.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4065</key>
+		<dict>
+			<key>Track ID</key><integer>4065</integer>
+			<key>Name</key><string>Images</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8841345</integer>
+			<key>Total Time</key><integer>364621</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:38Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1464</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D5D90BF95FB6C41A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/07%20Images.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4067</key>
+		<dict>
+			<key>Track ID</key><integer>4067</integer>
+			<key>Name</key><string>Romance</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>9935184</integer>
+			<key>Total Time</key><integer>409877</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:38Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>3728F4A381D17CCD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/08%20Romance.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4069</key>
+		<dict>
+			<key>Track ID</key><integer>4069</integer>
+			<key>Name</key><string>Midnight Meeting</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5659993</integer>
+			<key>Total Time</key><integer>233173</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:38Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1253</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>6CD18B31E820FC5A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/09%20Midnight%20Meeting.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4071</key>
+		<dict>
+			<key>Track ID</key><integer>4071</integer>
+			<key>Name</key><string>The Light Never Leaves Your Eyes</string>
+			<key>Artist</key><string>George Brooks</string>
+			<key>Album</key><string>Night Spinner</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7930364</integer>
+			<key>Total Time</key><integer>327353</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Date Modified</key><date>2006-07-29T04:36:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:56:38Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>917</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Light Never Leaves Your Eyes</string>
+			<key>Persistent ID</key><string>C06E1ED22CD39104</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/George%20Brooks/Night%20Spinner/10%20The%20Light%20Never%20Leaves%20Your%20Eyes.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4931</key>
+		<dict>
+			<key>Track ID</key><integer>4931</integer>
+			<key>Name</key><string>What Silence Said</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6784515</integer>
+			<key>Total Time</key><integer>280983</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:14Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:56Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3424522441</integer>
+			<key>Play Date UTC</key><date>2012-07-07T10:44:01Z</date>
+			<key>Normalization</key><integer>1244</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>268362DDAF5C2F6F</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/01%20What%20Silence%20Said.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4933</key>
+		<dict>
+			<key>Track ID</key><integer>4933</integer>
+			<key>Name</key><string>Music For Crocodiles</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7263665</integer>
+			<key>Total Time</key><integer>299977</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:14Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3424522742</integer>
+			<key>Play Date UTC</key><date>2012-07-07T10:49:02Z</date>
+			<key>Normalization</key><integer>1299</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>428D83A4763E1377</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/02%20Music%20For%20Crocodiles.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4935</key>
+		<dict>
+			<key>Track ID</key><integer>4935</integer>
+			<key>Name</key><string>Light Years Intro</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>2473260</integer>
+			<key>Total Time</key><integer>100796</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:14Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3424522843</integer>
+			<key>Play Date UTC</key><date>2012-07-07T10:50:43Z</date>
+			<key>Normalization</key><integer>543</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>CD7A03226BC79769</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/03%20Light%20Years%20Intro.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4937</key>
+		<dict>
+			<key>Track ID</key><integer>4937</integer>
+			<key>Name</key><string>Light Years</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8670568</integer>
+			<key>Total Time</key><integer>357748</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:14Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3424523201</integer>
+			<key>Play Date UTC</key><date>2012-07-07T10:56:41Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>7EFA7FD30D0F2680</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/04%20Light%20Years.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4939</key>
+		<dict>
+			<key>Track ID</key><integer>4939</integer>
+			<key>Name</key><string>The Same Song</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6041432</integer>
+			<key>Total Time</key><integer>249148</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3424523450</integer>
+			<key>Play Date UTC</key><date>2012-07-07T11:00:50Z</date>
+			<key>Normalization</key><integer>1244</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>Same Song</string>
+			<key>Persistent ID</key><string>6D9EE18D975C9227</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/05%20The%20Same%20Song.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4941</key>
+		<dict>
+			<key>Track ID</key><integer>4941</integer>
+			<key>Name</key><string>Intro</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>2373275</integer>
+			<key>Total Time</key><integer>96616</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3424523547</integer>
+			<key>Play Date UTC</key><date>2012-07-07T11:02:27Z</date>
+			<key>Normalization</key><integer>254</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C8F0C5688B3E7BC0</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/06%20Intro.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4943</key>
+		<dict>
+			<key>Track ID</key><integer>4943</integer>
+			<key>Name</key><string>Meanwhile</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5622381</integer>
+			<key>Total Time</key><integer>232430</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3424523779</integer>
+			<key>Play Date UTC</key><date>2012-07-07T11:06:19Z</date>
+			<key>Normalization</key><integer>1244</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>30F61BA41C1F98D6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/07%20Meanwhile.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4945</key>
+		<dict>
+			<key>Track ID</key><integer>4945</integer>
+			<key>Name</key><string>Chordhiya</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8189375</integer>
+			<key>Total Time</key><integer>337872</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1420</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>BC25E5F0C4E2CF87</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/08%20Chordhiya.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4947</key>
+		<dict>
+			<key>Track ID</key><integer>4947</integer>
+			<key>Name</key><string>Idi Samayam</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8068233</integer>
+			<key>Total Time</key><integer>332856</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1231</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E72B722E95A58A58</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/09%20Idi%20Samayam.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4949</key>
+		<dict>
+			<key>Track ID</key><integer>4949</integer>
+			<key>Name</key><string>L'ame Volatile</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5242362</integer>
+			<key>Total Time</key><integer>216083</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C920E073626B1A99</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/10%20L'ame%20Volatile.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4951</key>
+		<dict>
+			<key>Track ID</key><integer>4951</integer>
+			<key>Name</key><string>Intro</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>2591553</integer>
+			<key>Total Time</key><integer>105719</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1148</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>BDF0294676AFF8F1</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/11%20Intro.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4953</key>
+		<dict>
+			<key>Track ID</key><integer>4953</integer>
+			<key>Name</key><string>Sharavana</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>8920276</integer>
+			<key>Total Time</key><integer>368081</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1149</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>4B00A657F97D7C4A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/12%20Sharavana.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4955</key>
+		<dict>
+			<key>Track ID</key><integer>4955</integer>
+			<key>Name</key><string>Leela</string>
+			<key>Artist</key><string>Susheela Raman</string>
+			<key>Album</key><string>Music For Crocodiles</string>
+			<key>Genre</key><string>World</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5517932</integer>
+			<key>Total Time</key><integer>229202</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2005</integer>
+			<key>Date Modified</key><date>2006-08-07T09:55:12Z</date>
+			<key>Date Added</key><date>2009-10-03T14:57:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1248</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>3BB35D00AD68044F</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/Music%20For%20Crocodiles/13%20Leela.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5723</key>
+		<dict>
+			<key>Track ID</key><integer>5723</integer>
+			<key>Name</key><string>A -Tisket, a-Tasket</string>
+			<key>Artist</key><string>Ella Fitzgerald</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>2784627</integer>
+			<key>Total Time</key><integer>116167</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3337490953</integer>
+			<key>Play Date UTC</key><date>2009-10-04T03:19:13Z</date>
+			<key>Normalization</key><integer>1931</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Name</key><string>-Tisket, a-Tasket</string>
+			<key>Persistent ID</key><string>540F7B2D287A4BEA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-01%20A%20-Tisket,%20a-Tasket.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5725</key>
+		<dict>
+			<key>Track ID</key><integer>5725</integer>
+			<key>Name</key><string>Mack the Knife</string>
+			<key>Artist</key><string>Ella Fitzgerald</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6868905</integer>
+			<key>Total Time</key><integer>285069</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3337491238</integer>
+			<key>Play Date UTC</key><date>2009-10-04T03:23:58Z</date>
+			<key>Normalization</key><integer>1610</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>3A12B018255583A6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-02%20Mack%20the%20Knife.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5727</key>
+		<dict>
+			<key>Track ID</key><integer>5727</integer>
+			<key>Name</key><string>Mr. Paganini</string>
+			<key>Artist</key><string>Ella Fitzgerald</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5915091</integer>
+			<key>Total Time</key><integer>246013</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>3534</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>0100B23C34EA0054</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-03%20Mr.%20Paganini.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5729</key>
+		<dict>
+			<key>Track ID</key><integer>5729</integer>
+			<key>Name</key><string>How High the Moon</string>
+			<key>Artist</key><string>Ella Fitzgerald</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>10179348</integer>
+			<key>Total Time</key><integer>422346</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1813</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>3411808F935A2418</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-04%20How%20High%20the%20Moon.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5731</key>
+		<dict>
+			<key>Track ID</key><integer>5731</integer>
+			<key>Name</key><string>God Bless the Child</string>
+			<key>Artist</key><string>Billie Holiday</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5761266</integer>
+			<key>Total Time</key><integer>239512</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3337491582</integer>
+			<key>Play Date UTC</key><date>2009-10-04T03:29:42Z</date>
+			<key>Normalization</key><integer>1848</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>CC687BD99FDC94DD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-05%20God%20Bless%20the%20Child.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5733</key>
+		<dict>
+			<key>Track ID</key><integer>5733</integer>
+			<key>Name</key><string>Strange Fruit</string>
+			<key>Artist</key><string>Billie Holiday</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4404996</integer>
+			<key>Total Time</key><integer>183668</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:57Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2009-10-04T03:29:49Z</date>
+			<key>Normalization</key><integer>2543</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>41A83274C57BCEB4</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-06%20Strange%20Fruit.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5735</key>
+		<dict>
+			<key>Track ID</key><integer>5735</integer>
+			<key>Name</key><string>What a Little Moonlight Can Do</string>
+			<key>Artist</key><string>Billie Holiday</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4614979</integer>
+			<key>Total Time</key><integer>191911</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3337491781</integer>
+			<key>Play Date UTC</key><date>2009-10-04T03:33:01Z</date>
+			<key>Normalization</key><integer>1533</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D5DD4FECCF6BFB79</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-07%20What%20a%20Little%20Moonlight%20Can%20Do.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5737</key>
+		<dict>
+			<key>Track ID</key><integer>5737</integer>
+			<key>Name</key><string>Good Morning Heartache</string>
+			<key>Artist</key><string>Billie Holiday</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5055367</integer>
+			<key>Total Time</key><integer>211067</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3337491992</integer>
+			<key>Play Date UTC</key><date>2009-10-04T03:36:32Z</date>
+			<key>Normalization</key><integer>1259</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E69FCFE1890477AA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-08%20Good%20Morning%20Heartache.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5739</key>
+		<dict>
+			<key>Track ID</key><integer>5739</integer>
+			<key>Name</key><string>Misty</string>
+			<key>Artist</key><string>Sarah Vaughan</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4366419</integer>
+			<key>Total Time</key><integer>181717</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1852</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>4F645E89F05C6C15</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-09%20Misty.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5741</key>
+		<dict>
+			<key>Track ID</key><integer>5741</integer>
+			<key>Name</key><string>Lullaby of Birdland</string>
+			<key>Artist</key><string>Sarah Vaughan</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5790257</integer>
+			<key>Total Time</key><integer>240441</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>10</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1379</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>F1A338488061D000</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-10%20Lullaby%20of%20Birdland.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5743</key>
+		<dict>
+			<key>Track ID</key><integer>5743</integer>
+			<key>Name</key><string>Lover Man</string>
+			<key>Artist</key><string>Sarah Vaughan</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4766186</integer>
+			<key>Total Time</key><integer>198180</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>11</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:10Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1266</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>F7801E10DC0FD415</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-11%20Lover%20Man.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5745</key>
+		<dict>
+			<key>Track ID</key><integer>5745</integer>
+			<key>Name</key><string>Lush Life</string>
+			<key>Artist</key><string>Sarah Vaughan</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5852926</integer>
+			<key>Total Time</key><integer>243715</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1812</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>DE38DBBB679E95F9</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-12%20Lush%20Life.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5747</key>
+		<dict>
+			<key>Track ID</key><integer>5747</integer>
+			<key>Name</key><string>This Bitter Earth</string>
+			<key>Artist</key><string>Dinah Washington</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3534166</integer>
+			<key>Total Time</key><integer>147723</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>13</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>3930</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>9C0D55EA35B9665A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-13%20This%20Bitter%20Earth.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5749</key>
+		<dict>
+			<key>Track ID</key><integer>5749</integer>
+			<key>Name</key><string>Unforgettable</string>
+			<key>Artist</key><string>Dinah Washington</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3915939</integer>
+			<key>Total Time</key><integer>162886</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>14</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:58Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>2889</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>C77B0348F4503E6A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-14%20Unforgettable.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5751</key>
+		<dict>
+			<key>Track ID</key><integer>5751</integer>
+			<key>Name</key><string>Mad About the Boy</string>
+			<key>Artist</key><string>Dinah Washington</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>4322586</integer>
+			<key>Total Time</key><integer>179163</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>15</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:59Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>3755</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>B04E8095C75F7D83</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-15%20Mad%20About%20the%20Boy.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>5753</key>
+		<dict>
+			<key>Track ID</key><integer>5753</integer>
+			<key>Name</key><string>What A Differance A Day Made</string>
+			<key>Artist</key><string>Dinah Washington</string>
+			<key>Album</key><string>4 By 4 - The Ladies - Ella, Billie, Sarah, Dinah</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>3591295</integer>
+			<key>Total Time</key><integer>147654</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>16</integer>
+			<key>Track Number</key><integer>16</integer>
+			<key>Track Count</key><integer>16</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2006-08-07T09:09:08Z</date>
+			<key>Date Added</key><date>2009-10-03T14:58:59Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Normalization</key><integer>1252</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>E4B4D2D0354C0222</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Compilations/4%20By%204%20-%20The%20Ladies%20-%20Ella,%20Billie,%20Sarah,%20Dinah/1-16%20What%20A%20Differance%20A%20Day%20Made.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8437</key>
+		<dict>
+			<key>Track ID</key><integer>8437</integer>
+			<key>Name</key><string>Tamacun</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5273539</integer>
+			<key>Total Time</key><integer>205800</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:13:49Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:40Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3403623282</integer>
+			<key>Play Date UTC</key><date>2011-11-08T13:24:42Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2011-10-21T12:21:16Z</date>
+			<key>Normalization</key><integer>4338</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>793E09AC5E50E5D8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/01%20Tamacun.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8439</key>
+		<dict>
+			<key>Track ID</key><integer>8439</integer>
+			<key>Name</key><string>Diablo Rojo</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7557131</integer>
+			<key>Total Time</key><integer>296800</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:16:34Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:40Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3402407506</integer>
+			<key>Play Date UTC</key><date>2011-10-25T11:41:46Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2011-10-27T11:19:19Z</date>
+			<key>Normalization</key><integer>3352</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>DCE9A6C1FFBE3F7B</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/02%20Diablo%20Rojo.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8441</key>
+		<dict>
+			<key>Track ID</key><integer>8441</integer>
+			<key>Name</key><string>Vikingman</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6141565</integer>
+			<key>Total Time</key><integer>243320</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:11:49Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3403627537</integer>
+			<key>Play Date UTC</key><date>2011-11-08T14:35:37Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2011-10-27T11:19:12Z</date>
+			<key>Normalization</key><integer>3659</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>AC15374D8359CE9C</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/03%20Vikingman.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8443</key>
+		<dict>
+			<key>Track ID</key><integer>8443</integer>
+			<key>Name</key><string>Satori</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7584629</integer>
+			<key>Total Time</key><integer>304400</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>4</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:12:26Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>5</integer>
+			<key>Play Date</key><integer>3403628126</integer>
+			<key>Play Date UTC</key><date>2011-11-08T14:45:26Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2011-10-27T11:19:31Z</date>
+			<key>Normalization</key><integer>1776</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>8C4B664170B0AF64</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/04%20Satori.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8445</key>
+		<dict>
+			<key>Track ID</key><integer>8445</integer>
+			<key>Name</key><string>Ixtapa</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7913274</integer>
+			<key>Total Time</key><integer>313973</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:15:57Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3402408368</integer>
+			<key>Play Date UTC</key><date>2011-10-25T11:56:08Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2011-10-25T10:35:32Z</date>
+			<key>Normalization</key><integer>3094</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>16F8F7AD3C2AD0DB</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/05%20Ixtapa.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8447</key>
+		<dict>
+			<key>Track ID</key><integer>8447</integer>
+			<key>Name</key><string>Stairway To Heaven</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Jimmy Page.Robert Plant</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>7282326</integer>
+			<key>Total Time</key><integer>284200</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:15:18Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>10</integer>
+			<key>Play Date</key><integer>3430146066</integer>
+			<key>Play Date UTC</key><date>2012-09-10T12:51:06Z</date>
+			<key>Normalization</key><integer>1615</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>4D45998A35B14ACB</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/06%20Stairway%20To%20Heaven.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8449</key>
+		<dict>
+			<key>Track ID</key><integer>8449</integer>
+			<key>Name</key><string>Orion</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Cliford Lee Burton,James Alan Hetfield+Lars Ulrich</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>11736010</integer>
+			<key>Total Time</key><integer>464000</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:14:44Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>9</integer>
+			<key>Play Date</key><integer>3430146530</integer>
+			<key>Play Date UTC</key><date>2012-09-10T12:58:50Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2011-10-19T12:08:33Z</date>
+			<key>Normalization</key><integer>3105</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>2BA34FDE67F8C1D6</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/07%20Orion.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8451</key>
+		<dict>
+			<key>Track ID</key><integer>8451</integer>
+			<key>Name</key><string>Juan Loco</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>5299008</integer>
+			<key>Total Time</key><integer>207413</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:12:51Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:41Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>8</integer>
+			<key>Play Date</key><integer>3430146738</integer>
+			<key>Play Date UTC</key><date>2012-09-10T13:02:18Z</date>
+			<key>Skip Count</key><integer>2</integer>
+			<key>Skip Date</key><date>2011-10-27T11:19:28Z</date>
+			<key>Normalization</key><integer>3852</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>1F5B47824495483D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/08%20Juan%20Loco.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>8453</key>
+		<dict>
+			<key>Track ID</key><integer>8453</integer>
+			<key>Name</key><string>PPA</string>
+			<key>Artist</key><string>Rodrigo Y Gabriela</string>
+			<key>Album Artist</key><string>Rodrigo y Gabriela</string>
+			<key>Composer</key><string>Rodrigo Y Gabriela</string>
+			<key>Album</key><string>Rodrigo Y Gabriela</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>AAC audio file</string>
+			<key>Size</key><integer>6589124</integer>
+			<key>Total Time</key><integer>252346</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>9</integer>
+			<key>Year</key><integer>2006</integer>
+			<key>Date Modified</key><date>2011-06-21T02:13:24Z</date>
+			<key>Date Added</key><date>2011-06-21T02:23:42Z</date>
+			<key>Bit Rate</key><integer>192</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3427389410</integer>
+			<key>Play Date UTC</key><date>2012-08-09T15:06:50Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2011-10-27T10:55:51Z</date>
+			<key>Normalization</key><integer>3555</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>7A0D0B0D474CFD59</string>
+			<key>Track Type</key><string>File</string>
+			<key>Location</key><string>file://localhost/Users/mahesh/Music/iTunes/iTunes%20Music/Rodrigo%20y%20Gabriela/Rodrigo%20Y%20Gabriela/09%20PPA.m4a</string>
+			<key>File Folder Count</key><integer>4</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+	</dict>
+	<key>Playlists</key>
+	<array>
+		<dict>
+			<key>Name</key><string>chirag-1</string>
+			<key>Playlist ID</key><integer>20111</integer>
+			<key>Playlist Persistent ID</key><string>16F77129EA5C7E62</string>
+			<key>All Items</key><true/>
+			<key>Playlist Items</key>
+			<array>
+				<dict>
+					<key>Track ID</key><integer>4931</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4933</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4935</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4937</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4939</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4941</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4943</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4945</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4947</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4949</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4951</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4953</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4955</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3593</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3595</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3597</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3599</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3391</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3393</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3395</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3397</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3399</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3401</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3403</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3405</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3083</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3085</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3087</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3089</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3091</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3093</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3095</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3097</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3099</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3101</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3103</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3105</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3107</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3109</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4053</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4055</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4057</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4059</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4061</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4063</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4065</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4067</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4069</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>4071</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3261</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3263</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3265</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3267</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3269</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3271</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3273</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3275</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3277</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3279</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3281</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3283</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3285</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8437</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8439</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8441</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8443</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8445</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8447</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8449</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8451</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>8453</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5723</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5725</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5727</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5729</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5731</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5733</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5735</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5737</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5739</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5741</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5743</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5745</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5747</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5749</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5751</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>5753</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3621</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3623</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3625</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3627</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3629</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3631</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3633</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3635</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3637</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3639</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3641</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3643</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3645</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3647</integer>
+				</dict>
+				<dict>
+					<key>Track ID</key><integer>3649</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
