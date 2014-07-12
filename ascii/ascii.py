@@ -121,8 +121,8 @@ def main():
   # open file
   f = open(outFile, 'w')
     # write to file
-  for k in range(len(aimg)):
-      print(aimg[k], file=f)
+  for row in aimg:
+      f.write(row + '\n')
   # cleanup
   f.close()
 
