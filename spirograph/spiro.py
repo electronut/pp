@@ -228,9 +228,8 @@ def main():
     if args.sparams:
         params = [float(x) for x in args.sparams]
         # draw spirograph with given parameters
-        col = (random.random(),
-               random.random(),
-               random.random())
+        # black by default
+        col = (0.0, 0.0, 0.0)
         spiro = Spiro(0, 0, col, *params)
         spiro.draw()
     else:
@@ -247,19 +246,3 @@ def main():
 # call main
 if __name__ == '__main__':
     main()
-
-"""
-- HIDE turtle - key
-
-- keyboard - pause
-- keyboard - save file - time stamp, EXIF
-- multiple random spiros
-- manual spiro params
-- peroidicity
-
-- home work
-
-- spiral
-- pause drawing
-- align turtle
-"""
