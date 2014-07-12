@@ -95,7 +95,7 @@ def main():
     
     # set grid size
     N = 100
-    if args.N and args.N > 8:
+    if args.N and int(args.N) > 8:
         N = int(args.N)
         
     # set animation update interval
