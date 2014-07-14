@@ -280,7 +280,8 @@ class RenderWindow:
 
 # main() function
 def main():
-    print('starting simpleglfw...')
+    print("Starting simpleglfw. "
+          "Press any key to toggle cut. Press ESC to quit.")
     rw = RenderWindow()
     rw.run()
 
