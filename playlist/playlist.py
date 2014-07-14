@@ -140,7 +140,10 @@ def findDuplicates(fileName):
 # Gather our code in a main() function
 def main():
     # create parser
-    parser = argparse.ArgumentParser(description="Comparing iTunes playlists...")
+    descStr = """
+    This program analyzes playlist files (.xml) exported from iTunes.
+    """
+    parser = argparse.ArgumentParser(description=descStr)
     # add a mutually exclusive group of arguments
     group = parser.add_mutually_exclusive_group()
 
