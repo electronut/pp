@@ -198,7 +198,16 @@ def main():
     # use sys.argv if needed
     print('generating spirograph...')
     # create parser
-    parser = argparse.ArgumentParser(description="Spirograph...")
+    descStr = """This program draws spirographs using the Turtle module. 
+    When run with no arguments, this program draws random spirographs.
+    
+    Terminology:
+
+    R: radius of outer circle.
+    r: radius of inner circle.
+    l: ratio of hole distance to r.
+    """
+    parser = argparse.ArgumentParser(description=descStr)
   
     # add expected arguments
     parser.add_argument('--sparams', nargs=3, dest='sparams', required=False, 
