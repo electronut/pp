@@ -51,7 +51,12 @@ def covertImageToAscii(fileName, cols, scale, moreLevels):
     
     print("cols: %d, rows: %d" % (cols, rows))
     print("tile dims: %d x %d" % (w, h))
-    
+
+    # check if image size is too small
+    if cols > W or rows > H:
+        print("Image too small for specified cols!")
+        exit(0)
+
     # ascii image is a list of character strings
     aimg = []
     # generate list of dimensions
