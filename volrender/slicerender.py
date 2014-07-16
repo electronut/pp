@@ -51,13 +51,13 @@ strFS = """
 
 in vec3 texcoord;
 
-uniform sampler3D texture;
+uniform sampler3D tex;
 
 out vec4 fragColor;
 
 void main() {
   // look up color in texture
-  vec4 col = texture(texture, texcoord);
+  vec4 col = texture(tex, texcoord);
   fragColor = col.rrra;
 }
 
@@ -153,7 +153,7 @@ class SliceRender:
         # enable texture
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_3D, self.texture)
-        glUniform1i(glGetUniformLocation(self.program, b"texture"), 0)
+        glUniform1i(glGetUniformLocation(self.program, b"tex"), 0)
 
         # bind VAO
         glBindVertexArray(self.vao)
