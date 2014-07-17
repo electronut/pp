@@ -11,7 +11,6 @@ Website: electronut.in
 import sys
 from OpenGL.GLUT import *
 from OpenGL.GL import *
-from OpenGL.GLU import *
 
 def display():
    glClear (GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
