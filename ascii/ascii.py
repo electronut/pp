@@ -75,7 +75,7 @@ def covertImageToAscii(fileName, cols, scale, moreLevels):
             # correct last tile
             if i == cols-1:
                 x2 = W
-            # crop image
+            # crop image to extract tile
             img = image.crop((x1, y1, x2, y2))
             # get average luminance
             avg = int(getAverageL(img))
