@@ -144,9 +144,8 @@ class SpiroAnimator:
         R = random.randint(50, min(width, height)//2)
         r = random.randint(10, 9*R//10)
         l = random.uniform(0.1, 0.9)
-        r1 = random.random()*min(width, height)/2
-        t1 = random.uniform(0.0, 2*math.pi)
-        xc, yc = r1*math.cos(t1), r1*math.sin(t1)
+        xc = random.randint(-width//2, width//2)
+        yc = random.randint(-height//2, height//2)
         col = (random.random(),
                random.random(),
                random.random())
