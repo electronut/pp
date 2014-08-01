@@ -210,6 +210,11 @@ def main():
   print('reading input folder...')
   input_images = getImages(args.input_folder)
 
+  # check if any valid input images found  
+  if input_images == []:
+      print('No input images found in %s. Exiting.' % (args.input_folder, ))
+      exit()
+
   # shuffle list - to get a more varied output?
   random.shuffle(input_images)
 
