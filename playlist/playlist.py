@@ -46,7 +46,8 @@ def findCommonTracks(fileNames):
     if len(commonTracks) > 0:
         f = open("common.txt", 'w')
         for val in commonTracks:
-            f.write("%s\n" % val)
+            s = "%s\n" % val
+            f.write(s.encode("UTF-8"))
         f.close()
         print("%d common tracks found. "
               "Track names written to common.txt." % len(commonTracks))
@@ -72,6 +73,12 @@ def plotStats(fileName):
         except:
             # ignore
             pass
+
+    # ensure valid data was collected
+    if ratings == [] or durations == []:
+        print("No valid Album Rating/Total Time data in %s." % fileName)
+        return
+
     # cross plot
     x = np.array(durations, np.int32)
     # convert to minutes
@@ -131,7 +138,7 @@ def findDuplicates(fileName):
     if len(dups) > 0:
         print("Found %d duplicates. Track names saved to dup.txt" % len(dups))
     else:
-        prints("No duplicate tracks found!")
+        print("No duplicate tracks found!")
     f = open("dups.txt", 'w')
     for val in dups:
         f.write("[%d] %s\n" % (val[0], val[1]))
