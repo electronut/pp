@@ -34,8 +34,7 @@ def findCommonTracks(fileNames):
             try:
                 # add name to set
                 trackNames.add(track['Name'])
-            except Exception as e:
-                # print(e)
+            except:
                 # ignore
                 pass
         # add to list
