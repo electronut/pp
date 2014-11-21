@@ -1,5 +1,6 @@
-These are examples from an upcoming Python book.
+Code for all the projects in the book Python Playground published by No Starch Press, USA.
 
-You're welcome to look, but note that it's a work in progress and hence unstable at the moment...
+You can find more information about the book here:
 
+http://www.nostarch.com/pythonplayground
 
