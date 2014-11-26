@@ -37,7 +37,7 @@ def manualTest(ser):
             vals.insert(0, ord('H'))
             data = struct.pack('BBBBB', *vals)
             ser.write(data)
-    except KeyboardInterrupt:
+    except:
         print('exiting...')
         # shut off motors
         vals = [ord('H'), 0, 1, 0, 1]
