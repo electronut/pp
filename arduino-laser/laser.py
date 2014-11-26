@@ -32,7 +32,7 @@ def manualTest(ser):
     try:
         while True:
             print('enter motor control info: eg. < 100 1 120 0 >')
-            strIn = input()
+            strIn = raw_input()
             vals = [int(val) for val in strIn.split()[:4]]
             vals.insert(0, ord('H'))
             data = struct.pack('BBBBB', *vals)
