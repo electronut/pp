@@ -1,4 +1,4 @@
-[Python Playground](cover.png)
+![Python Playground](cover.png)
 
 Code for all the projects in the book Python Playground published by
 No Starch Press, USA.
