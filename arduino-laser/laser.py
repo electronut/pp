@@ -73,18 +73,19 @@ def autoTest(ser):
 def getInputDevice(p):
     index = None
     nDevices = p.get_device_count()
-    print('Found %d devices:' % nDevices)
+    print('Found %d devices. Select input device:' % nDevices)
+    # print all devices found
     for i in range(nDevices):
         deviceInfo = p.get_device_info_by_index(i)
         devName = deviceInfo['name']
-        print(devName)
-        # look for the "input" keyword
-        # choose the first such device as input
-        # change this loop to modify this behavior
-        # maybe you want "mic"?
-        if not index:
-            if 'input' in devName.lower():
-                index = i
+        print("%d: %s" % (i, devName))
+    # get user selection
+    try:
+        # get user selection and convert to integer
+        index = int(input())
+    except:
+        pass
+
     # print out chosen device
     if index is not None:
         devName = p.get_device_info_by_index(index)["name"]
