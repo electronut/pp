@@ -43,7 +43,7 @@ def findCommonTracks(fileNames):
     commonTracks = set.intersection(*trackNameSets)
     # write to file
     if len(commonTracks) > 0:
-        f = open("common.txt", 'w')
+        f = open("common.txt", 'wb')
         for val in commonTracks:
             s = "%s\n" % val
             f.write(s.encode("UTF-8"))
@@ -138,7 +138,7 @@ def findDuplicates(fileName):
         print("Found %d duplicates. Track names saved to dup.txt" % len(dups))
     else:
         print("No duplicate tracks found!")
-    f = open("dups.txt", 'w')
+    f = open("dups.txt", 'wb')
     for val in dups:
         f.write("[%d] %s\n" % (val[0], val[1]))
     f.close()
