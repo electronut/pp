@@ -17,9 +17,9 @@ import numpy as np
 
 def findCommonTracks(fileNames):
     """
-    Find common tracks in given playlist files, and save them 
+    Find common tracks in given playlist files, and save them
     to common.txt.
-    """    
+    """
     # a list of sets of track names
     trackNameSets = []
     for fileName in fileNames:
@@ -38,7 +38,7 @@ def findCommonTracks(fileNames):
                 # ignore
                 pass
         # add to list
-        trackNameSets.append(trackNames)    
+        trackNameSets.append(trackNames)
     # get set of common tracks
     commonTracks = set.intersection(*trackNameSets)
     # write to file
@@ -138,7 +138,7 @@ def findDuplicates(fileName):
         print("Found %d duplicates. Track names saved to dup.txt" % len(dups))
     else:
         print("No duplicate tracks found!")
-    f = open("dups.txt", 'wb')
+    f = open("dups.txt", 'w')
     for val in dups:
         f.write("[%d] %s\n" % (val[0], val[1]))
     f.close()
