@@ -8,11 +8,12 @@ Author: Mahesh Venkitachalam
 Website: electronut.in
 """
 
-import re, argparse
-import sys
-from matplotlib import pyplot
+import argparse
 import plistlib
+
 import numpy as np
+
+from matplotlib import pyplot
 
 
 def findCommonTracks(fileNames):

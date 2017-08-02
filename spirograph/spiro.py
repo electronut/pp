@@ -7,14 +7,15 @@ Author: Mahesh Venkitachalam
 Website: electronut.in
 """
 
-import sys, random, argparse
-import numpy as np
+import argparse
 import math
 import turtle
 import random
-from PIL import Image
-from datetime import datetime    
+from datetime import datetime
 from fractions import gcd
+
+from PIL import Image
+
 
 # A class that draws a spirograph
 class Spiro:

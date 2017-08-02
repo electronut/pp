@@ -19,12 +19,15 @@ opening stream...
 cleaning up
 """
 
-import sys, serial, struct
-import pyaudio
-import numpy
-import math
+import struct
 from time import sleep
 import argparse
+
+import numpy
+
+import serial
+import pyaudio
+
 
 # manual test for sending motor speeds
 def manualTest(ser):

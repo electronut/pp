@@ -7,12 +7,13 @@ OpenGL 3.2 context.
 Author: Mahesh Venkitachalam
 """
 
-import OpenGL
+import math
+import os
+
+import numpy
+
 from OpenGL.GL import *
-
-import numpy, math, sys, os
 import glutils
-
 import glfw
 
 strVS = """

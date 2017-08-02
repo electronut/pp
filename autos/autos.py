@@ -6,8 +6,11 @@ Creating Autostereograms
 Author: Mahesh Venkitachalam
 """
 
-import sys, random, argparse
+import random
+import argparse
+
 from PIL import Image, ImageDraw
+
 
 # create spacing/depth example
 def createSpacingDepthExample():

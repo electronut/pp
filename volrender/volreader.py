@@ -7,13 +7,12 @@ Utilities for reading 3D volumetric data as a 3D OpenGL texture.
 """
 
 import os
+
 import numpy as np
 from PIL import Image
 
-import OpenGL
 from OpenGL.GL import *
 
-from scipy import misc
 
 def loadVolume(dirName):
     """read volume from directory as a 3D texture"""

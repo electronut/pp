@@ -6,11 +6,11 @@ A python program that convert images to ASCII art.
 Author: Mahesh Venkitachalam
 """
 
-import sys, random, argparse
-import numpy as np
-import math
+import argparse
 
+import numpy as np
 from PIL import Image
+
 
 # gray scale level values from: 
 # http://paulbourke.net/dataformats/asciiart/

@@ -6,10 +6,13 @@ A simple Python/matplotlib implementation of Conway's Game of Life.
 Author: Mahesh Venkitachalam
 """
 
-import sys, argparse
+import argparse
+
 import numpy as np
-import matplotlib.pyplot as plt 
+
+import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+
 
 ON = 255
 OFF = 0

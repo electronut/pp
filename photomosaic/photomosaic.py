@@ -6,10 +6,14 @@ Creates a photomosaic given a target image and a folder of input images
 Author: Mahesh Venkitachalam
 """
 
-import sys, os, random, argparse
-from PIL import Image
+import os
+import random
+import argparse
 import imghdr
+
+from PIL import Image
 import numpy as np
+
 
 def getAverageRGBOld(image):
   """

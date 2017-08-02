@@ -6,13 +6,17 @@ Implementation of Craig Reynold's BOIDs
 Author: Mahesh Venkitachalam
 """
 
-import sys, argparse
+import argparse
 import math
+
 import numpy as np
-import matplotlib.pyplot as plt 
-import matplotlib.animation as animation
-from scipy.spatial.distance import squareform, pdist, cdist
 from numpy.linalg import norm
+
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+from scipy.spatial.distance import squareform
+from scipy.spatial.distance import pdist
 
 width, height = 640, 480
 

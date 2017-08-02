@@ -7,10 +7,13 @@ A Ray Casting Volume Renderer for medical data visualization.
 
 """
 
-import sys, argparse, os
+import argparse
+import os
+
 from slicerender import *
 from raycast import *
 import glfw
+
 
 class RenderWin:
     """GLFW Rendering window class"""

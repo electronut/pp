@@ -6,12 +6,11 @@ Author: Mahesh Venkitachalam
 Generates texture that has the cube/ray computation.
 """
 
-import OpenGL
+import numpy
+
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
 
-import numpy, math, sys 
-import volreader, glutils
 
 strVS = """
 #version 330 core

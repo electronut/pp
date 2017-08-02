@@ -6,11 +6,14 @@ Author: Mahesh Venkitachalam
 Description: A particle system class
 """
 
-import sys, random, math
-import OpenGL
-from OpenGL.GL import *
+import random
+import math
+
 import numpy
+
+from OpenGL.GL import *
 import glutils
+
 
 strVS = """
 #version 330 core

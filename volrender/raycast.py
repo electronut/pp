@@ -7,15 +7,11 @@ This module has the classed and methods related to Volume rendering using
 the Ray Casting method.
 """
 
+import math
 
-import OpenGL
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
 
-import numpy as np
-import math, sys 
-
-import raycube, glutils, volreader
 
 strVS = """
 #version 330 core

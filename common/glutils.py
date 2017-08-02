@@ -6,14 +6,15 @@ Author: Mahesh Venkitachalam
 Some OpenGL utilities.
 """
 
-import OpenGL
+import math
+
+import numpy
+import numpy as np
+from PIL import Image
+
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
 
-import numpy, math
-import numpy as np
-
-from PIL import Image
 
 def loadTexture(filename):
     """load OpenGL 2D texture from given image file"""

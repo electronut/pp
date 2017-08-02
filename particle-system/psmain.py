@@ -6,14 +6,14 @@ Author: Mahesh Venkitachalam
 Description: A particle system
 """
 
-import sys, os, math, numpy
-import OpenGL
+import os
+
 from OpenGL.GL import *
-import numpy    
 from ps import ParticleSystem, Camera
 from box import Box
 import glutils
 import glfw
+
 
 class PSMaker:
     """GLFW Rendering window class for Particle System"""

@@ -6,8 +6,11 @@ Generates a sine wave and saves it n WAVE file format.
 Author: Mahesh Venkitachalam
 """
 
+import wave
+import math
+
 import numpy as np
-import wave, math
+
 
 sRate = 44100
 nSamples = sRate * 5

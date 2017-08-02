@@ -6,9 +6,12 @@ Program to create test volumetric data sets.
 Author: Mahesh Venkitachalam
 """
 
-import sys, os
+import os
+
 import numpy as np
+
 import Image
+
 
 def makeSphereCuboid():
     """create a volume with a sphere and a cuboid inside"""

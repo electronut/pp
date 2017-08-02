@@ -6,12 +6,15 @@ A Web based Temperature/Humidity monitor using Raspberry Pi and DHT11.
 Author: Mahesh Venkitachalam
 """
 
-from bottle import route, run, request, response
+import argparse
+
+from bottle import route, run, request
+
 from bottle import static_file
-import random, argparse
+
 import RPi.GPIO as GPIO
-from time import sleep  
 import Adafruit_DHT
+
 
 @route('/hello')
 def hello():

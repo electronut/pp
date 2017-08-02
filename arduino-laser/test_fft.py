@@ -8,13 +8,13 @@ Website: electronut.in
 
 """
 
+import math
+
 import numpy as np
-import sys
+
 from matplotlib import pyplot
-from time import sleep
-import argparse
 import pyaudio
-import math 
+
 
 N = 4096
 

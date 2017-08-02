@@ -7,12 +7,11 @@ This module has the classed and methods related to X Y Z slice rendering
 of a Volumetric data set.
 """
 
-import OpenGL
+import numpy
+
 from OpenGL.GL import *
 from OpenGL.GL.shaders import *
-import numpy, math, sys 
 
-import volreader, glutils
 
 strVS = """
 # version 330 core

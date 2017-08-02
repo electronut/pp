@@ -7,12 +7,18 @@ in a pentatonic scale.
 Author: Mahesh Venkitachalam
 """
 
-import sys, os
-import time, random 
-import wave, argparse, pygame 
-import numpy as np
+import os
+import time
+import random
+import wave
+import argparse
 from collections import deque
+
+import numpy as np
+
+import pygame
 from matplotlib import pyplot as plt
+
 
 # show plot of algorithm in action?
 gShowPlot = False

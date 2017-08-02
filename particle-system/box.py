@@ -6,11 +6,11 @@ Draws the cone and floor used in the "fountain" Paticle System.
 Author: Mahesh Venkitachalam
 """
 
-import sys, random, math
-import OpenGL
-from OpenGL.GL import *
 import numpy
+
+from OpenGL.GL import *
 import glutils
+
 
 strVS = """
 #version 330 core
