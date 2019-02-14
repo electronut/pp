@@ -6,7 +6,7 @@ Creating Autostereograms
 Author: Mahesh Venkitachalam
 """
 
-import sys, random, argparse
+import random, argparse
 from PIL import Image, ImageDraw
 
 # create spacing/depth example
@@ -26,13 +26,13 @@ def createRandomTile(dims):
   img = Image.new('RGB', dims)
   draw = ImageDraw.Draw(img)
   # calculate radius - % of min dimension 
-  r = int(min(*dims)/100)
+  r = min(*dims) // 100  # radius
   # number of dots
   n = 1000
   # draw random circles
-  for i in range(n):
+  for _ in range(n):
     # -r is used so circle stays inside - cleaner for tiling
-    x, y = random.randint(0, dims[0]-r), random.randint(0, dims[1]-r)
+    x, y = random.randint(0, dims[0]-r), random.randint(0, dims[1]-r) # center
     fill = (random.randint(0, 255), random.randint(0, 255), 
             random.randint(0, 255))
     draw.ellipse((x-r, y-r, x+r, y+r), fill)
@@ -46,8 +46,8 @@ def createTiledImage(tile, dims):
   W, H = dims
   w, h = tile.size
   # calculate # of tiles needed
-  cols = int(W/w) + 1
-  rows = int(H/h) + 1
+  cols = W // w + 1
+  rows = H // h + 1
   # paste tiles
   for i in range(rows):
     for j in range(cols):
@@ -78,15 +78,15 @@ def createDepthShiftedImage(dmap, img):
   for j in range(rows):
     for i in range(cols):
       xshift = pixD[i, j]/10
-      xpos = i - 140 + xshift
-      if xpos > 0 and xpos < cols:
+      xpos = i - cols + xshift
+      if 0 < xpos < cols:
         pixS[i, j] = pixS[xpos, j]
   # return shifted image
   return sImg
 
 # Given a depth map (image) and an input image, create a new image
 # with pixels shifted according to depth
-def createAutostereogram(dmap, tile):
+def createAutostereogram(dmap, tile=None):
   # convert depth map to single channel if needed
   if dmap.mode is not 'L':
     dmap = dmap.convert('L')
@@ -95,42 +95,27 @@ def createAutostereogram(dmap, tile):
     tile = createRandomTile((100, 100))
   # create an image by tiling
   img = createTiledImage(tile, dmap.size)
-  # create shifted image
-  sImg = img.copy()
-  # get pixel access
-  pixD = dmap.load()
-  pixS = sImg.load()
-  # shift pixels output based on depth map
-  cols, rows = sImg.size
-  for j in range(rows):
-    for i in range(cols):
-      xshift = pixD[i, j]/10
-      xpos = i - tile.size[0] + xshift
-      if xpos > 0 and xpos < cols:
-        pixS[i, j] = pixS[xpos, j]
   # return shifted image
-  return sImg
+  return createDepthShiftedImage(dmap, img)
 
 # main() function
 def main():
-  # use sys.argv if needed
   print('creating autostereogram...')
   # create parser
   parser = argparse.ArgumentParser(description="Autosterograms...")
   # add expected arguments
   parser.add_argument('--depth', dest='dmFile', required=True)
-  parser.add_argument('--tile', dest='tileFile', required=False)
-  parser.add_argument('--out', dest='outFile', required=False)
+  parser.add_argument('--tile', dest='tileFile', default=False)
+  parser.add_argument('--out', dest='outFile', default='as.png')
   # parse args
   args = parser.parse_args()
   # set output file
-  outFile = 'as.png'
-  if args.outFile:
-      outFile = args.outFile
+  outFile = args.outFile
   # set tile
-  tileFile = False
   if args.tileFile:
       tileFile = Image.open(args.tileFile)
+  else:
+      tileFile = args.tileFile
   # open depth map
   dmImg = Image.open(args.dmFile)
   # create stereogram
