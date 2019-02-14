@@ -6,7 +6,8 @@ Creating Autostereograms
 Author: Mahesh Venkitachalam
 """
 
-import random, argparse
+import argparse
+import math, random
 from PIL import Image, ImageDraw
 
 # create spacing/depth example
@@ -46,8 +47,8 @@ def createTiledImage(tile, dims):
   W, H = dims
   w, h = tile.size
   # calculate # of tiles needed
-  cols = W // w + 1
-  rows = H // h + 1
+  cols = math.ceil(W / w)
+  rows = math.ceil(H / h)
   # paste tiles
   for i in range(rows):
     for j in range(cols):
@@ -65,7 +66,7 @@ def createDepthMap(dims):
 
 # Given a depth map (image) and an input image, create a new image
 # with pixels shifted according to depth
-def createDepthShiftedImage(dmap, img):
+def createDepthShiftedImage(dmap, img, period):
   # size check
   assert dmap.size == img.size
   # create shifted image
@@ -78,7 +79,7 @@ def createDepthShiftedImage(dmap, img):
   for j in range(rows):
     for i in range(cols):
       xshift = pixD[i, j]/10
-      xpos = i - cols + xshift
+      xpos = i - period + xshift
       if 0 < xpos < cols:
         pixS[i, j] = pixS[xpos, j]
   # return shifted image
@@ -90,13 +91,13 @@ def createAutostereogram(dmap, tile=None):
   # convert depth map to single channel if needed
   if dmap.mode is not 'L':
     dmap = dmap.convert('L')
-  # if no tile specified, use random image
+  # if no tile specified, use np.random image
   if not tile:
     tile = createRandomTile((100, 100))
   # create an image by tiling
   img = createTiledImage(tile, dmap.size)
   # return shifted image
-  return createDepthShiftedImage(dmap, img)
+  return createDepthShiftedImage(dmap, img, tile.size[0])
 
 # main() function
 def main():
@@ -106,21 +107,27 @@ def main():
   # add expected arguments
   parser.add_argument('--depth', dest='dmFile', required=True)
   parser.add_argument('--tile', dest='tileFile', default=False)
-  parser.add_argument('--out', dest='outFile', default='as.png')
+  parser.add_argument('--out', dest='outFile', default=None)
   # parse args
   args = parser.parse_args()
+  # open depth map
+  dmImg = Image.open(args.dmFile)
   # set output file
   outFile = args.outFile
   # set tile
-  if args.tileFile:
-      tileFile = Image.open(args.tileFile)
+  if args.tileFile=='self':
+    size = dmImg.size[0] // 7, dmImg.size[1] // 7
+    tileFile = dmImg.resize(size)
+  elif args.tileFile:
+    tileFile = Image.open(args.tileFile)
   else:
-      tileFile = args.tileFile
-  # open depth map
-  dmImg = Image.open(args.dmFile)
+    tileFile = args.tileFile
   # create stereogram
   asImg = createAutostereogram(dmImg, tileFile)
   # write output
+  if args.outFile is None:
+    import os.path
+    outFile = os.path.splitext(os.path.basename(args.dmFile))[0] + '.png'
   asImg.save(outFile)
 
 # call main
