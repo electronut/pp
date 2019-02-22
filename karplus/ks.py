@@ -7,8 +7,8 @@ in a pentatonic scale.
 Author: Mahesh Venkitachalam
 """
 
-import sys, os
-import time, random 
+import os
+import time 
 import wave, argparse, pygame 
 import numpy as np
 from collections import deque
@@ -24,17 +24,16 @@ pmNotes = {'C4': 262, 'Eb': 311, 'F': 349, 'G':391, 'Bb':466}
 # write out WAVE file
 def writeWAVE(fname, data):
     # open file 
-    file = wave.open(fname, 'wb')
-    # WAV file parameters 
-    nChannels = 1
-    sampleWidth = 2
-    frameRate = 44100
-    nFrames = 44100
-    # set parameters
-    file.setparams((nChannels, sampleWidth, frameRate, nFrames,
-                    'NONE', 'noncompressed'))
-    file.writeframes(data)
-    file.close()
+    with wave.open(fname, 'wb') as file:
+        # WAV file parameters 
+        nChannels = 1
+        sampleWidth = 2
+        frameRate = 44100
+        nFrames = 44100
+        # set parameters
+        file.setparams((nChannels, sampleWidth, frameRate, nFrames,
+                        'NONE', 'noncompressed'))
+        file.writeframes(data)
 
 # generate note of given frequency
 def generateNote(freq):
@@ -42,17 +41,17 @@ def generateNote(freq):
     sampleRate = 44100
     N = int(sampleRate/freq)
     # initialize ring buffer
-    buf = deque([random.random() - 0.5 for i in range(N)])
+    buf = deque(np.random.uniform(-0.5,0.5, size=N))
     # plot of flag set 
     if gShowPlot:
         axline, = plt.plot(buf)
     # init sample buffer
-    samples = np.array([0]*nSamples, 'float32')
+    samples = np.zeros(nSamples, 'float32')
     for i in range(nSamples):
         samples[i] = buf[0]
         avg = 0.995*0.5*(buf[0] + buf[1])
         buf.append(avg)
-        buf.popleft()  
+        buf.popleft()
         # plot of flag set 
         if gShowPlot:
             if i % 1000 == 0:
@@ -83,8 +82,7 @@ class NotePlayer:
             print(fileName + ' not found!')
     def playRandom(self):
         """play a random note"""
-        index = random.randint(0, len(self.notes)-1)
-        note = list(self.notes.values())[index]
+        note = np.random.choice(self.notes.values())
         note.play()
 
 # main() function
@@ -94,9 +92,9 @@ def main():
 
     parser = argparse.ArgumentParser(description="Generating sounds with Karplus String Algorithm.")
     # add arguments
-    parser.add_argument('--display', action='store_true', required=False)
-    parser.add_argument('--play', action='store_true', required=False)
-    parser.add_argument('--piano', action='store_true', required=False)
+    parser.add_argument('--display', action='store_true', default=False)
+    parser.add_argument('--play', action='store_true', default=False)
+    parser.add_argument('--piano', action='store_true', default=False)
     args = parser.parse_args()
 
     # show plot if flag set
@@ -108,8 +106,8 @@ def main():
     nplayer = NotePlayer()
 
     print('creating notes...')
-    for name, freq in list(pmNotes.items()):
-        fileName = name + '.wav' 
+    for name, freq in pmNotes.items():
+        fileName = name + '.wav'
         if not os.path.exists(fileName) or args.display:
             data = generateNote(freq) 
             print('creating ' + fileName + '...')
@@ -131,9 +129,8 @@ def main():
             try: 
                 nplayer.playRandom()
                 # rest - 1 to 8 beats
-                rest = np.random.choice([1, 2, 4, 8], 1, 
-                                        p=[0.15, 0.7, 0.1, 0.05])
-                time.sleep(0.25*rest[0])
+                rest = np.random.choice([1, 2, 4, 8], p=[0.15, 0.7, 0.1, 0.05])
+                time.sleep(0.25*rest)
             except KeyboardInterrupt:
                 exit()
 
