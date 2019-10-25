@@ -14,6 +14,10 @@ from matplotlib import pyplot
 import plistlib
 import numpy as np
 
+def getPlist(fileName):
+    with open(fileName, 'rb') as fp:
+        plist = plistlib.load(fp)
+    return plist
 
 def findCommonTracks(fileNames):
     """
@@ -25,8 +29,11 @@ def findCommonTracks(fileNames):
     for fileName in fileNames:
         # create a new set
         trackNames = set()
+        # line below throws warning: deprecated in 3.4 load recommended
+        # plist = plistlib.readPlist(fileName)
+        # readPlist called multiple times so getPlist(fileName) added
         # read in playlist
-        plist = plistlib.readPlist(fileName)
+        plist = getPlist(fileName)
         # get the tracks
         tracks = plist['Tracks']
         # iterate through tracks
@@ -57,8 +64,11 @@ def plotStats(fileName):
     """
     Plot some statistics by readin track information from playlist.
     """
+    # line below throws warning: deprecated in 3.4 load recommended
+    # plist = plistlib.readPlist(fileName)
+    # readPlist called multiple times so getPlist(fileName) added
     # read in playlist
-    plist = plistlib.readPlist(fileName)
+    plist = getPlist(fileName)
     # get the tracks
     tracks = plist['Tracks']
     # create lists of ratings and duration
@@ -104,8 +114,12 @@ def findDuplicates(fileName):
     Find duplicate tracks in given playlist.
     """
     print('Finding duplicate tracks in %s...' % fileName)
+    # line below throws warning: deprecated in 3.4 load recommended
+    # plist = plistlib.readPlist(fileName)
+    # readPlist called multiple times so getPlist(fileName) added
     # read in playlist
-    plist = plistlib.readPlist(fileName)
+    plist = getPlist(fileName)
+
     # get the tracks
     tracks = plist['Tracks']
     # create a track name dict
