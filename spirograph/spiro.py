@@ -14,7 +14,7 @@ import turtle
 import random
 from PIL import Image
 from datetime import datetime    
-from fractions import gcd
+#from fractions import gcd
 
 # A class that draws a spirograph
 class Spiro:
@@ -46,7 +46,7 @@ class Spiro:
         self.l = l
         self.col = col
         # reduce r/R to smallest form by dividing with GCD
-        gcdVal = gcd(self.r, self.R)
+        gcdVal = math.gcd(self.r, self.R)
         self.nRot = self.r//gcdVal
         # get ratio of radii
         self.k = r/float(R)
